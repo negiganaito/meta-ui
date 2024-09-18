@@ -1,0 +1,10 @@
+{
+  "exclude": ["node_modules", "build"],
+  "include": ["src/**/*"],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {}
+  }
+}
