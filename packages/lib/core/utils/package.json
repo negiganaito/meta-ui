@@ -1,0 +1,7 @@
+{
+  "name": "@meta-core/utils",
+  "devDependencies": {
+    "@meta-plugins/configs-eslint": "workspace:*"
+  },
+  "main": "index.js"
+}
