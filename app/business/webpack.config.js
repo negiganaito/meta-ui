@@ -197,7 +197,7 @@ module.exports = (env, { mode }) => {
       }),
 
       new CopyPlugin({
-        patterns: [{ from: './src/assets', to: 'meta-ui/assets' }],
+        patterns: [{ from: './src/assets', to: '' }],
       }),
 
       rsdPlugin,
