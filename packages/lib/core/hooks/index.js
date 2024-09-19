@@ -1,1 +1,1 @@
-export { useStable } from './src/use-stable';
+export { useStable } from './use-stable';

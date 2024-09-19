@@ -1,12 +1,14 @@
 {
-  "name": "@meta-core/placeholder",
+  "name": "@meta-core/error",
   "devDependencies": {
     "@meta-plugins/configs-eslint": "workspace:*",
     "react": "git://github.com/tienlx97/react-experimental.git#www",
     "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
     "scheduler": "0.22.0",
     "fbjs": "3.0.5",
-    "@meta-core/placeholder": "workspace:*"
+    "@meta-core/placeholder": "workspace:*",
+    "@meta-core/contexts": "workspace:*",
+    "@meta-core/utils": "workspace:*"
   },
   "main": "index.js"
 }

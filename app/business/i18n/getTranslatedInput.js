@@ -1,11 +1,3 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-
-
 // import type { FbtRuntimeCallInput, FbtTranslatedInput } from 'fbt/lib/FbtHooks';
 
 import FbtI18nNativeAssets from './FbtI18nNativeAssets';
@@ -17,7 +9,7 @@ import FbtI18nNativeAssets from './FbtI18nNativeAssets';
  */
 function getTranslatedInput(input) {
   const { options } = input;
-  if (options.hk ) {
+  if (options.hk) {
     let translatedPayload = FbtI18nNativeAssets.getString(options.hk);
     if (translatedPayload) {
       return { args: input.args, table: translatedPayload };

@@ -1,0 +1,11 @@
+{
+  "name": "@meta-business/contexts",
+  "devDependencies": {
+    "@meta-plugins/configs-eslint": "workspace:*",
+    "react": "git://github.com/tienlx97/react-experimental.git#www",
+    "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
+    "scheduler": "0.22.0",
+    "fbjs": "3.0.5"
+  },
+  "main": "./src/index.js"
+}

@@ -1,1 +1,2 @@
-export { HeroTracingPlaceholder } from './src/hero-tracing-placeholder';
+export { HeroTracingPlaceholder } from './hero-tracing-placeholder';
+export { InteractionTracingMetrics } from './utils/interaction-tracing-metrics';
