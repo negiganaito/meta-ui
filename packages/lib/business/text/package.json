@@ -1,11 +1,15 @@
 {
-  "name": "@meta-business/contexts",
+  "name": "@meta-business/text",
   "devDependencies": {
     "@meta-plugins/configs-eslint": "workspace:*",
     "react": "git://github.com/tienlx97/react-experimental.git#www",
     "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
     "scheduler": "0.22.0",
-    "fbjs": "3.0.5"
+    "fbjs": "3.0.5",
+    "@meta-business/contexts": "workspace:*",
+    "@meta-business/utils": "workspace:*",
+    "@meta-business/theme": "workspace:*",
+    "@meta-core/react-utils": "workspace:*"
   },
   "main": "index.js"
 }

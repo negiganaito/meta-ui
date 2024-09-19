@@ -13,7 +13,6 @@
     "generate-fbt": "node i18n/scripts/generate-localizables-executor.js",
     "i18n:build": "pnpm manifest && pnpm collect-fbts && pnpm translate-fbts && pnpm generate-fbt",
     "i18n:build:win": "pnpm clean-fbts:win && pnpm manifest && pnpm collect-fbts && pnpm translate-fbts:win && pnpm generate-fbt",
-    "postinstall": "husky install",
     "lint": "eslint src --ext .js,.ts,.tsx,.jsx --ignore-pattern '!.*.js'",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "manifest": "fbt-manifest --src src/ --enum-manifest i18n/fbt/.enum_manifest.json --src-manifest i18n/fbt/.src_manifest.json",

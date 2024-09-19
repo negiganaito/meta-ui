@@ -1,5 +1,5 @@
 {
-  "name": "@meta-business/contexts",
+  "name": "@meta-business/utils",
   "devDependencies": {
     "@meta-plugins/configs-eslint": "workspace:*",
     "react": "git://github.com/tienlx97/react-experimental.git#www",

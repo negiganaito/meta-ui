@@ -1,0 +1,9 @@
+{
+  "name": "@meta-core/react-utils",
+  "devDependencies": {
+    "@meta-plugins/configs-eslint": "workspace:*",
+    "fbjs": "3.0.5",
+    "@meta-core/error": "workspace:*"
+  },
+  "main": "index.js"
+}

@@ -338,6 +338,36 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
+  packages/lib/business/text:
+    devDependencies:
+      '@meta-business/contexts':
+        specifier: workspace:*
+        version: link:../contexts
+      '@meta-business/theme':
+        specifier: workspace:*
+        version: link:../theme
+      '@meta-business/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@meta-core/react-utils':
+        specifier: workspace:*
+        version: link:../../core/react-utils
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: github.com/tienlx97/react-experimental/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: github.com/tienlx97/react-dom-experimental/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@0.0.0-experimental-aec521a96-20231114)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
   packages/lib/business/theme:
     devDependencies:
       '@meta-business/styles':
@@ -352,6 +382,24 @@ importers:
       '@stylexjs/stylex':
         specifier: 0.6.1
         version: 0.6.1
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: github.com/tienlx97/react-experimental/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: github.com/tienlx97/react-dom-experimental/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@0.0.0-experimental-aec521a96-20231114)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
+  packages/lib/business/utils:
+    devDependencies:
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
       fbjs:
         specifier: 3.0.5
         version: 3.0.5
@@ -484,6 +532,18 @@ importers:
       scheduler:
         specifier: 0.22.0
         version: 0.22.0
+
+  packages/lib/core/react-utils:
+    devDependencies:
+      '@meta-core/error':
+        specifier: workspace:*
+        version: link:../error
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
 
   packages/lib/core/theme:
     devDependencies:
