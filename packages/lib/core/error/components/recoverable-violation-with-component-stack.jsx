@@ -2,6 +2,8 @@ import React from 'react';
 
 import { err } from '../utils/err';
 
+import { CometErrorBoundary } from './comet-error-boundary';
+
 function ThrowErr(props) {
   const { errorMessage } = props;
   throw err(errorMessage);

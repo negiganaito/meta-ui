@@ -2,6 +2,7 @@
 
 import { addAnnotations } from '@meta-core/utils';
 import performanceNowSinceAppStart from 'fbjs/lib/performanceNow';
+
 import { HeroPendingPlaceholderTracker } from './hero-pending-placeholder-tracker';
 
 let h = new Map();
