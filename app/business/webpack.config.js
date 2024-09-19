@@ -81,9 +81,7 @@ module.exports = (env, { mode }) => {
                 //   "@babel/preset-typescript",
                 // ],
                 configFile: path.join(__dirname, 'babel.config.js'),
-                // plugins: [isDevelopment && "react-refresh/babel"].filter(
-                //   Boolean
-                // ),
+                // plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
               },
             },
             // {

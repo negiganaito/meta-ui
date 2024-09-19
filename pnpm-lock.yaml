@@ -78,6 +78,9 @@ importers:
 
   app/business:
     dependencies:
+      '@meta-business/theme':
+        specifier: workspace:*
+        version: link:../../packages/lib/business/theme
       '@meta-core/utils':
         specifier: workspace:*
         version: link:../../packages/lib/core/utils
