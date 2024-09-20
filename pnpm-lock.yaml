@@ -338,6 +338,36 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
+  packages/lib/business/layout:
+    devDependencies:
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      '@stylexjs/stylex':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.11.18
+      '@types/react':
+        specifier: 18.3.3
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: github.com/tienlx97/react-experimental/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: github.com/tienlx97/react-dom-experimental/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@0.0.0-experimental-aec521a96-20231114)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
   packages/lib/business/popover:
     devDependencies:
       '@meta-business/text':
