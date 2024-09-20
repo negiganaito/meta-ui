@@ -1,6 +1,7 @@
 import React from 'react';
 import { GeoPrivateDisabledContext } from '@meta-business/contexts';
 import { geoMargin } from '@meta-business/styles';
+import { GeoHeading, GeoText } from '@meta-business/text';
 
 export function GeoPopoverText({ children, containerRef, title, whiteSpace }) {
   return (

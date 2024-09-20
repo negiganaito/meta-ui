@@ -11,7 +11,6 @@ export const GeoTooltip = ({ content, groupName = 'GeoTooltip', heading, onToggl
   const hasHeading = heading || !isFbtContent;
   let tooltipContent = content;
 
-  // Wrap content in GeoTooltipText if it's Fbt
   if (isFbtContent) {
     tooltipContent = React.jsx(GeoTooltipText, {
       children: content,
@@ -19,7 +18,6 @@ export const GeoTooltip = ({ content, groupName = 'GeoTooltip', heading, onToggl
     });
   }
 
-  // Handle toggle event
   const handleToggle = (isVisible) => {
     onToggle?.(isVisible);
     if (isVisible) {

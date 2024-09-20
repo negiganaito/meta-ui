@@ -3,6 +3,7 @@ export { GeoAppearanceSelectors } from './geo-appearance-selectors';
 export { GeoColorSelectors } from './geo-color-selectors';
 export { GeoElevationSelectors } from './geo-elevation-selectors';
 export { geoMargin } from './geo-margin';
+export { geoOffset } from './geo-offset';
 export { GeoPrivateAnimationSelectors } from './geo-private-animation-selectors';
 export { GeoPrivateDefaultAnimationGeneratedStyles } from './geo-private-default-animation-generated-styles';
 export { GeoPrivateDefaultAppearanceGeneratedStyles } from './geo-private-default-appearance-generated-styles';
