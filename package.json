@@ -19,7 +19,8 @@
     "prepare": "husky install",
     "remark": "remark",
     "remark:fix": "pnpm remark -o --",
-    "dev": "cd app/business && pnpm dev"
+    "dev": "cd app/business && pnpm dev",
+    "create": "plop --plopfile ./generator/plopfile.js --dest ."
   },
   "dependencies": {
     "react": "git://github.com/tienlx97/react-experimental.git#www",
@@ -45,6 +46,9 @@
     "remark-cli": "12.0.1",
     "rimraf": "6.0.1",
     "@babel/eslint-parser": "7.23.3",
-    "@babel/preset-react": "^7.23.3"
+    "@babel/preset-react": "^7.23.3",
+    "plop": "4.0.1",
+    "node-plop": "0.32.0",
+    "inquirer-search-list": "1.2.6"
   }
 }

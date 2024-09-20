@@ -35,7 +35,21 @@ module.exports = (env, { mode }) => {
       // extensions: ['.ts', '.tsx', '.js', '.jsx'],
       extensions: fileExtensions.map((extension) => '.' + extension).concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
 
-      alias: {},
+      alias: {
+        // '@meta-business/contexts': path.resolve(__dirname, 'node_modules/@meta-business/contexts'),
+        // '@meta-business/styles': path.resolve(__dirname, 'node_modules/@meta-business/styles'),
+        // '@meta-business/text': path.resolve(__dirname, 'node_modules/@meta-business/text'),
+        // '@meta-business/theme': path.resolve(__dirname, 'node_modules/@meta-business/theme'),
+        // '@meta-business/utils': path.resolve(__dirname, 'node_modules/@meta-business/utils'),
+        // '@meta-core/contexts': path.resolve(__dirname, 'node_modules/@meta-core/contexts'),
+        // '@meta-core/error': path.resolve(__dirname, 'node_modules/@meta-core/error'),
+        // '@meta-core/hooks': path.resolve(__dirname, 'node_modules/@meta-core/hooks'),
+        // '@meta-core/layout': path.resolve(__dirname, 'node_modules/@meta-core/layout'),
+        // '@meta-core/placeholder': path.resolve(__dirname, 'node_modules/@meta-core/placeholder'),
+        // '@meta-core/react-utils': path.resolve(__dirname, 'node_modules/@meta-core/react-utils'),
+        // '@meta-core/theme': path.resolve(__dirname, 'node_modules/@meta-core/theme'),
+        // '@meta-core/utils': path.resolve(__dirname, 'node_modules/@meta-core/utils'),
+      },
 
       fallback: {
         path: require.resolve('path-browserify'),

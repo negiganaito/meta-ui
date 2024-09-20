@@ -2,7 +2,10 @@
   "name": "@meta-core/utils",
   "devDependencies": {
     "@meta-plugins/configs-eslint": "workspace:*",
-    "fbjs": "3.0.5"
+    "fbjs": "3.0.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0"
   },
   "main": "index.js"
 }

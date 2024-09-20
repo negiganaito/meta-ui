@@ -1,14 +1,14 @@
 {
-  "name": "@meta-core/layout",
+  "name": "@meta-business/tooltip",
   "devDependencies": {
     "@meta-plugins/configs-eslint": "workspace:*",
     "react": "git://github.com/tienlx97/react-experimental.git#www",
     "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
     "scheduler": "0.22.0",
     "fbjs": "3.0.5",
-    "@meta-core/utils": "workspace:*",
-    "@meta-core/hooks": "workspace:*",
-    "@meta-core/contexts": "workspace:*",
+    "@stylexjs/stylex": "0.6.1",
+    "@meta-business/styles": "workspace:*",
+    "@meta-business/contexts": "workspace:*",
     "@types/node": "^18.11.18",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0"

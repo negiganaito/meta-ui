@@ -9,7 +9,10 @@
     "@meta-core/utils": "workspace:*",
     "@meta-core/hooks": "workspace:*",
     "@meta-core/contexts": "workspace:*",
-    "@meta-core/layout": "workspace:*"
+    "@meta-core/layout": "workspace:*",
+    "@types/node": "^18.11.18",
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0"
   },
   "main": "index.js"
 }
