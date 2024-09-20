@@ -4,7 +4,7 @@ const path = require('path');
 let cwdForGitRoot;
 let gitRoot;
 
-module.export = () => {
+const findGitRoot = () => {
   let cwd = process.cwd();
 
   if (gitRoot && cwdForGitRoot === cwd) {
@@ -26,3 +26,5 @@ module.export = () => {
   cwdForGitRoot = process.cwd();
   return gitRoot;
 };
+
+module.exports = findGitRoot;

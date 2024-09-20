@@ -18,13 +18,13 @@ const findGitRoot = require('./find-git-root');
 
 const root = findGitRoot();
 
-module.export = (plop) => {
+module.exports = (plop) => {
   plop.setWelcomeMessage('This utility is a helper to create component');
 
   plop.setGenerator('create', {
     prompts: [
       {
-        type: 'search-list',
+        type: 'list',
         name: 'position',
         message: 'Component position: ',
         default: 'business',

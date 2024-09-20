@@ -20,7 +20,7 @@
     "remark": "remark",
     "remark:fix": "pnpm remark -o --",
     "dev": "cd app/business && pnpm dev",
-    "create": "plop --plopfile ./generator/plopfile.js --dest ."
+    "create-component": "plop --plopfile ./generator/plopfile.js --dest ."
   },
   "dependencies": {
     "react": "git://github.com/tienlx97/react-experimental.git#www",
