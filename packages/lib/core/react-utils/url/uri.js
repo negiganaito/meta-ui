@@ -1,9 +1,12 @@
+import { env } from '@meta-core/utils';
+
 import { memoize } from '../memoize';
 import { memoizeStringOnly } from '../memorize-string-only';
 
 import { isFacebookURI } from './is-facebook-uri';
 import { PHPQuerySerializer } from './php-query-serializer';
 import { PHPQuerySerializerNoEncoding } from './php-query-serializer-no-encoding';
+import { ReloadPage } from './reload-page';
 import { unqualifyURI } from './unqualify-uri';
 import { URIBase } from './uri-base';
 import { UriNeedRawQuerySVChecker } from './uri-need-raw-query-sv-checker';
@@ -13,11 +16,13 @@ const getMemoizedWindowLocation = memoize(() => {
 });
 
 function getPageTransitions() {
-  return ifRequired('PageTransitions', (PageTransitions) => {
-    if (PageTransitions.isInitialized()) {
-      return PageTransitions;
-    }
-  });
+  // return ifRequired('PageTransitions', (PageTransitions) => {
+  //   if (PageTransitions.isInitialized()) {
+  //     return PageTransitions;
+  //   }
+  // });
+
+  return true;
 }
 
 class URI extends URIBase {
@@ -117,11 +122,11 @@ class URI extends URIBase {
     uri = new URI(uri);
     const isCurrentWindow = !targetWindow || targetWindow === window;
 
-    if (Env.isCQuick && isFacebookURI(uri) && isCurrentWindow) {
+    if (env.isCQuick && isFacebookURI(uri) && isCurrentWindow) {
       const cquickParams = {
-        cquick: Env.iframeKey,
-        ctarget: Env.iframeTarget,
-        cquick_token: Env.iframeToken,
+        cquick: env.iframeKey,
+        ctarget: env.iframeTarget,
+        cquick_token: env.iframeToken,
       };
       uri.addQueryData(cquickParams);
       useReplace = false;
@@ -131,8 +136,8 @@ class URI extends URIBase {
     targetWindow = targetWindow || window;
     const isSameURL = window.location.href === uriString && targetWindow === window;
 
-    if (!useReplace && PageTransitions) {
-      PageTransitions.go(uriString, force);
+    if (!useReplace && window.PageTransitions) {
+      window.PageTransitions.go(uriString, force);
     } else if (isSameURL) {
       ReloadPage.now();
     } else if (force) {

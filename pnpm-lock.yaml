@@ -674,6 +674,39 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
+  packages/lib/core/image:
+    devDependencies:
+      '@meta-core/react-utils':
+        specifier: workspace:*
+        version: link:../react-utils
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      '@stylexjs/stylex':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.19.50
+      '@types/react':
+        specifier: 18.3.3
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
   packages/lib/core/layout:
     devDependencies:
       '@meta-core/contexts':
@@ -754,6 +787,9 @@ importers:
       '@meta-core/error':
         specifier: workspace:*
         version: link:../error
+      '@meta-core/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
         version: link:../../../plugins/eslint
