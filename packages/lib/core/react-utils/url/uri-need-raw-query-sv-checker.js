@@ -1,4 +1,6 @@
 import { PHPQuerySerializer } from './php-query-serializer';
+import { URIBase } from './uri-base';
+import { UriNeedRawQuerySVConfig } from './uri-need-raw-query-sv-config';
 
 const ALLOWED_PROTOCOLS = ['http', 'https'];
 

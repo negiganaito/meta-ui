@@ -2,6 +2,7 @@ import { env } from '@meta-core/utils';
 
 import { memoize } from '../memoize';
 import { memoizeStringOnly } from '../memorize-string-only';
+import { unexpectedUseInComet } from '../unexpected-use-in-comet';
 
 import { isFacebookURI } from './is-facebook-uri';
 import { PHPQuerySerializer } from './php-query-serializer';
@@ -11,26 +12,23 @@ import { unqualifyURI } from './unqualify-uri';
 import { URIBase } from './uri-base';
 import { UriNeedRawQuerySVChecker } from './uri-need-raw-query-sv-checker';
 
-const getMemoizedWindowLocation = memoize(() => {
-  return new URI(window.location.href);
-});
+const memoizedURI = memoize(() => new URI(window.location.href));
 
 function getPageTransitions() {
   // return ifRequired('PageTransitions', (PageTransitions) => {
-  //   if (PageTransitions.isInitialized()) {
-  //     return PageTransitions;
-  //   }
+  //   if (PageTransitions.isInitialized()) return PageTransitions;
   // });
-
-  return true;
 }
 
-class URI extends URIBase {
+const cr1078 = null;
+
+export class URI extends URIBase {
   // eslint-disable-next-line max-params
-  constructor(uri, serializer, domain, protocol) {
-    const useNoEncoding = UriNeedRawQuerySVChecker.isUriNeedRawQuery(uri);
-    const querySerializer = useNoEncoding ? PHPQuerySerializerNoEncoding : PHPQuerySerializer;
-    super(uri, querySerializer, domain, protocol);
+  constructor(url, deserializer, b, e) {
+    const serializer = UriNeedRawQuerySVChecker.isUriNeedRawQuery(url)
+      ? PHPQuerySerializerNoEncoding
+      : PHPQuerySerializer;
+    super(url, serializer, b, e);
   }
 
   setPath(path) {
@@ -83,13 +81,10 @@ class URI extends URIBase {
   getRegisteredDomain() {
     if (!this.getDomain()) return '';
     if (!isFacebookURI(this)) return null;
-
     const domainParts = this.getDomain().split('.');
-    let facebookIndex = domainParts.indexOf('facebook');
-    if (facebookIndex === -1) {
-      facebookIndex = domainParts.indexOf('workplace');
-    }
-    return domainParts.slice(facebookIndex).join('.');
+    let index = domainParts.indexOf('facebook');
+    if (index === -1) index = domainParts.indexOf('workplace');
+    return domainParts.slice(index).join('.');
   }
 
   getUnqualifiedURI() {
@@ -100,12 +95,13 @@ class URI extends URIBase {
     return new URI(this).qualify();
   }
 
-  isSameOrigin(uri) {
-    uri = uri || getMemoizedWindowLocation();
-    if (!(uri instanceof URI)) {
-      uri = new URI(uri.toString());
+  isSameOrigin(otherURI) {
+    if (!otherURI) {
+      otherURI = memoizedURI();
+    } else if (!(otherURI instanceof URI)) {
+      otherURI = new URI(otherURI.toString());
     }
-    return super.isSameOrigin(uri);
+    return super.isSameOrigin(otherURI);
   }
 
   static goURIOnNewWindow(uri) {
@@ -113,34 +109,34 @@ class URI extends URIBase {
   }
 
   // eslint-disable-next-line max-params
-  static goURIOnWindow(uri, targetWindow, useReplace = false, force = false) {
-    URI.goURIOnWindowWithReference(uri, targetWindow, useReplace, force);
+  static goURIOnWindow(uri, win, useTransitions = false, replace = false) {
+    URI.goURIOnWindowWithReference(uri, win, useTransitions, replace);
   }
 
   // eslint-disable-next-line max-params
-  static goURIOnWindowWithReference(uri, targetWindow, useReplace = false, force = false) {
+  static goURIOnWindowWithReference(uri, win, useTransitions = false, replace = false) {
     uri = new URI(uri);
-    const isCurrentWindow = !targetWindow || targetWindow === window;
+    const isSameWindow = !win || win === window;
 
-    if (env.isCQuick && isFacebookURI(uri) && isCurrentWindow) {
+    if (env.isCQuick && isFacebookURI(uri) && isSameWindow) {
       const cquickParams = {
         cquick: env.iframeKey,
         ctarget: env.iframeTarget,
         cquick_token: env.iframeToken,
       };
       uri.addQueryData(cquickParams);
-      useReplace = false;
+      useTransitions = false;
     }
 
     const uriString = uri.toString();
-    targetWindow = targetWindow || window;
-    const isSameURL = window.location.href === uriString && targetWindow === window;
+    const targetWindow = win || window;
+    const isSameURI = window.location.href === uriString && targetWindow === window;
 
-    if (!useReplace && window.PageTransitions) {
-      window.PageTransitions.go(uriString, force);
-    } else if (isSameURL) {
+    if (!useTransitions && getPageTransitions()) {
+      getPageTransitions().go(uriString, replace);
+    } else if (isSameURI) {
       ReloadPage.now();
-    } else if (force) {
+    } else if (replace) {
       targetWindow.location.replace(uriString);
     } else {
       targetWindow.location.href = uriString;
@@ -149,29 +145,31 @@ class URI extends URIBase {
     return targetWindow;
   }
 
-  go(useReplace, force) {
-    // if (cr1078) {
-    //   cr1078(this, useReplace, force);
-    //   return;
-    // }
-    // if (cr1080) cr1080('uri.go');
-    URI.go(this, useReplace, force);
+  go(useTransitions, replace) {
+    if (cr1078) {
+      cr1078(this, useTransitions, replace);
+      return;
+    }
+    if (unexpectedUseInComet) {
+      unexpectedUseInComet('uri.go');
+    }
+    URI.go(this, useTransitions, replace);
   }
 
-  static tryParseURI(uri) {
-    const parsedURI = URIBase.tryParse(uri, PHPQuerySerializer);
+  static tryParseURI(url) {
+    const parsedURI = URIBase.tryParse(url, PHPQuerySerializer);
     return parsedURI ? new URI(parsedURI) : null;
   }
 
-  static isValidURI(uri) {
-    return URIBase.isValid(uri, PHPQuerySerializer);
+  static isValidURI(url) {
+    return URIBase.isValid(url, PHPQuerySerializer);
   }
 
-  static getRequestURI(usePreviousValue = true, qualifyURI = false) {
-    if (usePreviousValue) {
+  static getRequestURI(usePageTransitions = true, qualified = false) {
+    if (usePageTransitions) {
       const pageTransitions = getPageTransitions();
       if (pageTransitions) {
-        return pageTransitions.getCurrentURI(!!qualifyURI).getQualifiedURI();
+        return pageTransitions.getCurrentURI(qualified).getQualifiedURI();
       }
     }
     return new URI(window.location.href);
@@ -195,19 +193,21 @@ class URI extends URIBase {
     return decodeURIComponent(component.replace(/\+/g, ' '));
   }
 
-  static normalize(uri) {
-    return uri && typeof uri === 'string' ? URI.normalizeString(uri) : new URI(uri).toString();
+  static normalize(input) {
+    return input && typeof input === 'string' ? this.normalizeString(input) : new URI(input).toString();
   }
 }
 
-URI.go = function (uri, useReplace, force) {
-  // if (cr1080) cr1080('URI.go');
-  URI.goURIOnWindow(uri, window, useReplace, force);
+URI.go = function (uri, useTransitions, replace) {
+  if (unexpectedUseInComet) {
+    unexpectedUseInComet('URI.go');
+  }
+  URI.goURIOnWindow(uri, window, useTransitions, replace);
 };
 
-URI.normalizeString = memoizeStringOnly((uri) => new URI(uri).toString());
+URI.normalizeString = memoizeStringOnly((input) => {
+  return new URI(input).toString();
+});
 
 URI.expression = /(((\w+):\/\/)([^\/:]*)(:(\d+))?)?([^#?]*)(\?([^#]*))?(#(.*))?/;
 URI.arrayQueryExpression = /^(\w+)((?:\[\w*\])+)=?(.*)/;
-
-export { URI };
