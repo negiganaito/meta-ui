@@ -153,5 +153,13 @@ module.exports = {
     //     ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
     //   },
     // ],
+
+    // 'object-curly-newline': [
+    //   'error',
+    //   {
+    //     ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
+    //     ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
+    //   },
+    // ],
   },
 };
