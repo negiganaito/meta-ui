@@ -1,8 +1,14 @@
 export { BaseIsDecorativeContext } from './src/base-is-decorative-context';
+export { BaseLinkNestedPressableContext } from './src/base-link-nested-pressable-context';
+export { BaseRowContext } from './src/base-row-context';
+export { CometColumnContext } from './src/comet-column-context';
 export { CometCompositeStructureContext } from './src/comet-composite-structure-context';
 export { CometContainerPressableContext } from './src/comet-container-pressable-context';
 export { CometDangerouslySuppressInteractiveElementsContext } from './src/comet-dangerously-suppress-interactive-elements-context';
+export { CometFocusGroupContext } from './src/comet-focus-group-context';
 export { CometHeroInteractionContextPassthrough } from './src/comet-hero0-Interaction-context-passthrough';
+export { CometRowContext } from './src/comet-row-context';
+export { FDSTextContext } from './src/fds-text-context';
 export { HeroCurrentInteractionForLoggingContext } from './src/hero-current-interaction-for-logging-context';
 export { HeroInteractionContext } from './src/hero-interaction-context';
 export { HeroInteractionIDContext } from './src/hero-interaction-id-context';

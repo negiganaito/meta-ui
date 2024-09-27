@@ -11,7 +11,10 @@
     "@meta-core/contexts": "workspace:*",
     "@types/node": "^18.11.18",
     "@types/react": "18.3.8",
-    "@types/react-dom": "18.3.0"
+    "@types/react-dom": "18.3.0",
+    "@meta-core/styles": "workspace:*",
+    "@meta-core/error": "workspace:*",
+    "@meta-core/placeholder": "workspace:*"
   },
   "main": "index.js"
 }

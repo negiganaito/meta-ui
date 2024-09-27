@@ -586,6 +586,9 @@ importers:
 
   packages/lib/core/contexts:
     devDependencies:
+      '@meta-core/styles':
+        specifier: workspace:*
+        version: link:../styles
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
         version: link:../../../plugins/eslint
@@ -793,9 +796,18 @@ importers:
       '@meta-core/contexts':
         specifier: workspace:*
         version: link:../contexts
+      '@meta-core/error':
+        specifier: workspace:*
+        version: link:../error
       '@meta-core/hooks':
         specifier: workspace:*
         version: link:../hooks
+      '@meta-core/placeholder':
+        specifier: workspace:*
+        version: link:../placeholder
+      '@meta-core/styles':
+        specifier: workspace:*
+        version: link:../styles
       '@meta-core/utils':
         specifier: workspace:*
         version: link:../utils
@@ -871,9 +883,15 @@ importers:
       '@meta-core/event-interaction':
         specifier: workspace:*
         version: link:../event-interaction
+      '@meta-core/layout':
+        specifier: workspace:*
+        version: link:../layout
       '@meta-core/react-utils':
         specifier: workspace:*
         version: link:../react-utils
+      '@meta-core/styles':
+        specifier: workspace:*
+        version: link:../styles
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
         version: link:../../../plugins/eslint
