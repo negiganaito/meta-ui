@@ -1,4 +1,7 @@
 export { BaseIsDecorativeContext } from './src/base-is-decorative-context';
+export { CometCompositeStructureContext } from './src/comet-composite-structure-context';
+export { CometContainerPressableContext } from './src/comet-container-pressable-context';
+export { CometDangerouslySuppressInteractiveElementsContext } from './src/comet-dangerously-suppress-interactive-elements-context';
 export { CometHeroInteractionContextPassthrough } from './src/comet-hero0-Interaction-context-passthrough';
 export { HeroCurrentInteractionForLoggingContext } from './src/hero-current-interaction-for-logging-context';
 export { HeroInteractionContext } from './src/hero-interaction-context';

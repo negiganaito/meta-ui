@@ -686,6 +686,42 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
+  packages/lib/core/focus:
+    devDependencies:
+      '@meta-core/contexts':
+        specifier: workspace:*
+        version: link:../contexts
+      '@meta-core/image':
+        specifier: workspace:*
+        version: link:../image
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      '@stylexjs/stylex':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.19.50
+      '@types/react':
+        specifier: 18.3.8
+        version: 18.3.8
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
   packages/lib/core/hooks:
     devDependencies:
       '@meta-plugins/configs-eslint':
@@ -827,6 +863,51 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
+  packages/lib/core/pressable:
+    devDependencies:
+      '@meta-core/contexts':
+        specifier: workspace:*
+        version: link:../contexts
+      '@meta-core/event-interaction':
+        specifier: workspace:*
+        version: link:../event-interaction
+      '@meta-core/react-utils':
+        specifier: workspace:*
+        version: link:../react-utils
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      '@stylexjs/stylex':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.19.50
+      '@types/react':
+        specifier: 18.3.8
+        version: 18.3.8
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      '@types/react-router-dom':
+        specifier: 5.3.3
+        version: 5.3.3
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      react-router-dom:
+        specifier: 6.26.2
+        version: 6.26.2(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
   packages/lib/core/react-utils:
     devDependencies:
       '@meta-core/error':
@@ -841,6 +922,36 @@ importers:
       '@types/node':
         specifier: ^18.11.18
         version: 18.11.18
+      '@types/react':
+        specifier: 18.3.8
+        version: 18.3.8
+      '@types/react-dom':
+        specifier: 18.3.0
+        version: 18.3.0
+      fbjs:
+        specifier: 3.0.5
+        version: 3.0.5
+      react:
+        specifier: git://github.com/tienlx97/react-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom:
+        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
+        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      scheduler:
+        specifier: 0.22.0
+        version: 0.22.0
+
+  packages/lib/core/styles:
+    devDependencies:
+      '@meta-plugins/configs-eslint':
+        specifier: workspace:*
+        version: link:../../../plugins/eslint
+      '@stylexjs/stylex':
+        specifier: 0.6.1
+        version: 0.6.1
+      '@types/node':
+        specifier: ^18.11.18
+        version: 18.19.50
       '@types/react':
         specifier: 18.3.8
         version: 18.3.8
@@ -2459,6 +2570,10 @@ packages:
 
   '@remix-run/router@1.16.1':
     resolution: {integrity: sha512-es2g3dq6Nb07iFxGk5GuHN20RwBZOsuDQN7izWIisUcv9r+d2C5jQxqmgkdebXgReWfiyUabcki6Fg77mSNrig==}
+    engines: {node: '>=14.0.0'}
+
+  '@remix-run/router@1.19.2':
+    resolution: {integrity: sha512-baiMx18+IMuD1yyvOGaHM9QrVUPGGG0jC+z+IPHnRJWUAUvaKuWKyE8gjDj2rzv3sz9zOGoRSPgeBVHRhZnBlA==}
     engines: {node: '>=14.0.0'}
 
   '@sideway/address@4.1.5':
@@ -6784,9 +6899,24 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
 
+  react-router-dom@6.26.2:
+    resolution: {integrity: sha512-z7YkaEW0Dy35T3/QKPYB1LjMK2R1fxnHO8kWpUMTBdfVzZrWOiY9a7CtN8HqdWtDUWd5FY6Dl8HFsqVwH4uOtQ==}
+    version: 6.26.2
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+
   react-router@6.23.1:
     resolution: {integrity: sha512-fzcOaRF69uvqbbM7OhvQyBTFDVrrGlsFdS3AL+1KfIBtGETibHzi3FkoTRyiDJnWNc2VxrfvR+657ROHjaNjqQ==}
     version: 6.23.1
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+
+  react-router@6.26.2:
+    resolution: {integrity: sha512-tvN1iuT03kHgOFnLPfLJ8V95eijteveqdOSk+srqfePtQvqCExB8eHOYnlilbOcyJyKnYkr1vJvf7YqotAJu1A==}
+    version: 6.26.2
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
@@ -10094,6 +10224,8 @@ snapshots:
       '@types/react': 18.3.8
 
   '@remix-run/router@1.16.1': {}
+
+  '@remix-run/router@1.19.2': {}
 
   '@sideway/address@4.1.5':
     dependencies:
@@ -15217,9 +15349,21 @@ snapshots:
       react-dom: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
       react-router: 6.23.1(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
 
+  react-router-dom@6.26.2(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
+    dependencies:
+      '@remix-run/router': 1.19.2
+      react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+      react-dom: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      react-router: 6.26.2(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+
   react-router@6.23.1(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
     dependencies:
       '@remix-run/router': 1.16.1
+      react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
+
+  react-router@6.26.2(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
+    dependencies:
+      '@remix-run/router': 1.19.2
       react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
 
   react-strict-dom@0.0.11(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.20.2(@babel/core@7.25.2))(@types/react@18.3.8)(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)(typescript@5.6.2))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
