@@ -1,5 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { BaseIsDecorativeContext } from '@meta-core/contexts';
+import { CometPressable } from '@meta-core/pressable';
 import stylex from '@stylexjs/stylex';
 
 import { FlightSerializableIcon } from '../utils/flight-serializable-icon';

@@ -12,7 +12,8 @@
     "@meta-core/utils": "workspace:*",
     "@meta-core/react-utils": "workspace:*",
     "@meta-core/error": "workspace:*",
-    "@meta-core/contexts": "workspace:*"
+    "@meta-core/contexts": "workspace:*",
+    "@meta-core/pressable": "workspace:*"
   },
   "main": "index.js"
 }
