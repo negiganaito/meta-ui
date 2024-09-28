@@ -1,7 +1,6 @@
+import { useCustomEqualityMemo } from '@meta-ui/core/hooks';
 import shallowEqual from 'fbjs/lib/shallowEqual';
 
-import { useCustomEqualityMemo } from './use-custom-equality-memo';
-
-export function useShallowEqualMemo(a) {
-  return useCustomEqualityMemo(a, shallowEqual);
+export function useShallowEqualMemo(val) {
+  return useCustomEqualityMemo(val, shallowEqual);
 }

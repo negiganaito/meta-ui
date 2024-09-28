@@ -316,6 +316,9 @@ importers:
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
         version: link:../../plugins/eslint
+      '@meta-ui/core':
+        specifier: workspace:*
+        version: link:../core
       '@stylexjs/stylex':
         specifier: 0.6.1
         version: 0.6.1

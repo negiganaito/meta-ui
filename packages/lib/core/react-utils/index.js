@@ -12,6 +12,7 @@ export { profilePhotoUtils } from './profile-photo-utils';
 export { ReactEventHookPropagation } from './react-event-hook-propagation';
 export { URI } from './url/uri';
 export { useDynamicCallbackDANGEROUS } from './use-dynamic-callback_DANGEROUS';
+export { useMergeRefs } from './use-merge-refs';
 export { VisualCompletionAttributes } from './visual-completion-attributes';
 export { VisualCompletionConstants } from './visual-completion-constants';
 export { XPlatReactEnvironment } from './xplat-react-environment';

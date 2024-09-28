@@ -1,12 +1,16 @@
 export { addAnnotations } from './add-annotations';
+export { debounce } from './debounce';
 export { env } from './Env';
 export { getReactComponentDisplayName } from './get-react-component-display-name';
 export { getReactElementDisplayName } from './get-react-element-display-name';
 export { intersectionObserverEntryIsIntersecting } from './intersection-observer-entry-is-intersecting';
+export { isNonNullish } from './is-non-nullish';
+export { isNullish } from './is-nullish';
 export { isFalsey } from './isFalsey';
 export { isNotNullAndNotUndefined } from './isNotNullAndNotUndefined';
 export { isNullOrUndefined } from './isNullOrUndefined';
 export { PromiseAnnotate } from './promise-annotate';
 export { QPLEvent } from './qpl-event';
+export { shallowArrayEqual } from './shallow-array-equal';
 export { testID } from './test-id';
 export { warnUnsupportedProp } from './warn-unsupported-prop';
