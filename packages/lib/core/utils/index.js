@@ -2,6 +2,7 @@ export { addAnnotations } from './add-annotations';
 export { env } from './Env';
 export { getReactComponentDisplayName } from './get-react-component-display-name';
 export { getReactElementDisplayName } from './get-react-element-display-name';
+export { intersectionObserverEntryIsIntersecting } from './intersection-observer-entry-is-intersecting';
 export { isFalsey } from './isFalsey';
 export { isNotNullAndNotUndefined } from './isNotNullAndNotUndefined';
 export { isNullOrUndefined } from './isNullOrUndefined';

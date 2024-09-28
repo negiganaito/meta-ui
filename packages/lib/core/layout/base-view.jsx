@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { testID } from '@meta-core/utils';
+import { testID } from '@meta-ui/core/utils';
 import stylex from '@stylexjs/stylex';
 
 import { LegacyHidden } from './legacy-hidden';

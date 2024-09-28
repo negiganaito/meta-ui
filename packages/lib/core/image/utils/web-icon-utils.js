@@ -3,8 +3,8 @@ import {
   coerceImageishURL,
   getImageSourceURLFromImageish,
   memoizeWithArgsWeak,
-} from '@meta-core/react-utils';
-import { isFalsey, isNotNullAndNotUndefined } from '@meta-core/utils';
+} from '@meta-ui/core/react-utils';
+import { isFalsey, isNotNullAndNotUndefined } from '@meta-ui/core/utils';
 
 let urlRegex = /(?:\(['\"]?)(.*?)(?:['\"]?\))/;
 

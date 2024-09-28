@@ -1,11 +1,11 @@
 import React, { forwardRef, useEffect, useMemo, useRef } from 'react';
-import { RecoverableViolationWithComponentStack } from '@meta-core/error';
+import { RecoverableViolationWithComponentStack } from '@meta-ui/core/error';
 import {
   coerceImageishSprited,
   coerceImageishURL,
   CometVisualCompletionAttributes,
   mergeRefs,
-} from '@meta-core/react-utils';
+} from '@meta-ui/core/react-utils';
 import joinClasses from 'fbjs/lib/joinClasses';
 
 import { CometSSRBackgroundImageUtils } from '../utils/comet-ssr-background-image-utils';

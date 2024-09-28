@@ -1,6 +1,6 @@
 import React, { useCallback, useLayoutEffect, useRef } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { useStable } from '@meta-core/hooks';
+import { useStable } from '@meta-ui/core/hooks';
 import executionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
 import { CometSuspenseHUD } from '../utils/comet-suspense-hud';

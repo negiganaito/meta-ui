@@ -1,4 +1,4 @@
-import { StyleXSheet } from '@meta-core/theme/stylex-sheet.stylex';
+import { StyleXSheet } from '@meta-ui/core/theme';
 
 import { geodesicStylexDefaultTheme } from './geodesic-stylex-default-theme';
 

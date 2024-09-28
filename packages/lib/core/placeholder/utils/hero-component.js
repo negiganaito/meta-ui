@@ -1,5 +1,5 @@
 import { memo, useContext, useLayoutEffect } from 'react';
-import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-core/contexts';
+import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-ui/core/contexts';
 
 function heroComponent(props) {
   const { description } = props;

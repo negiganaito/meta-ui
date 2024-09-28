@@ -1,12 +1,6 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
 import { useEffect } from 'react';
 import { passiveEventListenerUtil } from '@meta-core/event-interaction';
-import { useDynamicCallbackDANGEROUS } from '@meta-core/react-utils';
+import { useDynamicCallbackDANGEROUS } from '@meta-ui/core/react-utils';
 import UserAgent from 'fbjs/lib/UserAgent';
 
 const isSafariOrMobileSafari = UserAgent.isBrowser('Safari') || UserAgent.isBrowser('Mobile Safari');

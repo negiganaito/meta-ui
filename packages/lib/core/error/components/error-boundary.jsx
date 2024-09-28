@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { getReactElementDisplayName } from '@meta-core/utils';
+import { getReactElementDisplayName } from '@meta-ui/core/utils';
 
 import { ErrorPubSub } from '../utils/error-pub-sub';
 import { ErrorSerializer } from '../utils/error-serializer';

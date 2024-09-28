@@ -1,5 +1,5 @@
 import React from 'react';
-import { GeoTextUtils } from '@meta-business/utils';
+import { GeoTextUtils } from '@meta-ui/business/utils';
 import stylex from '@stylexjs/stylex';
 
 import { GeoBaseText } from './geo-base-text';

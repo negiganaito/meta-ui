@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { BaseRowContext } from '@meta-core/contexts';
+import { BaseRowContext } from '@meta-ui/core/contexts';
 import stylex from '@stylexjs/stylex';
 
 import { BaseView } from './base-view';

@@ -35,8 +35,8 @@
     "scheduler": "0.22.0",
     "@meta-plugins/configs-prettier": "workspace:*",
     "@meta-plugins/configs-eslint": "workspace:*",
-    "@meta-core/utils": "workspace:*",
-    "@meta-business/theme": "workspace:*"
+    "@meta-ui/core": "workspace:*",
+    "@meta-ui/business": "workspace:*"
   },
   "devDependencies": {
     "@babel/cli": "7.25.6",

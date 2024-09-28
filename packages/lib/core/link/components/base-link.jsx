@@ -4,9 +4,9 @@
 /* eslint-disable camelcase */
 import React, { forwardRef, useContext, useMemo, useRef } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { BaseLinkNestedPressableContext } from '@meta-core/contexts';
-import { BaseNestedPressableHack_DO_NOT_USE, Pressable, PressableText } from '@meta-core/pressable';
-import { mergeRefs } from '@meta-core/react-utils';
+import { BaseLinkNestedPressableContext } from '@meta-ui/core/contexts';
+import { BaseNestedPressableHack_DO_NOT_USE, Pressable, PressableText } from '@meta-ui/core/pressable';
+import { mergeRefs } from '@meta-ui/core/react-utils';
 
 // NOTE some potential bug
 

@@ -87,18 +87,18 @@ importers:
 
   app/business:
     dependencies:
-      '@meta-business/theme':
-        specifier: workspace:*
-        version: link:../../packages/lib/business/theme
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../../packages/lib/core/utils
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
         version: link:../../packages/plugins/eslint
       '@meta-plugins/configs-prettier':
         specifier: workspace:*
         version: link:../../packages/plugins/prettier
+      '@meta-ui/business':
+        specifier: workspace:*
+        version: link:../../packages/lib/business
+      '@meta-ui/core':
+        specifier: workspace:*
+        version: link:../../packages/lib/core
       react:
         specifier: git://github.com/tienlx97/react-experimental.git#www
         version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
@@ -311,359 +311,11 @@ importers:
         specifier: 17.7.2
         version: 17.7.2
 
-  packages/lib/business/contexts:
+  packages/lib/business:
     devDependencies:
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/layout:
-    devDependencies:
-      '@meta-business/theme':
-        specifier: workspace:*
-        version: link:../theme
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/popover:
-    devDependencies:
-      '@meta-business/layout':
-        specifier: workspace:*
-        version: link:../layout
-      '@meta-business/text':
-        specifier: workspace:*
-        version: link:../text
-      '@meta-business/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/styles:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/text:
-    devDependencies:
-      '@meta-business/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-business/layout':
-        specifier: workspace:*
-        version: link:../layout
-      '@meta-business/theme':
-        specifier: workspace:*
-        version: link:../theme
-      '@meta-business/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-core/react-utils':
-        specifier: workspace:*
-        version: link:../../core/react-utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/theme:
-    devDependencies:
-      '@meta-business/styles':
-        specifier: workspace:*
-        version: link:../styles
-      '@meta-core/theme':
-        specifier: workspace:*
-        version: link:../../core/theme
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/tooltip:
-    devDependencies:
-      '@meta-business/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-business/popover':
-        specifier: workspace:*
-        version: link:../popover
-      '@meta-business/styles':
-        specifier: workspace:*
-        version: link:../styles
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/business/utils:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/contexts:
-    devDependencies:
-      '@meta-core/styles':
-        specifier: workspace:*
-        version: link:../styles
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/error:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/placeholder':
-        specifier: workspace:*
-        version: link:../placeholder
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/event-interaction:
-    devDependencies:
-      '@meta-core/error':
-        specifier: workspace:*
-        version: link:../error
-      '@meta-core/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@meta-core/react-utils':
-        specifier: workspace:*
-        version: link:../react-utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
+        version: link:../../plugins/eslint
       '@stylexjs/stylex':
         specifier: 0.6.1
         version: 0.6.1
@@ -676,6 +328,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
+      babel-plugin-module-resolver:
+        specifier: 5.0.2
+        version: 5.0.2
       fbjs:
         specifier: 3.0.5
         version: 3.0.5
@@ -689,17 +344,11 @@ importers:
         specifier: 0.22.0
         version: 0.22.0
 
-  packages/lib/core/focus:
+  packages/lib/core:
     devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/image':
-        specifier: workspace:*
-        version: link:../image
       '@meta-plugins/configs-eslint':
         specifier: workspace:*
-        version: link:../../../plugins/eslint
+        version: link:../../plugins/eslint
       '@stylexjs/stylex':
         specifier: 0.6.1
         version: 0.6.1
@@ -712,6 +361,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
+      babel-plugin-module-resolver:
+        specifier: 5.0.2
+        version: 5.0.2
       fbjs:
         specifier: 3.0.5
         version: 3.0.5
@@ -724,360 +376,6 @@ importers:
       scheduler:
         specifier: 0.22.0
         version: 0.22.0
-
-  packages/lib/core/hooks:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/image:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/error':
-        specifier: workspace:*
-        version: link:../error
-      '@meta-core/pressable':
-        specifier: workspace:*
-        version: link:../pressable
-      '@meta-core/react-utils':
-        specifier: workspace:*
-        version: link:../react-utils
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/layout:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/error':
-        specifier: workspace:*
-        version: link:../error
-      '@meta-core/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@meta-core/placeholder':
-        specifier: workspace:*
-        version: link:../placeholder
-      '@meta-core/styles':
-        specifier: workspace:*
-        version: link:../styles
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/link:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/pressable':
-        specifier: workspace:*
-        version: link:../pressable
-      '@meta-core/react-utils':
-        specifier: workspace:*
-        version: link:../react-utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/placeholder:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@meta-core/layout':
-        specifier: workspace:*
-        version: link:../layout
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/pressable:
-    devDependencies:
-      '@meta-core/contexts':
-        specifier: workspace:*
-        version: link:../contexts
-      '@meta-core/event-interaction':
-        specifier: workspace:*
-        version: link:../event-interaction
-      '@meta-core/layout':
-        specifier: workspace:*
-        version: link:../layout
-      '@meta-core/react-utils':
-        specifier: workspace:*
-        version: link:../react-utils
-      '@meta-core/styles':
-        specifier: workspace:*
-        version: link:../styles
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      '@types/react-router-dom':
-        specifier: 5.3.3
-        version: 5.3.3
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      react-router-dom:
-        specifier: 6.26.2
-        version: 6.26.2(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/react-utils:
-    devDependencies:
-      '@meta-core/error':
-        specifier: workspace:*
-        version: link:../error
-      '@meta-core/utils':
-        specifier: workspace:*
-        version: link:../utils
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/styles:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/theme:
-    devDependencies:
-      '@meta-core/error':
-        specifier: workspace:*
-        version: link:../error
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core/utils:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../../plugins/eslint
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.11.18
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
 
   packages/plugins/commitlint:
     dependencies:
@@ -2632,10 +1930,6 @@ packages:
     resolution: {integrity: sha512-es2g3dq6Nb07iFxGk5GuHN20RwBZOsuDQN7izWIisUcv9r+d2C5jQxqmgkdebXgReWfiyUabcki6Fg77mSNrig==}
     engines: {node: '>=14.0.0'}
 
-  '@remix-run/router@1.19.2':
-    resolution: {integrity: sha512-baiMx18+IMuD1yyvOGaHM9QrVUPGGG0jC+z+IPHnRJWUAUvaKuWKyE8gjDj2rzv3sz9zOGoRSPgeBVHRhZnBlA==}
-    engines: {node: '>=14.0.0'}
-
   '@sideway/address@4.1.5':
     resolution: {integrity: sha512-IqO/DUQHUkPeixNQ8n0JA6102hT9CmaljNTPmQ1u8MEhBo/R4Q8eKLN/vGZxuebwOroDB4cbpjheD4+/sKFK4Q==}
 
@@ -3456,6 +2750,9 @@ packages:
   babel-plugin-macros@3.1.0:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
+
+  babel-plugin-module-resolver@5.0.2:
+    resolution: {integrity: sha512-9KtaCazHee2xc0ibfqsDeamwDps6FZNo5S0Q81dUqEuFzVwPhcT4J5jOqIVvgCA3Q/wO9hKYxN/Ds3tIsp5ygg==}
 
   babel-plugin-polyfill-corejs2@0.3.3:
     resolution: {integrity: sha512-8hOdmFYFSZhqg2C/JgLUQ+t52o5nirNwaWM2B9LWteozwIvM14VSwdsCAUET10qT+kmySAlseadmfeeSWFCy+Q==}
@@ -4714,6 +4011,9 @@ packages:
     resolution: {integrity: sha512-6BN9trH7bp3qvnrRyzsBz+g3lZxTNZTbVO2EV1CS0WIcDbawYVdYvGflME/9QP0h0pYlCDBCTjYa9nZzMDpyxQ==}
     engines: {node: '>= 0.8'}
 
+  find-babel-config@2.1.2:
+    resolution: {integrity: sha512-ZfZp1rQyp4gyuxqt1ZqjFGVeVBvmpURMqdIWXbPRfB97Bf6BzdK/xSIbylEINzQ0kB5tlDQfn9HkNXXWsqTqLg==}
+
   find-cache-dir@2.1.0:
     resolution: {integrity: sha512-Tq6PixE0w/VMFfCgbONnkiQIVol/JJL7nRMi20fqzA4NRs9AfeqMGeRdPi3wIhYkxjeBaWh2rxwapn5Tu3IqOQ==}
     engines: {node: '>=6'}
@@ -4905,6 +4205,10 @@ packages:
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     deprecated: Glob versions prior to v9 are no longer supported
+
+  glob@9.3.5:
+    resolution: {integrity: sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==}
+    engines: {node: '>=16 || 14 >=14.17'}
 
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
@@ -6095,12 +5399,20 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
+  minimatch@8.0.4:
+    resolution: {integrity: sha512-W0Wvr9HyFXZRGIDgCicunpQ299OKXs9RgZfaukz4qAW/pJhcpUfupc9c+OObPOFueNy8VSrZgEmDtk6Kh4WzDA==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
+
+  minipass@4.2.8:
+    resolution: {integrity: sha512-fNzuVyifolSLFL4NzpF+wEF4qrgqaaKX0haXPQEdQ7NKAN+WecoKMHV09YcuL/DHxrUsYQOK3MiuDf7Ip2OXfQ==}
+    engines: {node: '>=8'}
 
   minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
@@ -6577,6 +5889,10 @@ packages:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
 
+  pkg-up@3.1.0:
+    resolution: {integrity: sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==}
+    engines: {node: '>=8'}
+
   plop@4.0.1:
     resolution: {integrity: sha512-5n8QU93kvL/ObOzBcPAB1siVFtAH1TZM6TntJ3JK5kXT0jIgnQV+j+uaOWWFJlg1cNkzLYm8klgASF65K36q9w==}
     engines: {node: '>=18'}
@@ -6959,24 +6275,9 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  react-router-dom@6.26.2:
-    resolution: {integrity: sha512-z7YkaEW0Dy35T3/QKPYB1LjMK2R1fxnHO8kWpUMTBdfVzZrWOiY9a7CtN8HqdWtDUWd5FY6Dl8HFsqVwH4uOtQ==}
-    version: 6.26.2
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-
   react-router@6.23.1:
     resolution: {integrity: sha512-fzcOaRF69uvqbbM7OhvQyBTFDVrrGlsFdS3AL+1KfIBtGETibHzi3FkoTRyiDJnWNc2VxrfvR+657ROHjaNjqQ==}
     version: 6.23.1
-    engines: {node: '>=14.0.0'}
-    peerDependencies:
-      react: '>=16.8'
-
-  react-router@6.26.2:
-    resolution: {integrity: sha512-tvN1iuT03kHgOFnLPfLJ8V95eijteveqdOSk+srqfePtQvqCExB8eHOYnlilbOcyJyKnYkr1vJvf7YqotAJu1A==}
-    version: 6.26.2
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
@@ -7278,6 +6579,9 @@ packages:
 
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
+
+  reselect@4.1.8:
+    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
 
   resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
@@ -10285,8 +9589,6 @@ snapshots:
 
   '@remix-run/router@1.16.1': {}
 
-  '@remix-run/router@1.19.2': {}
-
   '@sideway/address@4.1.5':
     dependencies:
       '@hapi/hoek': 9.3.0
@@ -11209,6 +10511,14 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       cosmiconfig: 7.1.0
+      resolve: 1.22.8
+
+  babel-plugin-module-resolver@5.0.2:
+    dependencies:
+      find-babel-config: 2.1.2
+      glob: 9.3.5
+      pkg-up: 3.1.0
+      reselect: 4.1.8
       resolve: 1.22.8
 
   babel-plugin-polyfill-corejs2@0.3.3(@babel/core@7.25.2):
@@ -12780,6 +12090,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  find-babel-config@2.1.2:
+    dependencies:
+      json5: 2.2.3
+
   find-cache-dir@2.1.0:
     dependencies:
       commondir: 1.0.1
@@ -12972,6 +12286,13 @@ snapshots:
       minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
+
+  glob@9.3.5:
+    dependencies:
+      fs.realpath: 1.0.0
+      minimatch: 8.0.4
+      minipass: 4.2.8
+      path-scurry: 1.11.1
 
   global-directory@4.0.1:
     dependencies:
@@ -14468,11 +13789,17 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.11
 
+  minimatch@8.0.4:
+    dependencies:
+      brace-expansion: 2.0.1
+
   minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.1
 
   minimist@1.2.8: {}
+
+  minipass@4.2.8: {}
 
   minipass@7.1.2: {}
 
@@ -14958,6 +14285,10 @@ snapshots:
     dependencies:
       find-up: 4.1.0
 
+  pkg-up@3.1.0:
+    dependencies:
+      find-up: 3.0.0
+
   plop@4.0.1:
     dependencies:
       '@types/liftoff': 4.0.3
@@ -15409,21 +14740,9 @@ snapshots:
       react-dom: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
       react-router: 6.23.1(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
 
-  react-router-dom@6.26.2(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
-    dependencies:
-      '@remix-run/router': 1.19.2
-      react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      react-router: 6.26.2(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-
   react-router@6.23.1(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
     dependencies:
       '@remix-run/router': 1.16.1
-      react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-
-  react-router@6.26.2(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
-    dependencies:
-      '@remix-run/router': 1.19.2
       react: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
 
   react-strict-dom@0.0.11(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react-native@0.75.3(@babel/core@7.25.2)(@babel/preset-env@7.20.2(@babel/core@7.25.2))(@types/react@18.3.8)(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)(typescript@5.6.2))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397):
@@ -16171,6 +15490,8 @@ snapshots:
   requireindex@1.2.0: {}
 
   requires-port@1.0.0: {}
+
+  reselect@4.1.8: {}
 
   resize-observer-polyfill@1.5.1: {}
 

@@ -1,4 +1,4 @@
-import { err } from '@meta-core/error';
+import { err } from '@meta-ui/core/error';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
 import { PHPQuerySerializerNoEncoding } from './php-query-serializer-no-encoding';

@@ -1,5 +1,5 @@
-import { unrecoverableViolation } from '@meta-core/error';
-import { coerceImageishSprited, memoizeWithArgs } from '@meta-core/react-utils';
+import { unrecoverableViolation } from '@meta-ui/core/error';
+import { coerceImageishSprited, memoizeWithArgs } from '@meta-ui/core/react-utils';
 
 import { TintableIconSource } from './tintable-icon-source';
 

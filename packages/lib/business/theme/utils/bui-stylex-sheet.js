@@ -1,4 +1,4 @@
-import { StyleXSheet } from '@meta-core/theme';
+import { StyleXSheet } from '@meta-ui/core/theme';
 
 import { BUIStyleXDefaultTheme } from '../utils/bui-stylex-default-theme';
 

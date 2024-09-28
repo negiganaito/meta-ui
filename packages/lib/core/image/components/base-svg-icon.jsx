@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { BaseIsDecorativeContext } from '@meta-core/contexts';
+import { BaseIsDecorativeContext } from '@meta-ui/core/contexts';
 import stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({

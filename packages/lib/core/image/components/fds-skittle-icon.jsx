@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { profilePhotoUtils } from '@meta-core/react-utils';
+import { profilePhotoUtils } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
 
 import { FDSIcon } from './fds-icon';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGeoTheme } from '@meta-business/theme';
+import { useGeoTheme } from '@meta-ui/business/theme';
 
 import { GeoFlexbox } from './geo-flexbox';
 

@@ -1,4 +1,4 @@
-import { ErrorGuard, unrecoverableViolation } from '@meta-core/error';
+import { ErrorGuard, unrecoverableViolation } from '@meta-ui/core/error';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 
 import { EmitterSubscription } from './emitter-subscription';

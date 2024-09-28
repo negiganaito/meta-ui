@@ -1,8 +1,8 @@
 import { forwardRef, useContext } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { CometRowContext } from '@meta-core/contexts';
-import { CometErrorBoundary } from '@meta-core/error';
-import { CometPlaceholder } from '@meta-core/placeholder';
+import { CometRowContext } from '@meta-ui/core/contexts';
+import { CometErrorBoundary } from '@meta-ui/core/error';
+import { CometPlaceholder } from '@meta-ui/core/placeholder';
 import stylex from '@stylexjs/stylex';
 
 import { BaseRowItem } from './base-row-item';

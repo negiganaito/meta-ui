@@ -1,17 +1,7 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-
 class CircularBuffer {
   constructor(size) {
     if (size <= 0) {
-      throw console.log(
-        "Buffer size should be a positive integer",
-        "comet_infra"
-      );
+      throw console.log('Buffer size should be a positive integer', 'comet_infra');
     }
     this.size = size;
     this.writeIndex = 0;
@@ -23,9 +13,7 @@ class CircularBuffer {
     if (this.buffer.length < this.size) {
       this.buffer.push(element);
     } else {
-      this.evictCallbacks.forEach((callback) =>
-        callback(this.buffer[this.writeIndex])
-      );
+      this.evictCallbacks.forEach((callback) => callback(this.buffer[this.writeIndex]));
       this.buffer[this.writeIndex] = element;
       this.writeIndex = (this.writeIndex + 1) % this.size;
     }
@@ -38,9 +26,7 @@ class CircularBuffer {
   }
 
   read() {
-    return this.buffer
-      .slice(this.writeIndex)
-      .concat(this.buffer.slice(0, this.writeIndex));
+    return this.buffer.slice(this.writeIndex).concat(this.buffer.slice(0, this.writeIndex));
   }
 
   expand(newSize) {

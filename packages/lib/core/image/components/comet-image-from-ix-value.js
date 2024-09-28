@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { RecoverableViolationWithComponentStack } from '@meta-core/error';
+import { RecoverableViolationWithComponentStack } from '@meta-ui/core/error';
 import {
   coerceImageishSprited,
   coerceImageishURL,
   CometVisualCompletionAttributes,
   xplatToDOMRef,
-} from '@meta-core/react-utils';
-import { testID } from '@meta-core/utils';
+} from '@meta-ui/core/react-utils';
+import { testID } from '@meta-ui/core/utils';
 import stylex from '@stylexjs/stylex';
 
 import { CometSSRBackgroundImageUtils } from '../utils/comet-ssr-background-image-utils';

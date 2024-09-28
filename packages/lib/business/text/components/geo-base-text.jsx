@@ -9,9 +9,9 @@ import {
   GeoPrivateInvertThemeContext,
   GeoPrivateLayerVisibilityContext,
   GeoPrivateTruncationContext,
-} from '@meta-business/contexts';
-import { GeoDomID, GeoTextUtils } from '@meta-business/utils';
-import { useMergeRefs } from '@meta-core/react-utils';
+} from '@meta-ui/business/contexts';
+import { GeoDomID, GeoTextUtils } from '@meta-ui/business/utils';
+import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
 
 import { useGeoPrivateTextStyle } from '../hooks/use-geo-private-text-style';

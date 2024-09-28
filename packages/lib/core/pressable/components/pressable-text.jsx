@@ -1,7 +1,7 @@
 import { useCallback, useContext, useRef, useState } from 'react';
 import { jsx } from 'react/jsx-runtime';
 import { Link } from 'react-router-dom';
-import { useMergeRefs } from '@meta-core/react-utils';
+import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
 import joinClasses from 'fbjs/lib/joinClasses';
 

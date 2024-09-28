@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { CometVisualCompletionAttributes, XPlatReactEnvironment } from '@meta-core/react-utils';
+import { CometVisualCompletionAttributes, XPlatReactEnvironment } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
 
 import { CometPressableOverlayContainer } from './comet-pressable-overlay-container';

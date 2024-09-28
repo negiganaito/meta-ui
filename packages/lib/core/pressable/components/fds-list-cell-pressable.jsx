@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext } from 'react';
-import { CometCompositeStructureContext, CometFocusGroupContext } from '@meta-core/contexts';
-import { CometColumn, CometColumnItem } from '@meta-core/layout';
-import { getItemRoleFromCompositeRole } from '@meta-core/styles';
+import { CometCompositeStructureContext, CometFocusGroupContext } from '@meta-ui/core/contexts';
+import { CometColumn, CometColumnItem } from '@meta-ui/core/layout';
+import { getItemRoleFromCompositeRole } from '@meta-ui/core/styles';
 import stylex from '@stylexjs/stylex';
 import Locale from 'fbjs/lib/Locale';
 

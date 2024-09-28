@@ -1,88 +1,21 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 
-import useDebounced from "../../hooks/useDebounced";
-import GeoBaseHintSingletonContext from "../contexts/GeoBaseHintSingletonContext";
-import GeoPrivateBaseHintContext from "../contexts/GeoPrivateBaseHintContext";
-import GeoPrivateInvertThemeContext from "../contexts/GeoPrivateInvertThemeContext";
-import GeoPrivateLayerVisibilityContext from "../contexts/GeoPrivateLayerVisibilityContext";
-import GeoPrivateTooltipAnchorContext from "../contexts/GeoPrivateTooltipAnchorContext";
-import GeoPrivateTooltipTriggerContext from "../contexts/GeoPrivateTooltipTriggerContext";
-import useGeoMouseListeners from "../hooks/useGeoMouseListeners";
-import useGeoPrivateHintHoverBehavior from "../hooks/useGeoPrivateHintHoverBehavior";
+import useDebounced from '../../hooks/useDebounced';
+import GeoBaseHintSingletonContext from '../contexts/GeoBaseHintSingletonContext';
+import GeoPrivateBaseHintContext from '../contexts/GeoPrivateBaseHintContext';
+import GeoPrivateInvertThemeContext from '../contexts/GeoPrivateInvertThemeContext';
+import GeoPrivateLayerVisibilityContext from '../contexts/GeoPrivateLayerVisibilityContext';
+import GeoPrivateTooltipAnchorContext from '../contexts/GeoPrivateTooltipAnchorContext';
+import GeoPrivateTooltipTriggerContext from '../contexts/GeoPrivateTooltipTriggerContext';
+import useGeoMouseListeners from '../hooks/useGeoMouseListeners';
+import useGeoPrivateHintHoverBehavior from '../hooks/useGeoPrivateHintHoverBehavior';
 
-import GeoPrivateHintCard from "./GeoPrivateHintCard.react";
-import { makeGeoComponent } from "./GeoPrivateMakeComponent";
+import GeoPrivateHintCard from './GeoPrivateHintCard.react';
+import { makeGeoComponent } from './GeoPrivateMakeComponent';
 
 const GeoPrivateBaseHintLayer = ({
-  align = "start",
-  "data-testid": dataTestId,
+  align = 'start',
+  'data-testid': dataTestId,
   children,
   id,
   hideOnBlur,
@@ -91,10 +24,10 @@ const GeoPrivateBaseHintLayer = ({
   isSticky = false,
   onToggle,
   renderDelay,
-  popoverType = "infoTooltip",
-  position = "above",
+  popoverType = 'infoTooltip',
+  position = 'above',
   triggerRef,
-  groupName = "default",
+  groupName = 'default',
   xstyle,
   ...props
 }) => {
@@ -111,11 +44,10 @@ const GeoPrivateBaseHintLayer = ({
   const { groups, setLastHintLayerForGroup } = singletonContext;
 
   const visibilityContext = useContext(GeoPrivateLayerVisibilityContext);
-  const { isLayerVisible, onHideLayer, onShowLayer } =
-    useGeoPrivateHintHoverBehavior({
-      renderDelay,
-      onToggle,
-    });
+  const { isLayerVisible, onHideLayer, onShowLayer } = useGeoPrivateHintHoverBehavior({
+    renderDelay,
+    onToggle,
+  });
 
   useImperativeHandle(imperativeRef, () => ({
     show: onShowLayer,
@@ -158,27 +90,24 @@ const GeoPrivateBaseHintLayer = ({
     handleMouseLeave,
     handleMouseMove,
     isEnabled ? finalTriggerRef : null,
-    hoverable ? layerRef : null
+    hoverable ? layerRef : null,
   );
 
   useEffect(() => {
     const triggerElement = finalTriggerRef?.current;
     if (triggerElement === null) return;
-    triggerElement.addEventListener("mouseenter", handleMouseEnter);
-    triggerElement.addEventListener("mousemove", handleMouseMove);
-    triggerElement.addEventListener("mouseleave", handleMouseLeave);
+    triggerElement.addEventListener('mouseenter', handleMouseEnter);
+    triggerElement.addEventListener('mousemove', handleMouseMove);
+    triggerElement.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      triggerElement.removeEventListener("mouseenter", handleMouseEnter);
-      triggerElement.removeEventListener("mousemove", handleMouseMove);
-      triggerElement.removeEventListener("mouseleave", handleMouseLeave);
+      triggerElement.removeEventListener('mouseenter', handleMouseEnter);
+      triggerElement.removeEventListener('mousemove', handleMouseMove);
+      triggerElement.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [finalTriggerRef, isEnabled, hoverable]);
 
-  const contextValue = useMemo(
-    () => ({ isSticky, popoverType }),
-    [isSticky, popoverType]
-  );
+  const contextValue = useMemo(() => ({ isSticky, popoverType }), [isSticky, popoverType]);
 
   const triggerElement = anchorRef?.current ?? finalTriggerRef?.current;
   const hintLayer =
@@ -213,8 +142,5 @@ const GeoPrivateBaseHintLayer = ({
 
 GeoPrivateBaseHintLayer.displayName = `GeoPrivateBaseHintLayer [from ${__filename}]`;
 
-const GeoPrivateBaseHintLayerComponent = makeGeoComponent(
-  "GeoPrivateBaseHintLayer",
-  GeoPrivateBaseHintLayer
-);
+const GeoPrivateBaseHintLayerComponent = makeGeoComponent('GeoPrivateBaseHintLayer', GeoPrivateBaseHintLayer);
 export default GeoPrivateBaseHintLayerComponent;

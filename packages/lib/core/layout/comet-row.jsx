@@ -1,6 +1,6 @@
 import { forwardRef, useContext, useMemo } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { CometColumnContext, CometRowContext } from '@meta-core/contexts';
+import { CometColumnContext, CometRowContext } from '@meta-ui/core/contexts';
 import stylex from '@stylexjs/stylex';
 
 import { BaseRow } from './base-row';

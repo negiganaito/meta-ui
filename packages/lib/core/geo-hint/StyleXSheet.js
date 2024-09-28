@@ -1,20 +1,8 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-import { ExecutionEnvironment } from "./ExecutionEnvironment";
-import Locale from "./Locale";
+import { ExecutionEnvironment } from './ExecutionEnvironment';
+import Locale from './Locale';
 
-const LIGHT_MODE_CLASS_NAME = "__fb-light-mode";
-const DARK_MODE_CLASS_NAME = "__fb-dark-mode";
+const LIGHT_MODE_CLASS_NAME = '__fb-light-mode';
+const DARK_MODE_CLASS_NAME = '__fb-dark-mode';
 
 function generateCSSRules(selector, variables) {
   const rules = [];
@@ -24,27 +12,23 @@ function generateCSSRules(selector, variables) {
     const value = variables[key];
     rules.push(`  --${key}: ${value};`);
   }
-  rules.push("}");
-  return rules.join("\n");
+  rules.push('}');
+  return rules.join('\n');
 }
 
 function createStyleTag() {
-  const styleTag = document.createElement("style");
-  styleTag.setAttribute("type", "text/css");
-  styleTag.setAttribute("data-styled", "true");
-  console.log(document.getElementsByTagName("head")[0]);
-  const head = document.head || document.getElementsByTagName("head")[0];
-  console.log(head, "Head element not found.");
+  const styleTag = document.createElement('style');
+  styleTag.setAttribute('type', 'text/css');
+  styleTag.setAttribute('data-styled', 'true');
+  console.log(document.getElementsByTagName('head')[0]);
+  const head = document.head || document.getElementsByTagName('head')[0];
+  console.log(head, 'Head element not found.');
   head.appendChild(styleTag);
   return styleTag;
 }
 
 function supportsCSSVariables() {
-  return (
-    window.CSS !== null &&
-    window.CSS.supports !== null &&
-    window.CSS.supports("--fake-var:0")
-  );
+  return window.CSS !== null && window.CSS.supports !== null && window.CSS.supports('--fake-var:0');
 }
 
 const variableRegex = /var\(--(.*?)\)/g;
@@ -67,12 +51,11 @@ class StyleXSheet {
     this.isSlow =
       options.isSlow ??
       // eslint-disable-next-line no-restricted-globals
-      (typeof location === "object" && typeof location.search === "string"
+      (typeof location === 'object' && typeof location.search === 'string'
         ? // eslint-disable-next-line no-restricted-globals
-          location.search.includes("stylex-slow")
+          location.search.includes('stylex-slow')
         : false);
-    this.supportsVariables =
-      options.supportsVariables ?? supportsCSSVariables();
+    this.supportsVariables = options.supportsVariables ?? supportsCSSVariables();
     this.isRTL = Locale.isRTL();
   }
 
@@ -85,12 +68,12 @@ class StyleXSheet {
   }
 
   getTag() {
-    console.log(this.tag !== null, "Style tag not found.");
+    console.log(this.tag !== null, 'Style tag not found.');
     return this.tag;
   }
 
   getCSS() {
-    return this.rules.join("\n");
+    return this.rules.join('\n');
   }
 
   getRulePosition(rule) {
@@ -116,19 +99,10 @@ class StyleXSheet {
     const isEnable = true; // gkx("21106")
     if (isEnable) return;
     if (this.rootTheme !== null) {
-      this.insert(
-        generateCSSRules(`:root, .${LIGHT_MODE_CLASS_NAME}`, this.rootTheme),
-        0
-      );
+      this.insert(generateCSSRules(`:root, .${LIGHT_MODE_CLASS_NAME}`, this.rootTheme), 0);
     }
     if (this.rootDarkTheme !== null) {
-      this.insert(
-        generateCSSRules(
-          `.${DARK_MODE_CLASS_NAME}:root, .${DARK_MODE_CLASS_NAME}`,
-          this.rootDarkTheme
-        ),
-        0
-      );
+      this.insert(generateCSSRules(`.${DARK_MODE_CLASS_NAME}:root, .${DARK_MODE_CLASS_NAME}`, this.rootDarkTheme), 0);
     }
   }
 
@@ -150,7 +124,7 @@ class StyleXSheet {
     } else {
       const sheet = tag.sheet;
       if (sheet !== null) {
-        console.log(sheet, "Style sheet not found.");
+        console.log(sheet, 'Style sheet not found.');
         sheet.deleteRule(index);
       }
     }
@@ -184,24 +158,15 @@ class StyleXSheet {
     if (!this.injected) {
       this.inject();
     }
-    const normalizedRule =
-      this.isRTL && originalRule !== null ? originalRule : rule;
-    if (
-      this.externalRules.has(
-        normalizedRule.slice(0, normalizedRule.indexOf("{")).trim()
-      )
-    ) {
+    const normalizedRule = this.isRTL && originalRule !== null ? originalRule : rule;
+    if (this.externalRules.has(normalizedRule.slice(0, normalizedRule.indexOf('{')).trim())) {
       return;
     }
     if (this.rules.includes(normalizedRule)) {
       return;
     }
     const normalized = this.normalizeRule(normalizedRule);
-    if (
-      this.externalRules.has(
-        normalized.slice(0, normalized.indexOf("{")).trim()
-      )
-    ) {
+    if (this.externalRules.has(normalized.slice(0, normalized.indexOf('{')).trim())) {
       return;
     }
     const insertPosition = this.getInsertPositionForPriority(priority);

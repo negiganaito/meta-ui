@@ -1,4 +1,4 @@
-import { FBLogger } from '@meta-core/error';
+import { FBLogger } from '@meta-ui/core/error';
 
 const _20935 = true;
 

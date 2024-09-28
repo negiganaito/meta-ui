@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useMemo } from 'react';
 import UserAgent from '@fb-user-agent/index';
-import { CometColumnContext } from '@meta-core/contexts';
+import { CometColumnContext } from '@meta-ui/core/contexts';
 import stylex from '@stylexjs/stylex';
 
 import { BaseView } from './base-view';

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { FDSTextContext } from '@meta-core/contexts';
-import { CometTextTypography } from '@meta-core/styles';
+import { FDSTextContext } from '@meta-ui/core/contexts';
+import { CometTextTypography } from '@meta-ui/core/styles';
 import stylex from '@stylexjs/stylex';
 
 // CSS class mappings for various states

@@ -6,7 +6,7 @@ import {
   GeoSpacingSelectors,
   GeoTextSelectors,
   GeoTransitionSelectors,
-} from '@meta-business/styles';
+} from '@meta-ui/business/styles';
 
 import { GeoStyleXDefaultSheet } from './geo-stylex-default-sheet';
 

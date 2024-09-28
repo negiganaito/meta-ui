@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useMemo, useRef } from 'react';
 import { mergeRefs } from '@fb-hook/use-merge-refs.legacy';
-import { RecoverableViolationWithComponentStack } from '@meta-core/error';
+import { RecoverableViolationWithComponentStack } from '@meta-ui/core/error';
 import stylex from '@stylexjs/stylex';
 import executionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 

@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { LegacyHidden } from '@meta-core/layout';
+import { LegacyHidden } from '@meta-ui/core/layout';
 
 export const CometHeroInteractionWithDiv = forwardRef(
   ({ children, className, hidden, htmlAttributes, pageletAriaProps }, ref) => {

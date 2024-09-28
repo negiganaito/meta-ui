@@ -1,5 +1,5 @@
 import { useContext, useLayoutEffect } from 'react';
-import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-core/contexts';
+import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-ui/core/contexts';
 
 // eslint-disable-next-line react/prop-types
 export function HeroHoldTrigger({ description, hold }) {

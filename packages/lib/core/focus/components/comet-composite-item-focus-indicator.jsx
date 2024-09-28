@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { CometCompositeStructureContext } from '@meta-core/contexts';
+import { CometCompositeStructureContext } from '@meta-ui/core/contexts';
 import stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({

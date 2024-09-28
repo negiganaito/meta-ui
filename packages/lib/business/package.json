@@ -1,0 +1,26 @@
+{
+  "name": "@meta-ui/business",
+  "devDependencies": {
+    "@meta-plugins/configs-eslint": "workspace:*",
+    "react": "git://github.com/tienlx97/react-experimental.git#www",
+    "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
+    "scheduler": "0.22.0",
+    "fbjs": "3.0.5",
+    "@stylexjs/stylex": "0.6.1",
+    "@types/node": "^18.11.18",
+    "@types/react": "18.3.8",
+    "@types/react-dom": "18.3.0",
+    "babel-plugin-module-resolver": "5.0.2"
+  },
+  "main": "index.js",
+  "exports": {
+    "./contexts": "./contexts/index.js",
+    "./layout": "./layout/index.js",
+    "./popover": "./popover/index.js",
+    "./styles": "./styles/index.js",
+    "./text": "./text/index.js",
+    "./theme": "./theme/index.js",
+    "./tooltip": "./tooltip/index.js",
+    "./utils": "./utils/index.js"
+  }
+}

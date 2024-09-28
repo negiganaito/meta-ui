@@ -1,4 +1,4 @@
-import { invariant } from '@meta-core/error';
+import { invariant } from '@meta-ui/core/error';
 
 export function memoize(a) {
   let b = a;

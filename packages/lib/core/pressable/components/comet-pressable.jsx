@@ -2,10 +2,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable camelcase */
 import React, { forwardRef, useCallback, useContext, useRef, useState } from 'react';
+import { BaseButton } from '@meta-ui/core/button';
 import {
   CometContainerPressableContext,
   CometDangerouslySuppressInteractiveElementsContext,
-} from '@meta-core/contexts';
+} from '@meta-ui/core/contexts';
+import { BaseLink } from '@meta-ui/core/link';
 import stylex from '@stylexjs/stylex';
 
 import { CometPressableOverlay } from './comet-pressable-overlay';
@@ -383,5 +385,3 @@ export const CometPressable = forwardRef((props, externalRef) => {
 });
 
 CometPressable.displayName = 'CometPressable.react';
-
-export default CometPressable;

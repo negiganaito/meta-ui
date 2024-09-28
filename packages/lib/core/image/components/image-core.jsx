@@ -1,8 +1,13 @@
 import { forwardRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { coerceImageishSprited, coerceImageishURL, getImageSourceURLFromImageish, URI } from '@meta-core/react-utils';
-import { CometVisualCompletionAttributes } from '@meta-core/react-utils/comet-visual-completion-attributes';
-import { warnUnsupportedProp } from '@meta-core/utils';
+import {
+  coerceImageishSprited,
+  coerceImageishURL,
+  CometVisualCompletionAttributes,
+  getImageSourceURLFromImageish,
+  URI,
+} from '@meta-ui/core/react-utils';
+import { warnUnsupportedProp } from '@meta-ui/core/utils';
 import joinClasses from 'fbjs/lib/joinClasses';
 
 function coerceToStringIfURI(value) {

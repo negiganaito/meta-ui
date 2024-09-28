@@ -1,5 +1,5 @@
-import { useGeoTheme } from '@meta-business/theme';
-import { GeoTextUtils } from '@meta-business/utils';
+import { useGeoTheme } from '@meta-ui/business/theme';
+import { GeoTextUtils } from '@meta-ui/business/utils';
 import stylex from '@stylexjs/stylex';
 
 const textColorStyles = stylex.create({
