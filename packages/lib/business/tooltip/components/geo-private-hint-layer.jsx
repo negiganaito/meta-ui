@@ -1,7 +1,12 @@
 import React, { useContext, useRef } from 'react';
 import { GeoPrivateTooltipTriggerContext } from '@meta-ui/business/contexts';
+import { GeoIcon } from '@meta-ui/business/image';
+import { GeoBaseLineHeightAlign } from '@meta-ui/business/text';
+import { fbicon, ix } from '@meta-ui/core/image';
 import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
+
+import { GeoPrivateHintLayerUtils } from '../utils/geo-private-hint-layer-utils';
 
 import { GeoPrivateBaseHintLayer } from './geo-private-base-hint-layer';
 
@@ -66,7 +71,7 @@ function DefaultTrigger() {
   return (
     <GeoBaseLineHeightAlign>
       <div className={stylex(iconStyle)}>
-        <GeoIcon icon={fbicon('479175', 12)} />
+        <GeoIcon icon={fbicon._(ix(479175), 12)} />
       </div>
     </GeoBaseLineHeightAlign>
   );

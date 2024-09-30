@@ -4,8 +4,15 @@ import { entriesMap } from './entries-map';
 
 const usedPathsSet = new Set();
 
-export function ix(key) {
-  const entry = entriesMap[key];
+export function ix(key, externalEntriesMap) {
+  let entry;
+
+  if (externalEntriesMap) {
+    entry = externalEntriesMap[key];
+  } else {
+    entry = entriesMap[key];
+  }
+
   !entry && invariant(0, 11798, key);
   return entry;
 }

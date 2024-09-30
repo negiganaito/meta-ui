@@ -235,11 +235,7 @@ function responseRoleType(type) {
       return type;
   }
 }
-/**
- *
- * @param {import("./types").CometPressableProps} props
- * @returns
- */
+
 // eslint-disable-next-line complexity
 export const WebPressable = (props) => {
   const targetRef = useRef(null);

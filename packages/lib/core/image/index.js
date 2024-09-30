@@ -9,4 +9,7 @@ export { FDSSkittleIcon } from './components/fds-skittle-icon';
 export { Image } from './components/image';
 export { ImageCore } from './components/image-core';
 export { TetraIcon } from './components/tetra-icon';
+export { fbicon } from './utils/fb-icon';
 export { ix } from './utils/ix';
+export { TintableIconSource } from './utils/tintable-icon-source';
+export { WebCSSTintedIcon } from './utils/web-css-tinted-icon';

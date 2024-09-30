@@ -2,6 +2,7 @@ export { InternalEnum } from './$internal-enum';
 export { coerceImageishSprited } from './coerce-imageish-sprited';
 export { coerceImageishURL } from './coerce-imageish-URL';
 export { CometVisualCompletionAttributes } from './comet-visual-completion-attributes';
+export { compareDOMOrder } from './compare-dom-order';
 export { getImageSourceURLFromImageish } from './get-image-source-url-from-imageish';
 export { memoize } from './memoize';
 export { memoizeWithArgs } from './memoize-with-args';

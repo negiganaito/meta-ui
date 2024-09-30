@@ -6,6 +6,7 @@ export { getReactElementDisplayName } from './get-react-element-display-name';
 export { intersectionObserverEntryIsIntersecting } from './intersection-observer-entry-is-intersecting';
 export { isNonNullish } from './is-non-nullish';
 export { isNullish } from './is-nullish';
+export { isTruthy } from './is-truthy';
 export { isFalsey } from './isFalsey';
 export { isNotNullAndNotUndefined } from './isNotNullAndNotUndefined';
 export { isNullOrUndefined } from './isNullOrUndefined';

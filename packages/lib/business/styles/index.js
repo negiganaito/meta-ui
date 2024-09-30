@@ -14,3 +14,4 @@ export { GeoPrivateDefaultTransitionGeneratedStyles } from './geo-private-defaul
 export { GeoSpacingSelectors } from './geo-spacing-selectors';
 export { GeoTextSelectors } from './geo-text-selectors';
 export { GeoTransitionSelectors } from './geo-transition-selectors';
+export { useGeoPrivateNoticeStyle } from './use-geo-private-notice-style';
