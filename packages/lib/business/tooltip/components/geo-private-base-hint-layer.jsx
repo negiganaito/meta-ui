@@ -31,9 +31,9 @@ export const GeoPrivateBaseHintLayer = ({
   const [isEnabled, setIsEnabled] = useState(true);
   const layerRef = useRef(null);
   const triggerContextRef = useContext(GeoPrivateTooltipTriggerContext);
-  const anchorContext = useContext(GeoPrivateTooltipAnchorContext);
-  const anchorRef = anchorContext.anchorRef;
-  const isAnchorHoverable = anchorContext.isHoverable;
+  const { anchorRef, isHoverable: isAnchorHoverable } = useContext(GeoPrivateTooltipAnchorContext);
+  // const anchorRef = anchorContext.anchorRef;
+  // const isAnchorHoverable = anchorContext.isHoverable;
   const finalTriggerRef = triggerRef ?? triggerContextRef;
   const hoverable = !isSticky && (isLayerHoverable || isAnchorHoverable);
 
@@ -44,6 +44,7 @@ export const GeoPrivateBaseHintLayer = ({
   const { isLayerVisible, onHideLayer, onShowLayer } = useGeoPrivateHintHoverBehavior({
     renderDelay,
     onToggle,
+    triggerNode: finalTriggerRef?.current,
   });
 
   useImperativeHandle(imperativeRef, () => ({
@@ -135,5 +136,3 @@ export const GeoPrivateBaseHintLayer = ({
 
   return finalTriggerRef !== null ? hintLayer : null;
 };
-
-GeoPrivateBaseHintLayer.displayName = `GeoPrivateBaseHintLayer [from ${__filename}]`;

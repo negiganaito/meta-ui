@@ -10,6 +10,7 @@ import {
   GeoPrivateLayerVisibilityContext,
   GeoPrivateTruncationContext,
 } from '@meta-ui/business/contexts';
+import { GeoTooltip } from '@meta-ui/business/tooltip/components/geo-tooltip';
 import { GeoDomID, GeoTextUtils } from '@meta-ui/business/utils';
 import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';

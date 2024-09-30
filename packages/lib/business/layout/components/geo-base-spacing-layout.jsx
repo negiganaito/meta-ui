@@ -2,20 +2,6 @@ import React from 'react';
 import { GeoFlexbox } from '@meta-ui/business/layout';
 import { useGeoTheme } from '@meta-ui/business/theme';
 
-/**
- __d("GeoPrivateHintContent.react", 
-  ["GeoBaseSpacingLayout.react", 
-  "GeoCloseButton.react", 
-  "GeoFlexbox.react", 
-  "GeoPrivateBaseHintContext", 
-  "GeoPrivateHintLayerUtils", 
-  "GeoPrivateMakeComponent", 
-  "GeoTextPairing.react", 
-  "GeoVStack.react", 
-  "geoOffset", "react", "stylex", 
-  "useGeoPrivateNoticeStyle"], (function(a, b, c, d, e, f, g) {
- */
-
 export function GeoBaseSpacingLayout(props) {
   const {
     align = 'center',

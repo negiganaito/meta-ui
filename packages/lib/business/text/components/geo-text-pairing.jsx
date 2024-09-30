@@ -75,6 +75,6 @@ GeoTextPairing.displayName = 'GeoTextPairing';
 
 const styles = stylex.create({
   root: {
-    minWidth: '0',
+    minWidth: 0,
   },
 });

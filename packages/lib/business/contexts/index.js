@@ -11,6 +11,8 @@ export { GeoPrivateDisableHeadingStructureContext } from './geo-private-disable-
 export { GeoPrivateDisabledContext } from './geo-private-disabled-context';
 export { GeoPrivateGlimmeringHeadingStyleContext } from './geo-private-glimmering-heading-style-context';
 export { GeoPrivateInvertThemeContext } from './geo-private-invert-theme-context';
+export { GeoPrivateLayerContext } from './geo-private-layer-context';
+export { GeoPrivateLayerPositionContext } from './geo-private-layer-position-context';
 export { GeoPrivateLayerVisibilityContext } from './geo-private-layer-visibility-context';
 export { GeoPrivateTooltipAnchorContext } from './geo-private-tooltip-anchor-context';
 export { GeoPrivateTooltipTriggerContext } from './geo-private-tooltip-trigger-context';

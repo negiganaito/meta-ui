@@ -1,17 +1,3 @@
-/**
- __d("GeoPrivateHintContent.react", 
-  ["GeoBaseSpacingLayout.react", 
-  "GeoCloseButton.react", 
-  "GeoFlexbox.react", 
-  "GeoPrivateBaseHintContext", 
-  "GeoPrivateHintLayerUtils", 
-  "GeoPrivateMakeComponent", 
-  "GeoTextPairing.react", 
-  "GeoVStack.react", 
-  "geoOffset", "react", "stylex", 
-  "useGeoPrivateNoticeStyle"], (function(a, b, c, d, e, f, g) {
- */
-
 import React, { useContext } from 'react';
 import { GeoCloseButton } from '@meta-ui/business/button';
 import { GeoPrivateBaseHintContext } from '@meta-ui/business/contexts';

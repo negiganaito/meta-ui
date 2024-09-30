@@ -22,6 +22,7 @@ const styles = stylex.create({
 });
 
 export const GeoPrivateIcon = (props) => {
+  // eslint-disable-next-line no-unused-vars
   const { 'data-testid': dataTestId, description, color, icon, isDisabled = false, xstyle } = props;
 
   const disabled = useGeoPrivateIsDisabled(isDisabled);
