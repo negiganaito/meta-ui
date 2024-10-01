@@ -3,7 +3,9 @@ export { BUIPrivateButtonLayoutContext } from './bui-private-button-layout-conte
 export { DocumentTranslationStatusContext } from './document-translation-status-context';
 export { GeoBaseHintSingletonContext } from './geo-base-hint-singleton-context';
 export { GeoLazyContext } from './geo-lazy-context';
+export { GeoPrivateAnimationLayerContext } from './geo-private-animation-layer-context';
 export { GeoPrivateBaseHintContext } from './geo-private-base-hint-context';
+export { GeoPrivateBasePortalTargetContext } from './geo-private-base-portal-target-context';
 export { GeoPrivateBaseTextContext } from './geo-private-base-text-context';
 export { GeoPrivateButtonIconEndLayoutContext } from './geo-private-button-icon-end-layout-context';
 export { GeoPrivateButtonLayerActionContext } from './geo-private-button-layer-action-context';

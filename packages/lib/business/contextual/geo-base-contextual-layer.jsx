@@ -1,8 +1,11 @@
 import React, { useContext, useMemo } from 'react';
 import { GeoPrivateLayerContext, GeoPrivateLayerPositionContext } from '@meta-ui/business/contexts';
 import { useGeoPrivateLegacyLayerCompatibility } from '@meta-ui/business/hooks';
+import { BaseContextualLayerAnchorRootContext } from '@meta-ui/core/contexts';
 import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
+
+import { GeoPrivateBaseContextualLayer } from './geo-private-base-contextual-layer';
 
 const styles = stylex.create({
   root: {

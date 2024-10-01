@@ -1,4 +1,16 @@
 import React from 'react';
+import { GeoBaseContextualLayer } from '@meta-ui/business/contextual';
+import {
+  GeoBaseLayerBlurBehavior,
+  GeoBaseLayerExitBehavior,
+  GeoBaseLayerFadeBehavior,
+  GeoPrivateAnimationLayerContainer,
+  GeoPrivateResetAnimationLayer,
+  useGeoPrivateAnimationLayerStyles,
+} from '@meta-ui/business/layout';
+import { GeoPrivateHintLayerUtils } from '@meta-ui/business/tooltip';
+import { GeoDomID, GeoLayerUtils } from '@meta-ui/business/utils';
+import { stopPropagation } from '@meta-ui/core/utils';
 import stylex from '@stylexjs/stylex';
 
 import { GeoBaseLayerEscapeBehavior } from '../utils/geo-base-layer-escape-behavior';
@@ -29,11 +41,11 @@ export const GeoPrivateHintCard = ({
           align={align}
           containerRef={layerRef}
           context={context}
-          position={mapPosition(position)}
+          position={GeoLayerUtils.mapPosition(position)}
         >
           <div
             className={stylex(
-              useLayerContentContainerStyle({
+              GeoPrivateHintLayerUtils.useLayerContentContainerStyle({
                 isPositionVertical,
               }),
             )}
@@ -60,9 +72,10 @@ export const GeoPrivateHintCard = ({
 
 GeoPrivateHintCard.displayName = 'GeoPrivateHintCard';
 
+const gkx24835 = true;
+
 const VisibilityLayerWrapper = ({ isShown, children }) => {
-  const GKX_24835 = true;
-  return GKX_24835 ? (
+  return gkx24835 ? (
     <GeoPrivateAnimationLayerContainer isLayerShown={isShown}>{children}</GeoPrivateAnimationLayerContainer>
   ) : (
     <GeoBaseLayerFadeBehavior isShown={isShown}>{children}</GeoBaseLayerFadeBehavior>
@@ -74,15 +87,15 @@ VisibilityLayerWrapper.displayName = 'VisibilityLayerWrapper';
 const HintCardContent = ({ children, id, popoverType }) => {
   const GKX_24835 = true;
 
-  const domIdProps = useApplyGeoDomIDsDirectly({ id });
+  const domIdProps = GeoDomID.useApplyGeoDomIDsDirectly({ id });
   const animationLayerStyles = useGeoPrivateAnimationLayerStyles({
     elevation: 2,
   });
   return (
     <div
       className={stylex(
-        useLayerContentStyle(),
-        useTooltipContainerStyle({
+        GeoPrivateHintLayerUtils.useLayerContentStyle(),
+        GeoPrivateHintLayerUtils.useTooltipContainerStyle({
           type: popoverType,
         }),
         GKX_24835 && animationLayerStyles,

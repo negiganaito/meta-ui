@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { GeoPrivateHintCard } from '@meta-ui/business/card';
 import {
   GeoBaseHintSingletonContext,
   GeoPrivateBaseHintContext,
