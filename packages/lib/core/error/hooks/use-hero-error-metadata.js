@@ -1,7 +1,7 @@
 import { useCallback, useContext } from 'react';
-import { HeroCurrentInteractionForLoggingContext, HeroInteractionContext } from '@meta-core/contexts';
-import { InteractionTracingMetrics } from '@meta-core/placeholder';
-import { QPLEvent } from '@meta-core/utils';
+import { HeroCurrentInteractionForLoggingContext, HeroInteractionContext } from '@meta-ui/core/contexts';
+import { InteractionTracingMetrics } from '@meta-ui/core/placeholder';
+import { QPLEvent } from '@meta-ui/core/utils';
 
 import { ErrorMetadata } from '../utils/error-metadata';
 

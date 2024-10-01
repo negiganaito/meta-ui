@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
 
+import { GeoPrivateHintContent } from './geo-private-hint-content';
+import { GeoPrivateHintLayer } from './geo-private-hint-layer';
 import { GeoTooltipText } from './geo-tooltip-text';
 
 export const GeoTooltip = ({ content, groupName = 'GeoTooltip', heading, onToggle, whiteSpace, ...rest }) => {

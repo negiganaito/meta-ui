@@ -1,0 +1,12 @@
+{
+  "exclude": ["node_modules", "build"],
+  "include": ["**/*", "../core/hooks/use-custom-equality-memo.js"],
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES6",
+    "baseUrl": ".",
+    "paths": {
+      "@meta-ui/business/*": ["./*"]
+    }
+  }
+}

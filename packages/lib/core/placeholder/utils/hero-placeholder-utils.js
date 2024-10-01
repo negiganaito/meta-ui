@@ -1,4 +1,4 @@
-import { PromiseAnnotate } from '@meta-core/utils';
+import { PromiseAnnotate } from '@meta-ui/core/utils';
 
 let simpleUUIDCounter = 0;
 

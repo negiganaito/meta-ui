@@ -1,18 +1,11 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-
-import CircularBuffer from "./CircularBuffer";
+import CircularBuffer from './CircularBuffer';
 
 const DEFAULT_SIZE = 5000;
 
 class IntervalTrackingBoundedBuffer {
   constructor(size = DEFAULT_SIZE) {
     if (size <= 0) {
-      throw new Error("Size for a buffer must be greater than zero.");
+      throw new Error('Size for a buffer must be greater than zero.');
     }
 
     this.bufferSize = size;
@@ -37,10 +30,7 @@ class IntervalTrackingBoundedBuffer {
       id,
       startIdx,
       hasOverflown: () => interval.getOverflowSize() > 0,
-      getOverflowSize: () =>
-        overflowSize !== null
-          ? overflowSize
-          : Math.max(this.evictionCount - startIdx, 0),
+      getOverflowSize: () => (overflowSize !== null ? overflowSize : Math.max(this.evictionCount - startIdx, 0)),
       close: () => {
         if (closed) return [];
         closed = true;
@@ -88,17 +78,14 @@ class IntervalTrackingBoundedBuffer {
     }
 
     if (removeIdx === null || minIdx === null || startIdxToRemove === null) {
-      console.log("messed up state inside IntervalTrackingBoundedBuffer");
+      console.log('messed up state inside IntervalTrackingBoundedBuffer');
       return [];
     }
 
     this.activeIntervals.splice(removeIdx, 1);
     const readStartIdx = this.getReadStartIdx(startIdxToRemove);
     const elements = this.buffer.read().slice(readStartIdx);
-    const elementsToDrop =
-      this.getReadStartIdx(
-        minStartIdx === null ? this.writeCount : minStartIdx
-      ) - readStartIdx;
+    const elementsToDrop = this.getReadStartIdx(minStartIdx === null ? this.writeCount : minStartIdx) - readStartIdx;
     if (elementsToDrop > 0) {
       this.buffer.dropFirst(elementsToDrop);
       this.evictionCount += elementsToDrop;

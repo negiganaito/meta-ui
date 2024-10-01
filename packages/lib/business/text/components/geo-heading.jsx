@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { GeoFlexbox } from '@meta-business/layout';
-import { GeoTextUtils } from '@meta-business/utils';
+import { GeoFlexbox } from '@meta-ui/business/layout';
+import { GeoTextUtils } from '@meta-ui/business/utils';
 
 import { GeoBaseText } from './geo-base-text';
 

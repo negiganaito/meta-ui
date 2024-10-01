@@ -1,4 +1,4 @@
-import { recoverableViolation } from '@meta-core/error';
+import { recoverableViolation } from '@meta-ui/core/error';
 
 /**
  * Merges multiple refs into a single callback ref.

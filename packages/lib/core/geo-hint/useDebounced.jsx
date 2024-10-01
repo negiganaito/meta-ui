@@ -1,66 +1,6 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from 'react';
 
-import debounce from "../business/helpers/debounce";
+import debounce from '../business/helpers/debounce';
 
 function useDebounced(callback, delay = 100, immediate = false) {
   const callbackRef = useRef(callback);
@@ -93,9 +33,9 @@ function useDebounced(callback, delay = 100, immediate = false) {
           }
         },
         delay,
-        immediate
+        immediate,
       ),
-    [delay, immediate]
+    [delay, immediate],
   );
 
   return debouncedFunction;

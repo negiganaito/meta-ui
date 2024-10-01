@@ -1,17 +1,10 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
+import performanceNow from 'fbjs/lib/performanceNow';
+import removeFromArray from 'fbjs/lib/removeFromArray';
 
-import performanceNow from "fbjs/lib/performanceNow";
-import removeFromArray from "fbjs/lib/removeFromArray";
+import Env from './Env';
+import IntervalTrackingBoundedBuffer from './IntervalTrackingBoundedBuffer';
 
-import Env from "./Env";
-import IntervalTrackingBoundedBuffer from "./IntervalTrackingBoundedBuffer";
-
-const DEFAULT_GUARD_NAME = "<anonymous guard>";
+const DEFAULT_GUARD_NAME = '<anonymous guard>';
 let skipGuardGlobal = false;
 const TAALOpcode = {
   PREVIOUS_FILE: 1,
@@ -28,7 +21,7 @@ const ERROR_TYPES = {
 };
 const metadataBuffer = [];
 const guardStack = [];
-const RE_EXN_ID = "RE_EXN_ID";
+const RE_EXN_ID = 'RE_EXN_ID';
 
 const guardState = {
   pushGuard(guard) {
@@ -69,28 +62,19 @@ function createError(message, ...params) {
 
 function getErrorSafe(error) {
   let safeError = null;
-  if (error === null || typeof error !== "object") {
+  if (error === null || typeof error !== 'object') {
     safeError = createError(`Non-object thrown: ${String(error)}`);
   } else if (Object.prototype.hasOwnProperty.call(error, RE_EXN_ID)) {
-    safeError = createError(
-      `Rescript exception thrown: ${JSON.stringify(error)}`
-    );
-  } else if (typeof error.then === "function") {
+    safeError = createError(`Rescript exception thrown: ${JSON.stringify(error)}`);
+  } else if (typeof error.then === 'function') {
     safeError = createError(`Promise thrown: ${JSON.stringify(error)}`);
-  } else if (typeof error.message !== "string") {
+  } else if (typeof error.message !== 'string') {
+    safeError = createError(`Non-error thrown: ${String(error)}, keys: ${JSON.stringify(Object.keys(error).sort())}`);
+  } else if (error.messageFormat !== null && typeof error.messageFormat !== 'string') {
     safeError = createError(
-      `Non-error thrown: ${String(error)}, keys: ${JSON.stringify(
-        Object.keys(error).sort()
-      )}`
-    );
-  } else if (
-    error.messageFormat !== null &&
-    typeof error.messageFormat !== "string"
-  ) {
-    safeError = createError(
-      `Error with non-string messageFormat thrown: ${String(
-        error.message
-      )}, ${String(error)}, keys: ${JSON.stringify(Object.keys(error).sort())}`
+      `Error with non-string messageFormat thrown: ${String(error.message)}, ${String(error)}, keys: ${JSON.stringify(
+        Object.keys(error).sort(),
+      )}`,
     );
   } else if (Object.isExtensible && !Object.isExtensible(error)) {
     safeError = createError(`Non-extensible thrown: ${String(error.message)}`);
@@ -129,12 +113,8 @@ class Metadata {
   format() {
     return this.metadata.map((entry) =>
       entry && entry.length
-        ? entry
-            .map((item) =>
-              item !== null ? String(item).replace(/:/g, "_") : ""
-            )
-            .join(":")
-        : null
+        ? entry.map((item) => (item !== null ? String(item).replace(/:/g, '_') : '')).join(':')
+        : null,
     );
   }
 
@@ -145,11 +125,7 @@ class Metadata {
 
 function aggregateError(targetError, sourceError) {
   if (Object.isFrozen(targetError)) return;
-  if (
-    sourceError.type &&
-    (!targetError.type ||
-      ERROR_TYPES[targetError.type] > ERROR_TYPES[sourceError.type])
-  ) {
+  if (sourceError.type && (!targetError.type || ERROR_TYPES[targetError.type] > ERROR_TYPES[sourceError.type])) {
     targetError.type = sourceError.type;
   }
   if (sourceError.metadata !== null) {
@@ -175,10 +151,7 @@ function aggregateError(targetError, sourceError) {
   if (sourceError.loggingSource !== null) {
     targetError.loggingSource = sourceError.loggingSource;
   }
-  if (
-    sourceError.messageFormat !== null &&
-    sourceError.messageFormat !== targetError.messageFormat
-  ) {
+  if (sourceError.messageFormat !== null && sourceError.messageFormat !== targetError.messageFormat) {
     targetError.messageFormat = `${targetError.messageFormat} [Caught in: ${sourceError.messageFormat}]`;
     targetError.messageParams.push(...(sourceError.messageParams ?? []));
   }
@@ -186,28 +159,19 @@ function aggregateError(targetError, sourceError) {
   targetError.messageParams ??= sourceError.messageParams;
   if (sourceError.forcedKey !== null) {
     targetError.forcedKey =
-      targetError.forcedKey !== null
-        ? `${sourceError.forcedKey}_${targetError.forcedKey}`
-        : sourceError.forcedKey;
+      targetError.forcedKey !== null ? `${sourceError.forcedKey}_${targetError.forcedKey}` : sourceError.forcedKey;
   }
 }
 
 function toReadableMessage(error) {
-  return formatMessage(
-    error.messageFormat ?? error.message,
-    error.messageParams ?? []
-  );
+  return formatMessage(error.messageFormat ?? error.message, error.messageParams ?? []);
 }
 
 function formatMessage(format, params) {
   let index = 0;
   return (
-    String(format).replace(/%s/g, () =>
-      index < params.length ? params[index++] : "NOPARAM"
-    ) +
-    (index < params.length
-      ? ` PARAMS${JSON.stringify(params.slice(index))}`
-      : "")
+    String(format).replace(/%s/g, () => (index < params.length ? params[index++] : 'NOPARAM')) +
+    (index < params.length ? ` PARAMS${JSON.stringify(params.slice(index))}` : '')
   );
 }
 
@@ -231,14 +195,14 @@ const STACK_TRACE_LINE_PATTERNS = [
 const HTML_DOC_PATTERN = /^\s*\<!doctype/i;
 
 function parseStackTrace(stack) {
-  const lines = stack.trim().split("\n");
+  const lines = stack.trim().split('\n');
   return lines.map(parseStackTraceLine);
 }
 
 function parseStackTraceLine(line) {
   const trimmedLine = line.trim();
   if (HTML_DOC_PATTERN.test(trimmedLine)) {
-    return { identifier: "<inlined-file>" };
+    return { identifier: '<inlined-file>' };
   }
   for (const pattern of STACK_TRACE_LINE_PATTERNS) {
     const match = trimmedLine.match(pattern);
@@ -256,11 +220,11 @@ function parseStackTraceLine(line) {
 
 function parseComponentStack(stack) {
   if (!stack) return null;
-  const lines = stack.trim().split("\n");
+  const lines = stack.trim().split('\n');
   return lines.map(parseStackTraceLine);
 }
 
-const HASH_CHARS = "abcdefghijklmnopqrstuvwxyz012345";
+const HASH_CHARS = 'abcdefghijklmnopqrstuvwxyz012345';
 
 function getSimpleHash(...inputs) {
   let hash = 0;
@@ -271,7 +235,7 @@ function getSimpleHash(...inputs) {
       }
     }
   }
-  let hashString = "";
+  let hashString = '';
   for (let i = 0; i < 6; i++) {
     hashString = HASH_CHARS.charAt(hash & 31) + hashString;
     hash >>= 5;
@@ -281,9 +245,7 @@ function getSimpleHash(...inputs) {
 
 function formatStackFrame(frame) {
   let { identifier, script, line, column } = frame;
-  let result = `    at ${
-    identifier !== null && identifier !== undefined ? identifier : "<unknown>"
-  }`;
+  let result = `    at ${identifier !== null && identifier !== undefined ? identifier : '<unknown>'}`;
   if (script !== null && line !== null && column !== null) {
     result += ` (${script}:${line}:${column})`;
   }
@@ -295,7 +257,7 @@ function normalizeError(error) {
   const normalizedError = {
     name: error.name,
     message: ErrorSerializer.toReadableMessage(error),
-    stack: stackTrace.map(formatStackFrame).join("\n"),
+    stack: stackTrace.map(formatStackFrame).join('\n'),
     stackFrames: stackTrace,
     metadata: error.metadata?.format() ?? new Metadata().format(),
     messageFormat: error.messageFormat ?? error.message,
@@ -311,13 +273,7 @@ function normalizeError(error) {
     column: error.column,
     clientTime: Math.floor(Date.now() / 1000),
     page_time: Math.floor(performanceNow()),
-    hash: getSimpleHash(
-      error.name,
-      error.stack,
-      error.type,
-      error.project,
-      error.loggingSource
-    ),
+    hash: getSimpleHash(error.name, error.stack, error.type, error.project, error.loggingSource),
   };
   return normalizedError;
 }
@@ -329,7 +285,7 @@ function ifNormalizedError(error) {
 const ErrorNormalizeUtils = {
   formatStackFrame(stackFrame) {
     const { identifier, script, line, column } = stackFrame;
-    let frame = `    at ${identifier ?? "<unknown>"}`;
+    let frame = `    at ${identifier ?? '<unknown>'}`;
     if (script && line && column) {
       frame += ` (${script}:${line}:${column})`;
     }
@@ -347,9 +303,7 @@ const ErrorPubSub = {
   addListener(listener, retroactive = false) {
     errorHistory.push(listener);
     if (!retroactive) {
-      errorHistory.forEach((error) =>
-        listener(error, error.loggingSource ?? "DEPRECATED")
-      );
+      errorHistory.forEach((error) => listener(error, error.loggingSource ?? 'DEPRECATED'));
     }
   },
   unshiftListener(listener) {
@@ -364,13 +318,12 @@ const ErrorPubSub = {
   },
   reportNormalizedError(error) {
     error.guardList = error.guardList ?? [];
-    error.componentStackFrames && error.guardList.unshift("<global.react>");
-    ErrorPubSub.history.length > ERROR_HISTORY_LIMIT &&
-      ErrorPubSub.history.splice(ERROR_HISTORY_LIMIT / 2, 1);
+    error.componentStackFrames && error.guardList.unshift('<global.react>');
+    ErrorPubSub.history.length > ERROR_HISTORY_LIMIT && ErrorPubSub.history.splice(ERROR_HISTORY_LIMIT / 2, 1);
     ErrorPubSub.history.push(error);
     for (const listener of errorHistory) {
       try {
-        listener(error, error.loggingSource ?? "DEPRECATED");
+        listener(error, error.loggingSource ?? 'DEPRECATED');
       } catch (e) {}
     }
   },
@@ -378,8 +331,7 @@ const ErrorPubSub = {
 
 // eslint-disable-next-line max-params
 export function applyWithGuard(fn, context, args, guardOptions) {
-  guardOptions?.name &&
-    (guardOptions.deferredSource = guardOptions.deferredSource ?? {});
+  guardOptions?.name && (guardOptions.deferredSource = guardOptions.deferredSource ?? {});
   guardOptions.deferredSource = guardOptions.deferredSource ?? {};
 
   const guard = {
@@ -402,8 +354,8 @@ export function applyWithGuard(fn, context, args, guardOptions) {
     const safeError = getErrorSafe(error);
     ErrorSerializer.aggregateError(safeError, {
       deferredSource: guardOptions?.deferredSource,
-      loggingSource: "GUARDED",
-      project: guardOptions?.project ?? "ErrorGuard",
+      loggingSource: 'GUARDED',
+      project: guardOptions?.project ?? 'ErrorGuard',
       type: guardOptions?.errorType,
     });
 
@@ -436,7 +388,7 @@ const TimeSlice = {
   },
   guard(fn, context) {
     return guard(fn, {
-      name: `TimeSlice${context ? `: ${context}` : ""}`,
+      name: `TimeSlice${context ? `: ${context}` : ''}`,
     });
   },
   copyGuardForWrapper(fn, context) {

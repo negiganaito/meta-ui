@@ -2,7 +2,7 @@ import {
   HeroCurrentInteractionForLoggingContext,
   HeroInteractionContext,
   HeroInteractionIDContext,
-} from '@meta-core/contexts';
+} from '@meta-ui/core/contexts';
 
 import { HeroInteractionContextPassthrough } from './components/hero-interaction-context-passthrough';
 import { HeroPlaceholder } from './components/hero-placeholder';

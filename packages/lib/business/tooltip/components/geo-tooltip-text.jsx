@@ -1,3 +1,3 @@
-import { GeoPopoverText } from '@meta-business/popover';
+import { GeoPopoverText } from '@meta-ui/business/popover';
 
 export const GeoTooltipText = GeoPopoverText;

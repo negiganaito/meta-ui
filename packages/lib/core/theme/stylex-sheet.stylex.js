@@ -1,4 +1,4 @@
-import { invariant } from '@meta-core/error';
+import { invariant } from '@meta-ui/core/error';
 import Locale from 'fbjs/lib/Locale';
 
 const LIGHT_MODE_CLASS_NAME = '__fb-light-mode';

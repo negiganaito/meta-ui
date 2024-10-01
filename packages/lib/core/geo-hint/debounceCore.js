@@ -1,10 +1,4 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-import TimeSlice from "./TimeSlice";
+import TimeSlice from './TimeSlice';
 
 // eslint-disable-next-line max-params
 function debounceCore(
@@ -13,7 +7,7 @@ function debounceCore(
   context = null,
   setTimeoutFunc = setTimeout,
   clearTimeoutFunc = clearTimeout,
-  immediate = false
+  immediate = false,
 ) {
   let timeout;
   let callNow = true;
@@ -25,7 +19,7 @@ function debounceCore(
       if (!immediate) {
         func.apply(context, args);
       }
-    }, "debounceCore");
+    }, 'debounceCore');
 
     if (immediate) {
       if (callNow) {

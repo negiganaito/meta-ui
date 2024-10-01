@@ -1,6 +1,6 @@
 import React, { Suspense, useCallback, useContext, useLayoutEffect, useRef } from 'react';
-import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-core/contexts';
-import { useStable } from '@meta-core/hooks';
+import { HeroInteractionContext, HeroInteractionIDContext } from '@meta-ui/core/contexts';
+import { useStable } from '@meta-ui/core/hooks';
 
 import { HeroFallbackTracker } from '../utils/hero-fallback-tracker';
 import { HeroPlaceholderUtils } from '../utils/hero-placeholder-utils';

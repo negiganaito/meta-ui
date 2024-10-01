@@ -4,7 +4,7 @@ import {
   HeroInteractionContext,
   HeroInteractionIDContext,
   RelayProfilerContext,
-} from '@meta-core/contexts';
+} from '@meta-ui/core/contexts';
 
 const heroCurrentInteractionForLoggingValue = {
   current: null,

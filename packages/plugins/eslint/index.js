@@ -145,5 +145,21 @@ module.exports = {
     'no-void': OFF,
 
     'react/no-children-prop': OFF,
+
+    // 'object-curly-newline': [
+    //   'error',
+    //   {
+    //     ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
+    //     ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
+    //   },
+    // ],
+
+    // 'object-curly-newline': [
+    //   'error',
+    //   {
+    //     ObjectExpression: { minProperties: 4, multiline: true, consistent: true },
+    //     ObjectPattern: { minProperties: 4, multiline: true, consistent: true },
+    //   },
+    // ],
   },
 };

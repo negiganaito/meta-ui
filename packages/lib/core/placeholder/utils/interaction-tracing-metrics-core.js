@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-import { addAnnotations } from '@meta-core/utils';
+import { addAnnotations } from '@meta-ui/core/utils';
 import performanceNowSinceAppStart from 'fbjs/lib/performanceNow';
 
 import { HeroPendingPlaceholderTracker } from './hero-pending-placeholder-tracker';

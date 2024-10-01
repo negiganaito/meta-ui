@@ -23,6 +23,8 @@ const fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf',
 
 console.log(process.env.NODE_ENV);
 
+console.log({ __dirname });
+
 module.exports = (env, { mode }) => {
   const isProduction = mode === 'production';
   const isDevelopment = mode !== 'production';
@@ -36,6 +38,9 @@ module.exports = (env, { mode }) => {
       extensions: fileExtensions.map((extension) => '.' + extension).concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
 
       alias: {
+        '@meta-ui/core': path.resolve(__dirname, '../../packages/lib/core'),
+        '@meta-ui/business': path.resolve(__dirname, '../../packages/lib/business'),
+
         // '@meta-business/contexts': path.resolve(__dirname, 'node_modules/@meta-business/contexts'),
         // '@meta-business/styles': path.resolve(__dirname, 'node_modules/@meta-business/styles'),
         // '@meta-business/text': path.resolve(__dirname, 'node_modules/@meta-business/text'),
