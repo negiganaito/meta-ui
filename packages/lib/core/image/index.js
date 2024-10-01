@@ -1,9 +1,9 @@
+export { BaseImage } from './components/base-image';
 export { BaseImage_DEPRECATED } from './components/base-image_DEPRECATED';
 export { BaseSVGIcon } from './components/base-svg-icon';
 export { BaseSvgImage } from './components/base-svg-image';
 export { CometImageFromIXValue } from './components/comet-image-from-ix-value';
 export { CometSVGIcon } from './components/comet-svg-icon';
-export { BaseImage } from './components/components/base-image';
 export { FDSIcon } from './components/fds-icon';
 export { FDSSkittleIcon } from './components/fds-skittle-icon';
 export { Image } from './components/image';

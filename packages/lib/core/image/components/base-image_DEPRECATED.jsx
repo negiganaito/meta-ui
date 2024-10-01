@@ -169,5 +169,3 @@ export const BaseImage_DEPRECATED = forwardRef((props, ref) => {
   //   src,
   // });
 });
-
-BaseImage_DEPRECATED.displayName = 'BaseImage_DEPRECATED';

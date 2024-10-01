@@ -383,5 +383,3 @@ export const CometPressable = forwardRef((props, externalRef) => {
     />
   );
 });
-
-CometPressable.displayName = 'CometPressable.react';

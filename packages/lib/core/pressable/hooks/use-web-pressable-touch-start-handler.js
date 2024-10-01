@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { passiveEventListenerUtil } from '@meta-core/event-interaction';
+import { passiveEventListenerUtil } from '@meta-ui/core/event-interaction';
 import { useDynamicCallbackDANGEROUS } from '@meta-ui/core/react-utils';
 import UserAgent from 'fbjs/lib/UserAgent';
 

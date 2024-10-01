@@ -1,4 +1,9 @@
-import { ReactContextMenuEvent, ReactFocusEvent, ReactHoverEvent, ReactPressEvent } from '@meta-core/event-interaction';
+import {
+  ReactContextMenuEvent,
+  ReactFocusEvent,
+  ReactHoverEvent,
+  ReactPressEvent,
+} from '@meta-ui/core/event-interaction';
 
 function usePressability(targetRef, options) {
   const {

@@ -4,7 +4,7 @@ export { CometPressable } from './comet-pressable';
 export { CometPressableChildrenWithOverlay } from './comet-pressable-children-with-overlay';
 export { CometPressableOverlay } from './comet-pressable-overlay';
 export { CometPressableOverlayContainer } from './comet-pressable-overlay-container';
-export { FDSInlinePressableText } from './fds-inline-pressable-text';
+// export { FDSInlinePressableText } from './fds-inline-pressable-text';
 export { FDSListCellPressable } from './fds-list-cell-pressable';
 export { Pressable } from './pressable';
 export { PressableText } from './pressable-text';

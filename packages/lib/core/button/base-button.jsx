@@ -186,5 +186,3 @@ export const BaseButton = forwardRef((props, ref) => {
     // });
   }
 });
-
-BaseButton.displayName = 'BaseButton.react';

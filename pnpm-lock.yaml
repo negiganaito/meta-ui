@@ -364,6 +364,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.0
         version: 18.3.0
+      '@types/react-router-dom':
+        specifier: 5.3.3
+        version: 5.3.3
       babel-plugin-module-resolver:
         specifier: 5.0.2
         version: 5.0.2
@@ -376,6 +379,9 @@ importers:
       react-dom:
         specifier: git://github.com/tienlx97/react-dom-experimental.git#www
         version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
+      react-router-dom:
+        specifier: 6.23.1
+        version: 6.23.1(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
       scheduler:
         specifier: 0.22.0
         version: 0.22.0
