@@ -93,12 +93,6 @@ importers:
       '@meta-plugins/configs-prettier':
         specifier: workspace:*
         version: link:../../packages/plugins/prettier
-      '@meta-ui/business':
-        specifier: workspace:*
-        version: link:../../packages/lib/business
-      '@meta-ui/core':
-        specifier: workspace:*
-        version: link:../../packages/lib/core
       react:
         specifier: git://github.com/tienlx97/react-experimental.git#www
         version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
@@ -298,9 +292,12 @@ importers:
       webpack:
         specifier: ^5.76.0
         version: 5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)
+      webpack-bundle-analyzer:
+        specifier: 4.10.2
+        version: 4.10.2
       webpack-cli:
         specifier: ^5.0.1
-        version: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+        version: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
       webpack-dev-server:
         specifier: ^4.11.1
         version: 4.11.1(webpack-cli@5.0.1)(webpack@5.76.0)
@@ -310,81 +307,6 @@ importers:
       yargs:
         specifier: 17.7.2
         version: 17.7.2
-
-  packages/lib/business:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../plugins/eslint
-      '@meta-ui/core':
-        specifier: workspace:*
-        version: link:../core
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      babel-plugin-module-resolver:
-        specifier: 5.0.2
-        version: 5.0.2
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
-
-  packages/lib/core:
-    devDependencies:
-      '@meta-plugins/configs-eslint':
-        specifier: workspace:*
-        version: link:../../plugins/eslint
-      '@stylexjs/stylex':
-        specifier: 0.6.1
-        version: 0.6.1
-      '@types/node':
-        specifier: ^18.11.18
-        version: 18.19.50
-      '@types/react':
-        specifier: 18.3.8
-        version: 18.3.8
-      '@types/react-dom':
-        specifier: 18.3.0
-        version: 18.3.0
-      '@types/react-router-dom':
-        specifier: 5.3.3
-        version: 5.3.3
-      babel-plugin-module-resolver:
-        specifier: 5.0.2
-        version: 5.0.2
-      fbjs:
-        specifier: 3.0.5
-        version: 3.0.5
-      react:
-        specifier: git://github.com/tienlx97/react-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397
-      react-dom:
-        specifier: git://github.com/tienlx97/react-dom-experimental.git#www
-        version: https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      react-router-dom:
-        specifier: 6.23.1
-        version: 6.23.1(react-dom@https://codeload.github.com/tienlx97/react-dom-experimental/tar.gz/6a8da0c57b0b60c1d5ba47a5a0358c65a3fdcd69(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397))(react@https://codeload.github.com/tienlx97/react-experimental/tar.gz/acfc5aa360d39a1c90fc78dd65951b503360d397)
-      scheduler:
-        specifier: 0.22.0
-        version: 0.22.0
 
   packages/plugins/commitlint:
     dependencies:
@@ -1839,6 +1761,9 @@ packages:
       webpack-plugin-serve:
         optional: true
 
+  '@polka/url@1.0.0-next.28':
+    resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
+
   '@react-native-community/cli-clean@14.1.0':
     resolution: {integrity: sha512-/C4j1yntLo6faztNgZnsDtgpGqa6j0+GYrxOY8LqaKAN03OCnoeUUKO6w78dycbYSGglc1xjJg2RZI/M2oF2AA==}
 
@@ -2506,6 +2431,10 @@ packages:
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
 
+  acorn-walk@8.3.4:
+    resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
+    engines: {node: '>=0.4.0'}
+
   acorn@7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
     engines: {node: '>=0.4.0'}
@@ -2759,9 +2688,6 @@ packages:
   babel-plugin-macros@3.1.0:
     resolution: {integrity: sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==}
     engines: {node: '>=10', npm: '>=6'}
-
-  babel-plugin-module-resolver@5.0.2:
-    resolution: {integrity: sha512-9KtaCazHee2xc0ibfqsDeamwDps6FZNo5S0Q81dUqEuFzVwPhcT4J5jOqIVvgCA3Q/wO9hKYxN/Ds3tIsp5ygg==}
 
   babel-plugin-polyfill-corejs2@0.3.3:
     resolution: {integrity: sha512-8hOdmFYFSZhqg2C/JgLUQ+t52o5nirNwaWM2B9LWteozwIvM14VSwdsCAUET10qT+kmySAlseadmfeeSWFCy+Q==}
@@ -3346,6 +3272,9 @@ packages:
   dayjs@1.11.13:
     resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
+  debounce@1.2.1:
+    resolution: {integrity: sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==}
+
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -3513,6 +3442,9 @@ packages:
   dreamopt@0.6.0:
     resolution: {integrity: sha512-KRJa47iBEK0y6ZtgCgy2ykuvMT8c9gj3ua9Dv7vCkclFJJeH2FjhGY2xO5qBoWGahsjCGMlk4Cq9wJYeWxuYhQ==}
     engines: {node: '>=0.4.0'}
+
+  duplexer@0.1.2:
+    resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
@@ -4020,9 +3952,6 @@ packages:
     resolution: {integrity: sha512-6BN9trH7bp3qvnrRyzsBz+g3lZxTNZTbVO2EV1CS0WIcDbawYVdYvGflME/9QP0h0pYlCDBCTjYa9nZzMDpyxQ==}
     engines: {node: '>= 0.8'}
 
-  find-babel-config@2.1.2:
-    resolution: {integrity: sha512-ZfZp1rQyp4gyuxqt1ZqjFGVeVBvmpURMqdIWXbPRfB97Bf6BzdK/xSIbylEINzQ0kB5tlDQfn9HkNXXWsqTqLg==}
-
   find-cache-dir@2.1.0:
     resolution: {integrity: sha512-Tq6PixE0w/VMFfCgbONnkiQIVol/JJL7nRMi20fqzA4NRs9AfeqMGeRdPi3wIhYkxjeBaWh2rxwapn5Tu3IqOQ==}
     engines: {node: '>=6'}
@@ -4215,10 +4144,6 @@ packages:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     deprecated: Glob versions prior to v9 are no longer supported
 
-  glob@9.3.5:
-    resolution: {integrity: sha512-e1LleDykUz2Iu+MTYdkSsuWX8lvAjAcs0Xef0lNIu0S2wOAzuTxCJtcd9S3cijlwYF18EsU3rzb8jPVobxDh9Q==}
-    engines: {node: '>=16 || 14 >=14.17'}
-
   global-directory@4.0.1:
     resolution: {integrity: sha512-wHTUcDUoZ1H5/0iVqEudYW4/kAlN5cZ3j/bXn0Dpbizl9iaUVeWSHqiOjsgk6OW2bkLclbBjzewBz6weQ1zA2Q==}
     engines: {node: '>=18'}
@@ -4271,6 +4196,10 @@ packages:
   graphql@15.3.0:
     resolution: {integrity: sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==}
     engines: {node: '>= 10.x'}
+
+  gzip-size@6.0.0:
+    resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}
+    engines: {node: '>=10'}
 
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
@@ -4369,6 +4298,9 @@ packages:
 
   html-entities@2.5.2:
     resolution: {integrity: sha512-K//PSRMQk4FZ78Kyau+mZurHn3FH0Vwr+H36eE0rPbeYkRRi9YxceYPhuN60UwWorxyKHhqoAJl2OFKa4BVtaA==}
+
+  html-escaper@2.0.2:
+    resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
   html-minifier-terser@6.1.0:
     resolution: {integrity: sha512-YXxSlJBZTP7RS3tWnQw74ooKa6L9b9i9QYXY21eUEvhZ3u9XLfv6OnFsQq6RxkhHygsaUMvYsZRV5rU/OVNZxw==}
@@ -5408,20 +5340,12 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
-  minimatch@8.0.4:
-    resolution: {integrity: sha512-W0Wvr9HyFXZRGIDgCicunpQ299OKXs9RgZfaukz4qAW/pJhcpUfupc9c+OObPOFueNy8VSrZgEmDtk6Kh4WzDA==}
-    engines: {node: '>=16 || 14 >=14.17'}
-
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
-
-  minipass@4.2.8:
-    resolution: {integrity: sha512-fNzuVyifolSLFL4NzpF+wEF4qrgqaaKX0haXPQEdQ7NKAN+WecoKMHV09YcuL/DHxrUsYQOK3MiuDf7Ip2OXfQ==}
-    engines: {node: '>=8'}
 
   minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
@@ -5444,6 +5368,10 @@ packages:
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
+
+  mrmime@2.0.0:
+    resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
+    engines: {node: '>=10'}
 
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -5674,6 +5602,10 @@ packages:
     resolution: {integrity: sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==}
     engines: {node: '>=12'}
 
+  opener@1.5.2:
+    resolution: {integrity: sha512-ur5UIdyw5Y7yEj9wLzhqXiy6GZ3Mwx0yGI+5sMn2r0N0v3cKJvUmFH5yPP+WXh9e0xfyzyJX95D8l088DNFj7A==}
+    hasBin: true
+
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
@@ -5896,10 +5828,6 @@ packages:
 
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
-    engines: {node: '>=8'}
-
-  pkg-up@3.1.0:
-    resolution: {integrity: sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==}
     engines: {node: '>=8'}
 
   plop@4.0.1:
@@ -6589,9 +6517,6 @@ packages:
   requires-port@1.0.0:
     resolution: {integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==}
 
-  reselect@4.1.8:
-    resolution: {integrity: sha512-ab9EmR80F/zQTMNeneUr4cv+jSwPJgIlvEmVwLerwrWVbpLlBuls9XHzIeTFy4cegU2NHBp3va0LKOzU5qFEYQ==}
-
   resize-observer-polyfill@1.5.1:
     resolution: {integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==}
 
@@ -6830,6 +6755,10 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  sirv@2.0.4:
+    resolution: {integrity: sha512-94Bdh3cC2PKrbgSOUqTiGPWVZeSiXfKOVZNJniWoqrWrRkB1CJzBU3NEbiTsPcYy1lDsANA/THzS+9WBiy5nfQ==}
+    engines: {node: '>= 10'}
 
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
@@ -7175,6 +7104,10 @@ packages:
     resolution: {integrity: sha512-o5sSPKEkg/DIQNmH43V0/uerLrpzVedkUh8tGNvaeXpfpuwjKenlSox/2O/BTlZUtEe+JG7s5YhEz608PlAHRA==}
     engines: {node: '>=0.6'}
 
+  totalist@3.0.1:
+    resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
+    engines: {node: '>=6'}
+
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
@@ -7430,6 +7363,11 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
+
+  webpack-bundle-analyzer@4.10.2:
+    resolution: {integrity: sha512-vJptkMm9pk5si4Bv922ZbKLV8UTT4zib4FPgXMhgzUny0bfDDkLXAVQs3ly3fS4/TN9ROFtb0NFrm04UXFE/Vw==}
+    engines: {node: '>= 10.13.0'}
+    hasBin: true
 
   webpack-cli@5.0.1:
     resolution: {integrity: sha512-S3KVAyfwUqr0Mo/ur3NzIp6jnerNpo7GUO6so51mxLi1spqsA17YcMXy0WOIJtBSnj748lthxC6XLbNKh/ZC+A==}
@@ -9330,6 +9268,8 @@ snapshots:
       type-fest: 3.13.1
       webpack-dev-server: 4.11.1(webpack-cli@5.0.1)(webpack@5.76.0)
 
+  '@polka/url@1.0.0-next.28': {}
+
   '@react-native-community/cli-clean@14.1.0':
     dependencies:
       '@react-native-community/cli-tools': 14.1.0
@@ -10199,20 +10139,20 @@ snapshots:
       '@webassemblyjs/ast': 1.11.1
       '@xtuc/long': 4.2.2
 
-  '@webpack-cli/configtest@2.1.1(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
+  '@webpack-cli/configtest@2.1.1(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
     dependencies:
       webpack: 5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)
-      webpack-cli: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+      webpack-cli: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
 
-  '@webpack-cli/info@2.0.2(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
+  '@webpack-cli/info@2.0.2(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
     dependencies:
       webpack: 5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)
-      webpack-cli: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+      webpack-cli: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
 
-  '@webpack-cli/serve@2.0.5(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack-dev-server@4.11.1(webpack-cli@5.0.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
+  '@webpack-cli/serve@2.0.5(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack-dev-server@4.11.1(webpack-cli@5.0.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))':
     dependencies:
       webpack: 5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)
-      webpack-cli: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+      webpack-cli: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
     optionalDependencies:
       webpack-dev-server: 4.11.1(webpack-cli@5.0.1)(webpack@5.76.0)
 
@@ -10245,6 +10185,10 @@ snapshots:
       acorn: 7.4.1
 
   acorn-jsx@5.3.2(acorn@8.12.1):
+    dependencies:
+      acorn: 8.12.1
+
+  acorn-walk@8.3.4:
     dependencies:
       acorn: 8.12.1
 
@@ -10520,14 +10464,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
       cosmiconfig: 7.1.0
-      resolve: 1.22.8
-
-  babel-plugin-module-resolver@5.0.2:
-    dependencies:
-      find-babel-config: 2.1.2
-      glob: 9.3.5
-      pkg-up: 3.1.0
-      reselect: 4.1.8
       resolve: 1.22.8
 
   babel-plugin-polyfill-corejs2@0.3.3(@babel/core@7.25.2):
@@ -11250,6 +11186,8 @@ snapshots:
 
   dayjs@1.11.13: {}
 
+  debounce@1.2.1: {}
+
   debug@2.6.9:
     dependencies:
       ms: 2.0.0
@@ -11413,6 +11351,8 @@ snapshots:
   dreamopt@0.6.0:
     dependencies:
       wordwrap: 1.0.0
+
+  duplexer@0.1.2: {}
 
   eastasianwidth@0.2.0: {}
 
@@ -12099,10 +12039,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  find-babel-config@2.1.2:
-    dependencies:
-      json5: 2.2.3
-
   find-cache-dir@2.1.0:
     dependencies:
       commondir: 1.0.1
@@ -12296,13 +12232,6 @@ snapshots:
       once: 1.4.0
       path-is-absolute: 1.0.1
 
-  glob@9.3.5:
-    dependencies:
-      fs.realpath: 1.0.0
-      minimatch: 8.0.4
-      minipass: 4.2.8
-      path-scurry: 1.11.1
-
   global-directory@4.0.1:
     dependencies:
       ini: 4.1.1
@@ -12375,6 +12304,10 @@ snapshots:
   graphemer@1.4.0: {}
 
   graphql@15.3.0: {}
+
+  gzip-size@6.0.0:
+    dependencies:
+      duplexer: 0.1.2
 
   handle-thing@2.0.1: {}
 
@@ -12476,6 +12409,8 @@ snapshots:
       wbuf: 1.7.3
 
   html-entities@2.5.2: {}
+
+  html-escaper@2.0.2: {}
 
   html-minifier-terser@6.1.0:
     dependencies:
@@ -13798,17 +13733,11 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.11
 
-  minimatch@8.0.4:
-    dependencies:
-      brace-expansion: 2.0.1
-
   minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.1
 
   minimist@1.2.8: {}
-
-  minipass@4.2.8: {}
 
   minipass@7.1.2: {}
 
@@ -13821,6 +13750,8 @@ snapshots:
   mkdirp@3.0.1: {}
 
   mri@1.2.0: {}
+
+  mrmime@2.0.0: {}
 
   ms@2.0.0: {}
 
@@ -14063,6 +13994,8 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
+  opener@1.5.2: {}
+
   optionator@0.9.4:
     dependencies:
       deep-is: 0.1.4
@@ -14293,10 +14226,6 @@ snapshots:
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
-
-  pkg-up@3.1.0:
-    dependencies:
-      find-up: 3.0.0
 
   plop@4.0.1:
     dependencies:
@@ -15500,8 +15429,6 @@ snapshots:
 
   requires-port@1.0.0: {}
 
-  reselect@4.1.8: {}
-
   resize-observer-polyfill@1.5.1: {}
 
   resolve-cwd@3.0.0:
@@ -15764,6 +15691,12 @@ snapshots:
   signal-exit@3.0.7: {}
 
   signal-exit@4.1.0: {}
+
+  sirv@2.0.4:
+    dependencies:
+      '@polka/url': 1.0.0-next.28
+      mrmime: 2.0.0
+      totalist: 3.0.1
 
   sisteransi@1.0.5: {}
 
@@ -16126,6 +16059,8 @@ snapshots:
 
   toidentifier@1.0.1: {}
 
+  totalist@3.0.1: {}
+
   tr46@0.0.3: {}
 
   trim-lines@3.0.1: {}
@@ -16451,12 +16386,30 @@ snapshots:
 
   webidl-conversions@3.0.1: {}
 
-  webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0):
+  webpack-bundle-analyzer@4.10.2:
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
-      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
-      '@webpack-cli/info': 2.0.2(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
-      '@webpack-cli/serve': 2.0.5(webpack-cli@5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack-dev-server@4.11.1(webpack-cli@5.0.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
+      acorn: 8.12.1
+      acorn-walk: 8.3.4
+      commander: 7.2.0
+      debounce: 1.2.1
+      escape-string-regexp: 4.0.0
+      gzip-size: 6.0.0
+      html-escaper: 2.0.2
+      opener: 1.5.2
+      picocolors: 1.1.0
+      sirv: 2.0.4
+      ws: 7.5.10
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+
+  webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0):
+    dependencies:
+      '@discoveryjs/json-ext': 0.5.7
+      '@webpack-cli/configtest': 2.1.1(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
+      '@webpack-cli/info': 2.0.2(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
+      '@webpack-cli/serve': 2.0.5(webpack-cli@5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0))(webpack-dev-server@4.11.1(webpack-cli@5.0.1)(webpack@5.76.0))(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
       colorette: 2.0.20
       commander: 9.5.0
       cross-spawn: 7.0.3
@@ -16468,6 +16421,7 @@ snapshots:
       webpack: 5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)
       webpack-merge: 5.10.0
     optionalDependencies:
+      webpack-bundle-analyzer: 4.10.2
       webpack-dev-server: 4.11.1(webpack-cli@5.0.1)(webpack@5.76.0)
 
   webpack-dev-middleware@5.3.4(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1)):
@@ -16512,7 +16466,7 @@ snapshots:
       webpack-dev-middleware: 5.3.4(webpack@5.76.0(@swc/core@1.7.26)(webpack-cli@5.0.1))
       ws: 8.18.0
     optionalDependencies:
-      webpack-cli: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+      webpack-cli: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -16561,7 +16515,7 @@ snapshots:
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
-      webpack-cli: 5.0.1(webpack-dev-server@4.11.1)(webpack@5.76.0)
+      webpack-cli: 5.0.1(webpack-bundle-analyzer@4.10.2)(webpack-dev-server@4.11.1)(webpack@5.76.0)
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
