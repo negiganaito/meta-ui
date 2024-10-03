@@ -6,4 +6,5 @@ export { CometColumn } from './comet-column';
 export { CometColumnItem } from './comet-column-item';
 export { CometRow } from './comet-row';
 export { CometRowItem } from './comet-row-item';
+export { HiddenSubtreeContextProvider } from './hidden-subtree-context-provider';
 export { LegacyHidden, LegacyHiddenOffscreen } from './legacy-hidden';

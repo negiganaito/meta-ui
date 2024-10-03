@@ -14,6 +14,9 @@ export { CometCompositeStructureContext } from './comet-composite-structure-cont
 export { CometContainerPressableContext } from './comet-container-pressable-context';
 export { CometDangerouslySuppressInteractiveElementsContext } from './comet-dangerously-suppress-interactive-elements-context';
 export { CometFocusGroupContext } from './comet-focus-group-context';
+export { CometKeyCommandContext } from './comet-key-command-context';
+export { CometKeyCommandSettingsContext } from './comet-key-command-settings-context';
+export { CometKeyCommandUtilsContext } from './comet-key-command-utils-context';
 export { CometRowContext } from './comet-row-context';
 export { FDSTextContext } from './fds-text-context';
 export { HeroCurrentInteractionForLoggingContext } from './hero-current-interaction-for-logging-context';
