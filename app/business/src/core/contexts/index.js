@@ -20,4 +20,5 @@ export { HeroCurrentInteractionForLoggingContext } from './hero-current-interact
 export { HeroInteractionContext } from './hero-interaction-context';
 export { HeroInteractionIDContext } from './hero-interaction-id-context';
 export { HiddenSubtreeContext } from './hidden-subtree-context';
+export { HiddenSubtreePassiveContext } from './hidden-subtree-passive-context';
 export { RelayProfilerContext } from './relay-profiler-context';

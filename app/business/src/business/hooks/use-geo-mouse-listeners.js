@@ -2,7 +2,11 @@ import { useEffect, useRef } from 'react';
 import { useShallowArrayEqualMemo } from '@meta-ui/core/hooks';
 
 function containsNode(containerRef, node) {
-  return containerRef?.current?.contains(node) ?? false;
+  return containerRef === null
+    ? undefined
+    : containerRef.current === null
+    ? undefined
+    : containerRef.current.contains(node);
 }
 
 function someContainerContainsNode(containerRefs, node) {

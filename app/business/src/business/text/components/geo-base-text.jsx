@@ -1,7 +1,6 @@
 import { createElement, forwardRef, Suspense, useCallback, useContext, useRef, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import {
-  DocumentTranslationStatusContext,
   GeoPrivateBaseTextContext,
   GeoPrivateDisabledContext,
   GeoPrivateDisableHeadingStructureContext,
@@ -16,6 +15,8 @@ import { useMergeRefs } from '@meta-ui/core/react-utils';
 import stylex from '@stylexjs/stylex';
 
 import { useGeoPrivateTextStyle } from '../hooks/use-geo-private-text-style';
+
+import { DocumentTranslationStatusProvider } from './document-translation-status-provider';
 
 const justKnobX_1568 = true;
 
@@ -114,6 +115,8 @@ export const GeoBaseText = forwardRef((props, ref) => {
   //   [handleTooltipContent]
   // );
 
+  const e = DocumentTranslationStatusProvider.useTranslationKeyForTextParent();
+
   const domIDProps = GeoDomID.useApplyGeoDomIDsDirectly({
     id: id ?? void 0,
   });
@@ -121,8 +124,6 @@ export const GeoBaseText = forwardRef((props, ref) => {
   const { ref: domRef, ...restDomIDProps } = domIDProps;
 
   const mergedRef = useMergeRefs(elementRef, handleMouseEnter, ref, domRef);
-
-  const translationKey = DocumentTranslationStatusContext.useTranslationKeyForTextParent();
 
   return jsxs(GeoPrivateBaseTextContext.Provider, {
     value: true,
@@ -145,7 +146,7 @@ export const GeoBaseText = forwardRef((props, ref) => {
           ref: mergedRef,
           role: !disableHeadingStructure && GeoTextUtils.isHeader(size) ? 'heading' : undefined,
           style: inlineStyle,
-          key: translationKey,
+          key: e,
           ...restDomIDProps,
         },
         children,

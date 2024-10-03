@@ -1,7 +1,9 @@
 export { GeoSSRSafeIdsContext } from '../utils/contexts/geo-ssr-safe-ids-context';
 export { BUIPrivateButtonLayoutContext } from './bui-private-button-layout-context';
+export { CometRouterPushViewStackContext } from './comet-router-push-view-stack-context';
 export { DocumentTranslationStatusContext } from './document-translation-status-context';
 export { GeoBaseHintSingletonContext } from './geo-base-hint-singleton-context';
+export { GeoDataVizAnimationContext } from './geo-data-viz-animation-context';
 export { GeoLazyContext } from './geo-lazy-context';
 export { GeoPrivateAnimationLayerContext } from './geo-private-animation-layer-context';
 export { GeoPrivateBaseHintContext } from './geo-private-base-hint-context';

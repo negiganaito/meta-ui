@@ -1,5 +1,7 @@
 import { useBoolean, useCallbackListener, useDebouncedValue } from '@meta-ui/core/hooks';
 
+import { useGeoPrivateLazyHoverBehavior } from './use-geo-private-lazy-hover-behavior';
+
 export const useGeoPrivateHintHoverBehavior = ({ renderDelay, onToggle }) => {
   const { value: isVisible, setTrue: showLayer, setFalse: hideLayer } = useBoolean(false);
 

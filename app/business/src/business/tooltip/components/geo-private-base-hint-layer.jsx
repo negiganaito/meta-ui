@@ -84,13 +84,10 @@ export const GeoPrivateBaseHintLayer = ({
     visibilityContext || onShowLayer();
   };
 
-  useGeoMouseListeners(
-    handleMouseEnter,
-    handleMouseLeave,
-    handleMouseMove,
+  useGeoMouseListeners(handleMouseEnter, handleMouseLeave, handleMouseMove, [
     isEnabled ? finalTriggerRef : null,
     hoverable ? layerRef : null,
-  );
+  ]);
 
   useEffect(() => {
     const triggerElement = finalTriggerRef?.current;

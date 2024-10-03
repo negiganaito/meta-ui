@@ -1,1 +1,1 @@
-module.exports = require('@meta-plugins/configs-prettier');
+module.exports = require('eslint-config-alloy/.prettierrc.js');

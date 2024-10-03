@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { jsx } from 'react/jsx-runtime';
 
 import { GeoPrivateHintContent } from './geo-private-hint-content';
 import { GeoPrivateHintLayer } from './geo-private-hint-layer';
@@ -29,7 +30,7 @@ export const GeoTooltip = ({ content, groupName = 'GeoTooltip', heading, onToggl
 
   // Content renderer for GeoPrivateHintLayer
   const renderContent = (tooltipProps) => {
-    return React.jsx(GeoPrivateHintContent, {
+    return jsx(GeoPrivateHintContent, {
       ...tooltipProps,
       content: tooltipContent,
       contentRef: contentRef,
@@ -37,7 +38,7 @@ export const GeoTooltip = ({ content, groupName = 'GeoTooltip', heading, onToggl
     });
   };
 
-  return React.jsx(GeoPrivateHintLayer, {
+  return jsx(GeoPrivateHintLayer, {
     ...rest,
     contentRenderer: renderContent,
     groupName,

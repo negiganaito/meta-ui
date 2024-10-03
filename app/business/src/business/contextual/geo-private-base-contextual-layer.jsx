@@ -457,7 +457,7 @@ export const GeoPrivateBaseContextualLayer = ({
         mode={isHidden ? 'hidden' : 'visible'}
         ref={combinedRefs}
       >
-        <FocusRegion
+        <FocusRegion.FocusRegion
           autoFocusQuery={
             !isHidden && (autoFocus ?? containFocus) ? focusScopeQueries.headerFirstTabbableSecondScopeQuery : null
           }
@@ -474,7 +474,7 @@ export const GeoPrivateBaseContextualLayer = ({
               </BaseContextualLayerLayerAdjustmentContext.Provider>
             </BaseContextualLayerContextSizeContext.Provider>
           </BaseContextualLayerAnchorRoot>
-        </FocusRegion>
+        </FocusRegion.FocusRegion>
       </LegacyHidden>
     </GeoPrivateBasePortal>
   );

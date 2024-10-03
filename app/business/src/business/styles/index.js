@@ -11,6 +11,7 @@ export { GeoPrivateDefaultElevationGeneratedStyles } from './geo-private-default
 export { GeoPrivateDefaultSpacingGeneratedStyles } from './geo-private-default-spacing-generated-styles';
 export { GeoPrivateDefaultTextGeneratedStyles } from './geo-private-default-text-generated-styles';
 export { GeoPrivateDefaultTransitionGeneratedStyles } from './geo-private-default-transition-generated-styles';
+export { GeoPrivateNextTextGeneratedStyles } from './geo-private-next-text-generated-styles';
 export { GeoSpacingSelectors } from './geo-spacing-selectors';
 export { GeoTextSelectors } from './geo-text-selectors';
 export { GeoTransitionSelectors } from './geo-transition-selectors';

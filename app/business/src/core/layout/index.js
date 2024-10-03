@@ -1,3 +1,4 @@
+export { BaseDocumentScrollView } from './base-document-scroll-view';
 export { BaseRow } from './base-row';
 export { BaseRowItem } from './base-row-item';
 export { BaseView } from './base-view';
