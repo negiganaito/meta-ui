@@ -1,4 +1,4 @@
-import { unrecoverableViolation } from '@meta-ui/core/error';
+import { unrecoverableViolation } from '@meta-core/error/unrecoverable-violation';
 
 export class CircularBuffer {
   constructor(size) {

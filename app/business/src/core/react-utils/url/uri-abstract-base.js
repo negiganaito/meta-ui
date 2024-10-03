@@ -1,4 +1,4 @@
-import { FBLogger, invariant } from '@meta-ui/core/error';
+import { FBLogger, invariant } from '@meta-core/error';
 
 import { isSameOrigin as _isSameOrigin } from './is-same-origin';
 import { PHPStrictQuerySerializer } from './php-strict-query-serializer';

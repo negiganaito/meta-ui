@@ -4,8 +4,8 @@
 
 import { useCallback, useLayoutEffect, useRef } from 'react';
 import ReactDOMComet from 'react-dom';
-import { FBLogger } from '@meta-ui/core/error';
-import { uniqueID } from '@meta-ui/core/utils';
+import { FBLogger } from '@meta-core/error/fb-logger';
+import { uniqueID } from '@meta-core/utils/unique-id';
 
 export function useResizeObserver(a) {
   let b = useRef(null);

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect } from 'react';
-import { recoverableViolation } from '@meta-ui/core/error';
+import { recoverableViolation } from '@meta-core/error/recoverable-violation';
 
 import { createKeyCommandWrapper } from './create-key-command-wrapper';
 

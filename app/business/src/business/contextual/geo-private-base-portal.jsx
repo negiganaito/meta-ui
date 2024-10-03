@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import { createPortal } from 'react-dom';
-import { GeoPrivateBasePortalTargetContext } from '@meta-ui/business/contexts';
-import { useStable } from '@meta-ui/core/hooks';
-import { CometVisualCompletionAttributes } from '@meta-ui/core/react-utils';
-import { Promise } from '@meta-ui/core/utils';
+import { GeoPrivateBasePortalTargetContext } from '@meta-business/contexts/geo-private-base-portal-target-context';
+import { useStable } from '@meta-core/hooks/use-stable';
+import { CometVisualCompletionAttributes } from '@meta-core/react-utils/comet-visual-completion-attributes';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
 import { GeoPrivateBaseDOMContainer } from './geo-private-base-dom-container';

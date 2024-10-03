@@ -1,6 +1,7 @@
 import React, { forwardRef, useContext } from 'react';
-import { BaseButtonPopoverContext } from '@meta-ui/core/contexts';
-import { Pressable, PressableText } from '@meta-ui/core/pressable';
+import { BaseButtonPopoverContext } from '@meta-core/contexts/base-button-popover-context';
+import { Pressable } from '@meta-core/pressable/pressable';
+import { PressableText } from '@meta-core/pressable/pressable-text';
 
 // eslint-disable-next-line complexity
 export const BaseButton = forwardRef((props, ref) => {

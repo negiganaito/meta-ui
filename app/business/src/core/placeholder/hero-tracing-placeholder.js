@@ -1,15 +1,13 @@
-import {
-  HeroCurrentInteractionForLoggingContext,
-  HeroInteractionContext,
-  HeroInteractionIDContext,
-} from '@meta-ui/core/contexts';
+import { HeroCurrentInteractionForLoggingContext } from '../contexts/hero-current-interaction-for-logging-context';
+import { HeroInteractionContext } from '../contexts/hero-interaction-context';
+import { HeroInteractionIDContext } from '../contexts/hero-interaction-id-context';
 
-import { HeroInteractionContextPassthrough } from './components/hero-interaction-context-passthrough';
-import { HeroPlaceholder } from './components/hero-placeholder';
-import { HeroComponent } from './utils/hero-component';
-import { HeroHoldTrigger } from './utils/hero-hold-trigger';
-import { HeroPendingPlaceholderTracker } from './utils/hero-pending-placeholder-tracker';
-import { HeroPlaceholderUtils } from './utils/hero-placeholder-utils';
+import { HeroComponent } from './hero-component';
+import { HeroHoldTrigger } from './hero-hold-trigger';
+import { HeroInteractionContextPassthrough } from './hero-interaction-context-passthrough';
+import { HeroPendingPlaceholderTracker } from './hero-pending-placeholder-tracker';
+import { HeroPlaceholder } from './hero-placeholder';
+import { HeroPlaceholderUtils } from './hero-placeholder-utils';
 
 export const HeroTracingPlaceholder = {
   HeroComponent,

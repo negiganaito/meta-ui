@@ -1,4 +1,4 @@
-import { uniqueID } from '@meta-ui/core/utils';
+import { uniqueID } from '@meta-core/utils/unique-id';
 
 export function getOrCreateDOMID(element) {
   if (!element.id) {

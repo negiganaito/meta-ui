@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext, useMemo } from 'react';
-import { CometColumnContext } from '@meta-ui/core/contexts';
+import { CometColumnContext } from '@meta-core/contexts/comet-column-context';
 import stylex from '@stylexjs/stylex';
 import UserAgent from 'fbjs/lib/UserAgent';
 

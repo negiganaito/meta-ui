@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
-import { ReactEventHookPropagation } from '@meta-ui/core/react-utils';
+import { ReactEventHookPropagation } from '@meta-core/react-utils/react-event-hook-propagation';
 
-import { ReactEventHelpers } from './utils/react-event-helpers';
+import { ReactEventHelpers } from './react-event-helpers';
 import { ReactUseEvent } from './react-use-event';
 
 const hoverOptions = {

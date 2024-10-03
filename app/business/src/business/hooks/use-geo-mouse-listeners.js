@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useShallowArrayEqualMemo } from '@meta-ui/core/hooks';
+import { useShallowArrayEqualMemo } from '@meta-core/hooks/use-shallow-array-equal-memo';
 
 function containsNode(containerRef, node) {
   return containerRef === null

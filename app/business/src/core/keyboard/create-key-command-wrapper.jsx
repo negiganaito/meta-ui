@@ -1,19 +1,15 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-
 import { useCallback, useContext, useMemo, useRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { recoverableViolation } from '@meta-ui/core/error';
+import { CometKeyCommandContext } from '@meta-core/contexts/comet-key-command-context';
+import { CometKeyCommandSettingsContext } from '@meta-core/contexts/comet-key-command-settings-context';
+import { CometKeyCommandUtilsContext } from '@meta-core/contexts/comet-key-command-utils-context';
+import { recoverableViolation } from '@meta-core/error/recoverable-violation';
+import { useStable } from '@meta-core/hooks/use-stable';
 import stylex from '@stylexjs/stylex';
 
-import { CometKeyCommandContext, CometKeyCommandSettingsContext, CometKeyCommandUtilsContext } from '../contexts';
-import { useStable } from '../hooks';
-
-import { areKeyCombinationsEqual, createKeyCommand, isSingleCharKey } from './utils';
+import { areKeyCombinationsEqual } from './are-key-combinations-equal';
+import { createKeyCommand } from './create-key-command';
+import { isSingleCharKey } from './is-single-char-key';
 
 const styles = stylex.create({
   wrapperFocusable: {

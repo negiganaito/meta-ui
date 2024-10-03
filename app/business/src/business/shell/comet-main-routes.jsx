@@ -1,6 +1,6 @@
 import React from 'react';
-import { CometLayerKeyCommandWrapper } from '@meta-ui/core/keyboard';
-import { HiddenSubtreeContextProvider } from '@meta-ui/core/layout';
+import { CometLayerKeyCommandWrapper } from '@meta-core/keyboard/comet-layer-key-command-wrapper';
+import { HiddenSubtreeContextProvider } from '@meta-core/layout/hidden-subtree-context-provider';
 import stylex from '@stylexjs/stylex';
 
 // import { CometContentWrapperContext } from "../context/comet-content-wrapper-context";
@@ -9,7 +9,7 @@ import stylex from '@stylexjs/stylex';
 //   return a;
 // }
 
-export const CometMainRoute = ({ contentRefProvider, contentStyleProvider, contentXStyleProvider, children }) => {
+export const CometMainRoutes = ({ contentRefProvider, contentStyleProvider, contentXStyleProvider, children }) => {
   // const { mainRoutesWrapper = m } = useContext(CometContentWrapperContext);
 
   // h = c("useCometRouterState")();

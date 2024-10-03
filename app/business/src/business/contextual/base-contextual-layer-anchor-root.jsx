@@ -1,9 +1,10 @@
 import React from 'react';
-import { BaseContextualLayerAnchorRootContext } from '@meta-ui/core/contexts';
-import { useStable, useUnsafeRef_DEPRECATED } from '@meta-ui/core/hooks';
+import { useUnsafeRef_DEPRECATED } from '@meta-business/utils/use-unsafe-ref_DEPRECATED';
+import { BaseContextualLayerAnchorRootContext } from '@meta-core/contexts/base-contextual-layer-anchor-root-context';
+import { useStable } from '@meta-core/hooks/use-stable';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
-import { BaseDOMContainer } from './utils/base-dom-container';
+import { BaseDOMContainer } from './base-dom-container';
 
 export const BaseContextualLayerAnchorRoot = ({ children }) => {
   const el = useStable(() => (ExecutionEnvironment.canUseDOM ? document.createElement('div') : null));

@@ -1,4 +1,4 @@
-import { TimeSlice } from '@meta-ui/core/scheduler';
+import { TimeSlice } from '@meta-core/scheduler/time-slice';
 
 import { setImmediatePolyfill } from './set-immediate-polyfill';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import stylex from '@stylexjs/stylex';
 
 import { BusinessCometMainContentWrapper } from './business-comet-main-content-wrapper';
+import { CometMainRoutes } from './comet-main-routes';
 
 const styles = stylex.create({
   contentContainer: {

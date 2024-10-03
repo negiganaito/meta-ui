@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ContextualThing } from '@meta-ui/core/react-utils';
+import { ContextualThing } from '@meta-core/react-utils/contextual-thing';
 
 export function useGeoPrivateLegacyLayerCompatibility(element) {
   const ref = useRef(null);

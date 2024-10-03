@@ -1,8 +1,9 @@
 import React, { useContext, useMemo } from 'react';
-import { GeoPrivateLayerContext, GeoPrivateLayerPositionContext } from '@meta-ui/business/contexts';
-import { useGeoPrivateLegacyLayerCompatibility } from '@meta-ui/business/hooks';
-import { BaseContextualLayerAnchorRootContext } from '@meta-ui/core/contexts';
-import { useMergeRefs } from '@meta-ui/core/react-utils';
+import { GeoPrivateLayerContext } from '@meta-business/contexts/geo-private-layer-context';
+import { GeoPrivateLayerPositionContext } from '@meta-business/contexts/geo-private-layer-position-context';
+import { useGeoPrivateLegacyLayerCompatibility } from '@meta-business/hooks/use-geo-private-legacy-layer-compatibility';
+import { BaseContextualLayerAnchorRootContext } from '@meta-core/contexts/base-contextual-layer-anchor-root-context';
+import { useMergeRefs } from '@meta-core/react-utils/use-merge-refs';
 import stylex from '@stylexjs/stylex';
 
 import { GeoPrivateBaseContextualLayer } from './geo-private-base-contextual-layer';

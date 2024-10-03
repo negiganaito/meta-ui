@@ -1,6 +1,7 @@
 import React, { useContext, useImperativeHandle, useMemo, useReducer } from 'react';
-import { useRefEffect, useUnsafeRef_DEPRECATED } from '@meta-ui/core/hooks';
-import { compareDOMOrder } from '@meta-ui/core/react-utils';
+import { useUnsafeRef_DEPRECATED } from '@meta-business/utils/use-unsafe-ref_DEPRECATED';
+import { useRefEffect } from '@meta-core/hooks/use-ref-effect';
+import { compareDOMOrder } from '@meta-core/react-utils/compare-dom-order';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 
 export function createLayoutContext(getLayout) {

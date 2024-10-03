@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 
 import React, { forwardRef, useContext } from 'react';
-import { CometColumnContext } from '@meta-ui/core/contexts';
-import { CometErrorBoundary } from '@meta-ui/core/error';
-import { CometPlaceholder } from '@meta-ui/core/placeholder';
-import { stylexCompose } from '@meta-ui/core/styles';
+import { CometColumnContext } from '@meta-core/contexts/comet-column-context';
+import { CometErrorBoundary } from '@meta-core/error/comet-error-boundary';
+import { CometPlaceholder } from '@meta-core/placeholder/comet-placeholder';
+import { stylexCompose } from '@meta-core/styles/stylex-compose';
 import stylex from '@stylexjs/stylex';
 import UserAgent from 'fbjs/lib/UserAgent';
 

@@ -1,4 +1,4 @@
-import { invariant } from '@meta-ui/core/error';
+import { invariant } from '@meta-core/error';
 
 export function flattenPHPQueryData(data) {
   return flattenObject(data, '', {});

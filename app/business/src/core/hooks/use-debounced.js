@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react';
-import { debounce } from '@meta-ui/core/utils';
+import { debounce } from '@meta-core/utils/debounce';
 
 export function useDebounced(callback, delay = 100, immediate = false) {
   // Store the latest version of the callback using useRef

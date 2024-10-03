@@ -1,6 +1,6 @@
 // __d("TimeSliceSham", ["Env", "ErrorGuard", "IntervalTrackingBoundedBuffer"], (function(a, b, c, d, e, f) {
 
-import { ErrorGuard } from '@meta-ui/core/error';
+import { ErrorGuard } from '@meta-core/error/error-guard';
 
 import { IntervalTrackingBoundedBuffer } from './interval-tracking-bounded-buffer';
 

@@ -1,6 +1,6 @@
 import { useContext, useMemo } from 'react';
 
-import { GeoSSRSafeIdsContext } from './contexts/geo-ssr-safe-ids-context';
+import { GeoSSRSafeIdsContext } from './geo-ssr-safe-ids-context';
 import { useShallowEqualMemo } from './use-shallow-equal-memo';
 
 const attributeMap = new Map([['htmlFor', 'for']]);

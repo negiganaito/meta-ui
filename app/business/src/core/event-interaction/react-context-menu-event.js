@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ReactEventHookPropagation } from '@meta-ui/core/react-utils';
+import { ReactEventHookPropagation } from '@meta-core/react-utils/react-event-hook-propagation';
 
 import { ReactUseEvent } from './react-use-event';
 

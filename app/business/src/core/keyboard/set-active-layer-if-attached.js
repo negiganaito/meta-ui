@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
-
-import { CometKeyCommandUtilsContext, HiddenSubtreeContext } from '../contexts';
-import { recoverableViolation } from '../error';
+import { CometKeyCommandUtilsContext } from '@meta-core/contexts/comet-key-command-utils-context';
+import { HiddenSubtreeContext } from '@meta-core/contexts/hidden-subtree-context';
+import { recoverableViolation } from '@meta-core/error/recoverable-violation';
 
 import { CometLayerKeyCommandWidget } from './comet-layer-key-command-widget';
 

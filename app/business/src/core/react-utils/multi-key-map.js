@@ -1,4 +1,4 @@
-import { invariant } from '@meta-ui/core/error';
+import { invariant } from '@meta-core/error/invariant';
 
 import { lastx } from './lastx';
 

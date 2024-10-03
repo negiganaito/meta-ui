@@ -226,10 +226,10 @@
 
 import { useCallback, useContext, useLayoutEffect, useRef, useState } from 'react';
 import { jsx } from 'react/jsx-runtime';
+import { HiddenSubtreeContext } from '@meta-core/contexts/hidden-subtree-context';
+import { usePrevious } from '@meta-core/hooks/use-previous';
+import { useStable } from '@meta-core/hooks/use-stable';
 import stylex from '@stylexjs/stylex';
-
-import { HiddenSubtreeContext } from '../contexts';
-import { usePrevious, useStable } from '../hooks';
 
 import { BaseView } from './base-view';
 import { HiddenSubtreeContextProvider } from './hidden-subtree-context-provider';

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { unstable_createEventHandle } from 'react-dom';
-import { useUnsafeRef_DEPRECATED } from '@meta-ui/core/hooks';
-import { ReactEventHookPropagation } from '@meta-ui/core/react-utils';
+import { useUnsafeRef_DEPRECATED } from '@meta-core/hooks/use-unsafe-ref_DEPRECATED';
+import { ReactEventHookPropagation } from '@meta-core/react-utils/react-event-hook-propagation';
 
-import { ReactEventHelpers } from './utils/react-event-helpers';
+import { ReactEventHelpers } from './react-event-helpers';
 import { ReactUseEvent } from './react-use-event';
 
 const globalFocusVisibleEvents = ReactEventHelpers.hasPointerEvents

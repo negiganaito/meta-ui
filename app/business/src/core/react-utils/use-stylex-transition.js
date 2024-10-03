@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useLayoutEffect, useRef } from 'react';
-import { useForceUpdate, useIsMountedRef, useStable } from '@meta-ui/core/hooks';
-import { differenceSets, mapMapToArray, mapSet, nullthrows, setImmediate, sortBy } from '@meta-ui/core/utils';
+import { useForceUpdate } from '@meta-core/hooks/use-force-update';
+import { useIsMountedRef } from '@meta-core/hooks/use-is-mounted-ref';
+import { useStable } from '@meta-core/hooks/use-stable';
+import { differenceSets } from '@meta-core/utils/difference-sets';
+import { mapMapToArray } from '@meta-core/utils/map-map-to-array';
+import { mapSet } from '@meta-core/utils/mapSet';
+import { nullthrows } from '@meta-core/utils/nullthrows';
+import { sortBy } from '@meta-core/utils/sort-by';
 
 function useTimeouts() {
   const timeouts = useStable(() => new Map());

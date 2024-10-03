@@ -8,25 +8,25 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useResizeObserver } from '@meta-ui/business/utils';
-import {
-  BaseContextualLayerAnchorRootContext,
-  BaseContextualLayerContextSizeContext,
-  BaseContextualLayerLayerAdjustmentContext,
-  BaseContextualLayerOrientationContext,
-  BaseScrollableAreaContext,
-  BaseViewportMarginsContext,
-  HiddenSubtreeContext,
-} from '@meta-ui/core/contexts';
-import { FocusRegion, focusScopeQueries } from '@meta-ui/core/focus';
-import { LegacyHidden } from '@meta-ui/core/layout';
-import { isElementFixedOrSticky, mergeRefs } from '@meta-ui/core/react-utils';
+import { BaseContextualLayerAnchorRootContext } from '@meta-core/contexts/base-contextual-layer-anchor-root-context';
+import { BaseContextualLayerContextSizeContext } from '@meta-core/contexts/base-contextual-layer-context-size-context';
+import { BaseContextualLayerLayerAdjustmentContext } from '@meta-core/contexts/base-contextual-layer-layer-adjustment-context';
+import { BaseContextualLayerOrientationContext } from '@meta-core/contexts/base-contextual-layer-orientation-context';
+import { BaseScrollableAreaContext } from '@meta-core/contexts/base-scrollable-area-context';
+import { BaseViewportMarginsContext } from '@meta-core/contexts/base-viewport-margins-context';
+import { HiddenSubtreeContext } from '@meta-core/contexts/hidden-subtree-context';
+import { FocusRegion } from '@meta-core/focus/focus-region';
+import { focusScopeQueries } from '@meta-core/focus/focus-scope-queries';
+import { LegacyHidden } from '@meta-core/layout/legacy-hidden';
+import { isElementFixedOrSticky } from '@meta-core/react-utils/is-element-fixed-or-sticky';
+import { mergeRefs } from '@meta-core/react-utils/merge-refs';
+import { useResizeObserver } from '@meta-core/react-utils/use-resize-observer';
 import stylex from '@stylexjs/stylex';
 import Locale from 'fbjs/lib/Locale';
 
-import { getGeoPrivateBaseContextualLayerPositioningStyles_DEPRECATED } from './utils/get-geo-private-base-contextual-layer-positioning-styles_DEPRECATED';
 import { BaseContextualLayerAnchorRoot } from './base-contextual-layer-anchor-root';
 import { GeoPrivateBasePortal } from './geo-private-base-portal';
+import { getGeoPrivateBaseContextualLayerPositioningStyles_DEPRECATED } from './get-geo-private-base-contextual-layer-positioning-styles_DEPRECATED';
 
 const isRTL = Locale.isRTL();
 

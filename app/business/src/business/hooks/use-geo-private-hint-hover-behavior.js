@@ -1,4 +1,6 @@
-import { useBoolean, useCallbackListener, useDebouncedValue } from '@meta-ui/core/hooks';
+import { useBoolean } from '@meta-core/hooks/use-boolean';
+import { useCallbackListener } from '@meta-core/hooks/use-callback-listener';
+import { useDebouncedValue } from '@meta-core/hooks/use-debounced-value';
 
 import { useGeoPrivateLazyHoverBehavior } from './use-geo-private-lazy-hover-behavior';
 

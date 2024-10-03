@@ -1,4 +1,4 @@
-import { TimeSlice } from '@meta-ui/core/scheduler';
+import { TimeSlice } from '@meta-core/scheduler/time-slice';
 
 // eslint-disable-next-line max-params
 export function debounceCore(a, b, d, e, f, g) {
@@ -27,8 +27,8 @@ export function debounceCore(a, b, d, e, f, g) {
     }
     // eslint-disable-next-line no-sequences
     // eslint-disable-next-line no-sequences
+    // eslint-disable-next-line no-sequences
     else
-      // eslint-disable-next-line no-sequences
       j.reset(),
         (n = TimeSlice.guard(() => {
           // eslint-disable-next-line no-sequences

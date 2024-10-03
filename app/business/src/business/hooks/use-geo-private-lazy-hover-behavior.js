@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
-import { GeoLazyContext } from '@meta-ui/business/contexts';
-import { useDebounced } from '@meta-ui/core/hooks';
+import { GeoLazyContext } from '@meta-business/contexts/geo-lazy-context';
+import { useDebounced } from '@meta-core/hooks/use-debounced';
 
 const DEFAULT_DELAY = 500;
 

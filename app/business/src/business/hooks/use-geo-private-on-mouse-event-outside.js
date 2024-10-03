@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useShallowArrayEqualMemo } from '@meta-ui/core/hooks';
-import { ContextualThing } from '@meta-ui/core/react-utils';
+import { useShallowArrayEqualMemo } from '@meta-core/hooks/use-shallow-array-equal-memo';
+import { ContextualThing } from '@meta-core/react-utils/contextual-thing';
 
 function isMouseEventOutside(event, ref) {
   const target = event.target;

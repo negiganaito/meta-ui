@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react';
-import { GeoPrivateLayerContext } from '@meta-ui/business/contexts';
-import { useMergeRefs } from '@meta-ui/core/react-utils';
+import { GeoPrivateLayerContext } from '@meta-business/contexts/geo-private-layer-context';
+import { useMergeRefs } from '@meta-core/react-utils/use-merge-refs';
 
 export const useGeoPrivateLayerBehavior = ({ ref, xstyle }) => {
   const context = useContext(GeoPrivateLayerContext);

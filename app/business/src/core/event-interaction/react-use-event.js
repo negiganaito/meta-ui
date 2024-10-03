@@ -1,6 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { unstable_createEventHandle } from 'react-dom';
-import { useUnsafeRef_DEPRECATED } from '@meta-ui/core/hooks';
+import { useUnsafeRef_DEPRECATED } from '@meta-core/hooks/use-unsafe-ref_DEPRECATED';
 
 /**
  *

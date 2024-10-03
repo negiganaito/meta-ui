@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { useRefEffect } from '@meta-ui/core/hooks';
-import { Keys } from '@meta-ui/core/utils';
+import { useRefEffect } from '@meta-core/hooks/use-ref-effect';
+import { Keys } from '@meta-core/utils/keys';
 
 export const useGeoPrivateOnEscape = (onEscape, options) => {
   const contain = options?.contain === true;

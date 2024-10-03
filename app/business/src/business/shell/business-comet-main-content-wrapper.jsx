@@ -1,8 +1,8 @@
 import React from 'react';
-import { BaseViewportMarginsContext } from '@meta-ui/core/contexts';
-import { CometContextualLayerAnchorRoot } from '@meta-ui/core/contextual';
-import { BaseDocumentScrollView } from '@meta-ui/core/layout';
-import { CometPlaceholder } from '@meta-ui/core/placeholder';
+import { BaseViewportMarginsContext } from '@meta-core/contexts/base-viewport-margins-context';
+import { CometContextualLayerAnchorRoot } from '@meta-core/contextual/comet-contextual-layer-anchor-root';
+import { BaseDocumentScrollView } from '@meta-core/layout/base-document-scroll-view';
+import { CometPlaceholder } from '@meta-core/placeholder/comet-placeholder';
 import stylex from '@stylexjs/stylex';
 
 import { CometRootContainer } from './comet-root-container';

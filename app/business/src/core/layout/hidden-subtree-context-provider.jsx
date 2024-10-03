@@ -1,9 +1,9 @@
 import { useCallback, useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { jsx } from 'react/jsx-runtime';
-import { useUnsafeRef_DEPRECATED } from '@meta-ui/core/hooks';
+import { HiddenSubtreeContext } from '@meta-core/contexts/hidden-subtree-context';
+import { HiddenSubtreePassiveContext } from '@meta-core/contexts/hidden-subtree-passive-context';
+import { useUnsafeRef_DEPRECATED } from '@meta-core/hooks/use-unsafe-ref_DEPRECATED';
 import removeFromArray from 'fbjs/lib/removeFromArray';
-
-import { HiddenSubtreeContext, HiddenSubtreePassiveContext } from '../contexts';
 
 function o(a, b) {
   return a.backgrounded === b.backgrounded && a.hidden === b.hidden;

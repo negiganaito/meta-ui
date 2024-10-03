@@ -1,4 +1,4 @@
-import { shallowArrayEqual } from '@meta-ui/core/utils';
+import { shallowArrayEqual } from '@meta-core/utils/shallow-array-equal';
 
 import { useCustomEqualityMemo } from './use-custom-equality-memo';
 

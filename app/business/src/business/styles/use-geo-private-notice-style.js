@@ -1,4 +1,5 @@
-import { useGeoPrivateIsNextTheme, useGeoTheme } from '@meta-ui/business/theme';
+import { useGeoPrivateIsNextTheme } from '@meta-business/theme/use-geo-private-is-next-theme';
+import { useGeoTheme } from '@meta-business/theme/use-geo-theme';
 import stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({

@@ -1,5 +1,5 @@
 import React, { forwardRef, memo, useLayoutEffect, useRef } from 'react';
-import { useMergeRefs } from '@meta-ui/core/react-utils';
+import { useMergeRefs } from '@meta-core/react-utils/use-merge-refs';
 
 export const GeoPrivateBaseDOMContainer = memo(
   forwardRef(({ node }, ref) => {

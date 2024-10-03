@@ -1,4 +1,4 @@
-import { ErrorPubSub } from '@meta-ui/core/error';
+import { ErrorPubSub } from '@meta-core/error/error-pub-sub';
 
 import { CircularBuffer } from './circular-buffer';
 

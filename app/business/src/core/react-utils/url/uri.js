@@ -1,4 +1,4 @@
-import { env } from '@meta-ui/core/utils';
+import { env } from '@meta-core/utils';
 
 import { memoize } from '../memoize';
 import { memoizeStringOnly } from '../memorize-string-only';
