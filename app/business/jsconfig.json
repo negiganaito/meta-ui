@@ -21,6 +21,9 @@
       "@meta-business/theme/*": ["./src/business/theme/*"],
       "@meta-business/tooltip/*": ["./src/business/tooltip/*"],
       "@meta-business/utils/*": ["./src/business/utils/*"],
+      "@meta-business/toaster/*": ["./src/business/toaster/*"],
+      "@meta-business/dialog/*": ["./src/business/dialog/*"],
+      "@meta-business/unknown/*": ["./src/business/unknown/*"],
 
       //
       "@meta-core/button/*": ["./src/core/button/*"],
