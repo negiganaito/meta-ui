@@ -3,7 +3,9 @@ import { CometErrorBoundary } from '@meta-core/error/comet-error-boundary';
 import { CometBackupPlaceholder } from '@meta-core/placeholder/comet-backup-placeholder';
 import { CometHeroInteractionWithDiv } from '@meta-core/placeholder/comet-hero-interaction-with-div';
 
-function buildCometRootComponent(Component, initialProps, options) {
+import { CometPlatformAppWrapper } from './comet-platform-app-wrapper';
+
+export function buildCometRootComponent(Component, initialProps, options) {
   const {
     TopLevelWrapper = React.Fragment,
     OtherRootComponents: {
@@ -21,6 +23,8 @@ function buildCometRootComponent(Component, initialProps, options) {
       DensityModeStateProvider,
       KeyboardSettingsStateProvider,
     } = {},
+
+    // temp
     RelayEnvironmentFactoryProvider = React.Fragment,
     CometRouterStateProvider = React.Fragment,
   } = options;
@@ -37,7 +41,7 @@ function buildCometRootComponent(Component, initialProps, options) {
   // const InteractionTracingQPLContextProvider =
   //   CometInteractionTracingQPLConfigContext.CometInteractionTracingQPLConfigContextProvider;
 
-  return function () {
+  return () => {
     return (
       <TopLevelWrapper>
         <CometPlatformAppWrapper
