@@ -75,4 +75,15 @@ export const entriesMap = {
     sz: 'auto',
     loggingID: '478237',
   },
+
+  478231: {
+    sprited: 2,
+    spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    _spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    w: 12,
+    h: 12,
+    p: '0 -1380px',
+    sz: 'auto',
+    loggingID: '478231',
+  },
 };

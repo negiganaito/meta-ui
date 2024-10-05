@@ -7,17 +7,17 @@ export function createKeyCommandWidget(isFocusCapture = true) {
   const Context = createContext();
   const Wrapper = createKeyCommandWrapper(isFocusCapture, Context);
 
-  function useKeyCommands(commands, d, dependencies) {
-    d === void 0 && (d = !1);
+  function useKeyCommands(commands, allowOutsideScope = false, dependencies) {
+    // allowOutsideScope === void 0 && (allowOutsideScope = !1);
 
-    if (d === undefined) {
-      d = false;
-    }
+    // if (allowOutsideScope === undefined) {
+    //   allowOutsideScope = false;
+    // }
 
     let contextValue = useContext(Context);
     useEffect(() => {
       if (!contextValue) {
-        d ||
+        allowOutsideScope ||
           recoverableViolation(
             "Attempting to register a key command outside of its widget scope. Calls to useKeyCommand must be within its widget's wrapper.",
             'comet_ax',
@@ -25,7 +25,7 @@ export function createKeyCommandWidget(isFocusCapture = true) {
         return;
       }
       if (commands) return contextValue.addCommands(commands, dependencies);
-    }, [contextValue, commands, d, dependencies]);
+    }, [contextValue, commands, allowOutsideScope, dependencies]);
   }
 
   return {
