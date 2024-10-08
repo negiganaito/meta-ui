@@ -14,6 +14,7 @@ import { BaseThemeProvider } from '@meta-core/theme/base-theme-provider';
 import stylex from '@stylexjs/stylex';
 
 // CHANGED
+// @Becareful
 export const BaseCometModal = ({
   backdropXStyle,
   blockKeyCommands = false,

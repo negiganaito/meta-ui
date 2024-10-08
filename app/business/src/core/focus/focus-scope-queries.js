@@ -50,15 +50,18 @@ let m = function (a, b) {
   return b['data-focus-target'] === !0 && (b['aria-busy'] === !0 || b.role === 'progressbar') ? !0 : !1;
 };
 
+let n = [i, g];
+
 export const focusScopeQueries = {
-  displayedTabbableScopeQuery: c,
-  focusableScopeQuery: a,
   headerAndSpinnerFocusScopeQuery: g,
-  headerFirstTabbableSecondScopeQuery: l,
-  headerOrTabbableScopeQuery: e,
-  inputFirstTabbbableScopeQuery: b,
+  focusableScopeQuery: a,
   tabbableScopeQuery: i,
+  inputFirstTabbbableScopeQuery: b,
+  displayedTabbableScopeQuery: c,
   tableCellScopeQuery: k,
   tableCellTabbableContentScopeQuery: d,
+  headerFirstTabbableSecondScopeQuery: l,
+  tabbableFirstHeaderSecondScopeQuery: n,
+  headerOrTabbableScopeQuery: e,
   topLoadingScopeQuery: m,
 };

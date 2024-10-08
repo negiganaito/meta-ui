@@ -22,6 +22,10 @@ const styles = stylex.create({
     height: '36px',
     width: '36px',
   },
+  headerTextItem: {
+    display: 'flex',
+    minWidth: 0,
+  },
 });
 
 const isRTL = Locale.isRTL();
@@ -67,16 +71,18 @@ export const FDSDialogHeader = ({
         <html.div style={[styles.headerItem, styles.headerPlaceholder]} />
       )}
       {text && (
-        <FDSText
-          align="center"
-          id={headerID}
-          isSemanticHeading={true}
-          numberOfLines={1}
-          truncationTooltip={showTruncationTooltip ? text : undefined}
-          type={match ? 'headlineEmphasized3' : 'headlineEmphasized2'} // "headlineEmphasized2"
-        >
-          {text}
-        </FDSText>
+        <html.div style={styles.headerTextItem}>
+          <FDSText
+            align="center"
+            id={headerID}
+            isSemanticHeading={true}
+            numberOfLines={1}
+            truncationTooltip={showTruncationTooltip ? text : undefined}
+            type={match ? 'headlineEmphasized3' : 'headlineEmphasized2'} // "headlineEmphasized2"
+          >
+            {text}
+          </FDSText>
+        </html.div>
       )}
       {withCloseButton ? (
         <html.div style={styles.headerItem}>

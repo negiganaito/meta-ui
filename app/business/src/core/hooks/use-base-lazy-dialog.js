@@ -4,32 +4,32 @@ import { CometSuspendedDialogImpl } from '@meta-core/dialog/comet-suspended-dial
 import { lazyLoadComponent } from '@meta-core/lazy-load-component/lazy-load-component';
 
 // eslint-disable-next-line max-params
-export const useBaseLazyDialog = (a, b, d, ee) => {
+export const useBaseLazyDialog = (a, fallback, tracePolicy, ee) => {
   let f = useContext(CometDialogContext);
-  let g = !ee ? void 0 : ee.baseModalProps;
+  let baseModalProps = !ee ? void 0 : ee.baseModalProps;
 
   const e = useCallback(
-    (e, h, i) => {
-      let j = lazyLoadComponent(a);
+    (dialogProps, h, replaceCurrentDialog) => {
+      let dialog = lazyLoadComponent(a);
       f(
         CometSuspendedDialogImpl,
         {
-          dialog: j,
-          dialogProps: e,
-          fallback: b,
+          dialog: dialog,
+          dialogProps: dialogProps,
+          fallback: fallback,
         },
         {
           loadType: 'lazy',
-          tracePolicy: d,
+          tracePolicy: tracePolicy,
         },
         h,
         {
-          baseModalProps: g,
-          replaceCurrentDialog: i,
+          baseModalProps: baseModalProps,
+          replaceCurrentDialog: replaceCurrentDialog,
         },
       );
     },
-    [f, g, a, b, d],
+    [f, baseModalProps, a, fallback, tracePolicy],
   );
 
   let h = useCallback(() => {

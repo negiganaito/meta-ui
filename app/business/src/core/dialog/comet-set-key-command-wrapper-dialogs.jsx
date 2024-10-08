@@ -12,49 +12,109 @@ import emptyFunction from 'fbjs/lib/emptyFunction';
 
 import { useCometLazyDialog } from './use-comet-lazy-dialog';
 
+// export function CometSetKeyCommandWrapperDialogs() {
+//   let a;
+//   let b = useContext(CometKeyCommandSettingsContext);
+//   // eslint-disable-next-line no-cond-assign
+//   a = (a = useContext(CometKeyCommandContext)) ? a : {};
+//   let d = a.setShowModifiedKeyCommandWrapperDialogRef;
+//   let e = a.setShowSingleCharacterKeyCommandWrapperDialogRef;
+//   a = useCometLazyDialog('CometModifiedKeyCommandWrapperDialog');
+//   let f = a[0];
+//   a = useCometLazyDialog('CometKeyCommandWrapperDialog');
+
+//   let g = a[0];
+//   useEffect(() => {
+//     let a = emptyFunction;
+//     d &&
+//       (a = d((a, d) => {
+//         f(
+//           {
+//             command: a,
+//             setModifiedKeyboardShortcutsPreference: b.setModifiedKeyboardShortcutsPreference,
+//             singleCharDescription: d,
+//           },
+//           emptyFunction,
+//         );
+//       }));
+//     return a;
+//   }, [d, f, b.setModifiedKeyboardShortcutsPreference]);
+
+//   useEffect(() => {
+//     let a = emptyFunction;
+//     e &&
+//       (a = e((a, d) => {
+//         g(
+//           {
+//             command: a,
+//             setAreSingleKeysDisabled: b.setAreSingleKeysDisabled,
+//             singleCharDescription: d,
+//           },
+//           emptyFunction,
+//         );
+//       }));
+//     return a;
+//   }, [e, g, b.setAreSingleKeysDisabled]);
+
+//   return null;
+// }
+
 export function CometSetKeyCommandWrapperDialogs() {
-  let a;
-  let b = useContext(CometKeyCommandSettingsContext);
-  // eslint-disable-next-line no-cond-assign
-  a = (a = useContext(CometKeyCommandContext)) ? a : {};
-  let d = a.setShowModifiedKeyCommandWrapperDialogRef;
-  let e = a.setShowSingleCharacterKeyCommandWrapperDialogRef;
-  a = useCometLazyDialog('CometModifiedKeyCommandWrapperDialog');
-  let f = a[0];
-  a = useCometLazyDialog('CometKeyCommandWrapperDialog');
+  const keyCommandSettingsContext = useContext(CometKeyCommandSettingsContext);
+  const keyCommandContext = useContext(CometKeyCommandContext) || {};
 
-  let g = a[0];
+  const setShowModifiedKeyCommandWrapperDialogRef = keyCommandContext.setShowModifiedKeyCommandWrapperDialogRef;
+  const setShowSingleCharacterKeyCommandWrapperDialogRef =
+    keyCommandContext.setShowSingleCharacterKeyCommandWrapperDialogRef;
+
+  const [showModifiedDialog] = useCometLazyDialog('CometModifiedKeyCommandWrapperDialog');
+  const [showSingleCharDialog] = useCometLazyDialog('CometKeyCommandWrapperDialog');
+
   useEffect(() => {
-    let a = emptyFunction;
-    d &&
-      (a = d((a, d) => {
-        f(
+    let cleanup = emptyFunction;
+
+    if (setShowModifiedKeyCommandWrapperDialogRef) {
+      cleanup = setShowModifiedKeyCommandWrapperDialogRef((command, description) => {
+        showModifiedDialog(
           {
-            command: a,
-            setModifiedKeyboardShortcutsPreference: b.setModifiedKeyboardShortcutsPreference,
-            singleCharDescription: d,
+            command,
+            setModifiedKeyboardShortcutsPreference: keyCommandSettingsContext.setModifiedKeyboardShortcutsPreference,
+            singleCharDescription: description,
           },
           emptyFunction,
         );
-      }));
-    return a;
-  }, [d, f, b.setModifiedKeyboardShortcutsPreference]);
+      });
+    }
+
+    return cleanup;
+  }, [
+    setShowModifiedKeyCommandWrapperDialogRef,
+    showModifiedDialog,
+    keyCommandSettingsContext.setModifiedKeyboardShortcutsPreference,
+  ]);
 
   useEffect(() => {
-    let a = emptyFunction;
-    e &&
-      (a = e((a, d) => {
-        g(
+    let cleanup = emptyFunction;
+
+    if (setShowSingleCharacterKeyCommandWrapperDialogRef) {
+      cleanup = setShowSingleCharacterKeyCommandWrapperDialogRef((command, description) => {
+        showSingleCharDialog(
           {
-            command: a,
-            setAreSingleKeysDisabled: b.setAreSingleKeysDisabled,
-            singleCharDescription: d,
+            command,
+            setAreSingleKeysDisabled: keyCommandSettingsContext.setAreSingleKeysDisabled,
+            singleCharDescription: description,
           },
           emptyFunction,
         );
-      }));
-    return a;
-  }, [e, g, b.setAreSingleKeysDisabled]);
+      });
+    }
+
+    return cleanup;
+  }, [
+    setShowSingleCharacterKeyCommandWrapperDialogRef,
+    showSingleCharDialog,
+    keyCommandSettingsContext.setAreSingleKeysDisabled,
+  ]);
 
   return null;
 }

@@ -15,6 +15,7 @@ import { BaseContextualLayerOrientationContext } from '@meta-core/contexts/base-
 import { BaseScrollableAreaContext } from '@meta-core/contexts/base-scrollable-area-context';
 import { BaseViewportMarginsContext } from '@meta-core/contexts/base-viewport-margins-context';
 import { HiddenSubtreeContext } from '@meta-core/contexts/hidden-subtree-context';
+import { BaseContextualLayerAnchorRoot } from '@meta-core/contextual/base-contextual-layer-anchor-root';
 import { FocusRegion } from '@meta-core/focus/focus-region';
 import { focusScopeQueries } from '@meta-core/focus/focus-scope-queries';
 import { LegacyHidden } from '@meta-core/layout/legacy-hidden';
@@ -24,7 +25,7 @@ import { useResizeObserver } from '@meta-core/react-utils/use-resize-observer';
 import stylex from '@stylexjs/stylex';
 import Locale from 'fbjs/lib/Locale';
 
-import { BaseContextualLayerAnchorRoot } from './base-contextual-layer-anchor-root';
+// import { BaseContextualLayerAnchorRoot } from './base-contextual-layer-anchor-root';
 import { GeoPrivateBasePortal } from './geo-private-base-portal';
 import { getGeoPrivateBaseContextualLayerPositioningStyles_DEPRECATED } from './get-geo-private-base-contextual-layer-positioning-styles_DEPRECATED';
 

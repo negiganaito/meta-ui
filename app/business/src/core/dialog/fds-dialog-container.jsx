@@ -8,6 +8,60 @@ import { BaseDialog } from './base-dialog';
 import { BaseDialogLabelIDProvider } from './base-dialog-label-id-provider';
 import { FDSDialogPageLoadingState } from './fds-dialog-page-loading-state';
 
+export const FDSDialogContainer = forwardRef(
+  (
+    { anchorXStyle, 'aria-label': al, children, disableClosingWithMask = false, onClose, size = 'small', testid },
+    ref,
+  ) => {
+    const fallback = useMemo(() => {
+      return <FDSDialogPageLoadingState onClose={onClose ?? emptyFunction} />;
+    }, [onClose]);
+
+    let fdsDialogLoadingStateContextValue = useContext(FDSDialogLoadingStateContext);
+    let labelID = BaseDialogLabelIDProvider.useDialogLabelID();
+
+    return (
+      <BaseDialog
+        anchorXStyle={[styles.anchor_LEGACY, anchorXStyle]}
+        aria-label={al}
+        aria-labelledby={al ?? labelID}
+        disableClosingWithMask={disableClosingWithMask}
+        onClose={onClose ?? emptyFunction}
+        ref={ref}
+        rootXStyle={styles.root_LEGACY}
+        testid={undefined}
+        xstyle={[styles.dialog_LEGACY, sizeStyles[size]]}
+      >
+        <BaseMultiPageView
+          disableAutoRestoreFocus={fdsDialogLoadingStateContextValue}
+          fallback={fallback}
+          xstyle={styles.card}
+        >
+          {children}
+        </BaseMultiPageView>
+      </BaseDialog>
+    );
+
+    // return jsx(BaseDialog, {
+    //   anchorXStyle: [styles.anchor_LEGACY, anchorXStyle],
+    //   "aria-label": al,
+    //   "aria-labelledby": al ?? labelID,
+    //   disableClosingWithMask,
+    //   onClose: onClose ?? emptyFunction,
+    //   ref,
+    //   rootXStyle: styles.root_LEGACY,
+    //   testid: undefined,
+    //   xstyle: [styles.dialog_LEGACY, sizeStyles[size]],
+    //   children: jsx(BaseMultiPageView, {
+    //     disableAutoRestoreFocus: fdsDialogLoadingStateContextValue,
+    //     fallback,
+    //     xstyle: styles.card_LEGACY,
+    //     children,
+    //   }),
+    // });
+  },
+);
+
 const styles = stylex.create({
   anchor: {
     alignItems: 'stretch',
@@ -148,59 +202,5 @@ const sizeStyles = stylex.create({
     width: '100%',
   },
 });
-
-export const FDSDialogContainer = forwardRef(
-  (
-    { anchorXStyle, 'aria-label': al, children, disableClosingWithMask = false, onClose, size = 'small', testid },
-    ref,
-  ) => {
-    const fallback = useMemo(() => {
-      return <FDSDialogPageLoadingState onClose={onClose ?? emptyFunction} />;
-    }, [onClose]);
-
-    let fdsDialogLoadingStateContextValue = useContext(FDSDialogLoadingStateContext);
-    let labelID = BaseDialogLabelIDProvider.useDialogLabelID();
-
-    return (
-      <BaseDialog
-        anchorXStyle={[styles.anchor_LEGACY, anchorXStyle]}
-        aria-label={al}
-        aria-labelledby={al ?? labelID}
-        disableClosingWithMask={disableClosingWithMask}
-        onClose={onClose ?? emptyFunction}
-        ref={ref}
-        rootXStyle={styles.root_LEGACY}
-        testid={undefined}
-        xstyle={[styles.dialog_LEGACY, sizeStyles[size]]}
-      >
-        <BaseMultiPageView
-          disableAutoRestoreFocus={fdsDialogLoadingStateContextValue}
-          fallback={fallback}
-          xstyle={styles.card}
-        >
-          {children}
-        </BaseMultiPageView>
-      </BaseDialog>
-    );
-
-    // return jsx(BaseDialog, {
-    //   anchorXStyle: [styles.anchor_LEGACY, anchorXStyle],
-    //   "aria-label": al,
-    //   "aria-labelledby": al ?? labelID,
-    //   disableClosingWithMask,
-    //   onClose: onClose ?? emptyFunction,
-    //   ref,
-    //   rootXStyle: styles.root_LEGACY,
-    //   testid: undefined,
-    //   xstyle: [styles.dialog_LEGACY, sizeStyles[size]],
-    //   children: jsx(BaseMultiPageView, {
-    //     disableAutoRestoreFocus: fdsDialogLoadingStateContextValue,
-    //     fallback,
-    //     xstyle: styles.card_LEGACY,
-    //     children,
-    //   }),
-    // });
-  },
-);
 
 FDSDialogContainer.displayName = 'FDSDialogContainer.react';

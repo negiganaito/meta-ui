@@ -4,7 +4,7 @@ import { testID } from '@meta-core/utils/test-id';
 import stylex from '@stylexjs/stylex';
 
 export const BaseContextualLayerDefaultContainer = forwardRef(
-  ({ children, hidden, stopClickPropagation, testid, xstyle }, ref) => {
+  ({ children, hidden, presencePayload, stopClickPropagation, testid, xstyle }, ref) => {
     return (
       <LegacyHidden
         htmlAttributes={{

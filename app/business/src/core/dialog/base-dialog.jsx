@@ -33,6 +33,9 @@ const styles = stylex.create({
     overflowY: 'hidden',
     pointerEvents: 'all',
   },
+  dialogBottomSheet: {
+    touchAction: 'none',
+  },
   root: {
     alignItems: 'stretch',
     boxSizing: 'border-box',
@@ -47,6 +50,8 @@ const styles = stylex.create({
   },
 });
 
+// CHANGED
+// @Becareful
 export const BaseDialog = forwardRef(
   (
     {
@@ -55,6 +60,7 @@ export const BaseDialog = forwardRef(
       children,
       disableClosingWithEscape = false,
       disableClosingWithMask = false,
+      enableBottomSheetBehavior = false,
       onAnimationEnd,
       onClose,
       rootXStyle,
@@ -70,6 +76,12 @@ export const BaseDialog = forwardRef(
     const dialogRef = useRef(null);
     const initialPointerEventRef = useRef(null);
     const isPointerEventOutsideRef = useRef(false);
+
+    const onCloseRef = useRef(onClose);
+
+    useEffect(() => {
+      onCloseRef.current = onClose;
+    }, [onClose]);
 
     useEffect(() => {
       let container = containerRef.current;
@@ -124,6 +136,125 @@ export const BaseDialog = forwardRef(
       };
     }, [disableClosingWithMask, onClose]);
 
+    const handleTouchStart = (event) => {
+      const dialogElement = dialogRef.current;
+
+      if (dialogElement !== null) {
+        let isTouching = true;
+        const initialTouchY = event.touches ? event.touches[0].pageY : 0;
+        const dialogHeight = parseInt(
+          dialogElement.style.height !== '' ? dialogElement.style.height : dialogElement.clientHeight,
+          10,
+        );
+        let swipeOffset = 0;
+
+        const originalStyles = {
+          transform: dialogElement.style.transform,
+          transitionDuration: dialogElement.style.transitionDuration,
+          transitionTimingFunction: dialogElement.style.transitionTimingFunction,
+        };
+
+        const handleTouchMove = (moveEvent) => {
+          if (isTouching) {
+            const currentTouchY = moveEvent.touches ? moveEvent.touches[0].pageY : 0;
+            const distanceMoved = initialTouchY - currentTouchY;
+
+            if (distanceMoved < 0) {
+              swipeOffset = distanceMoved;
+              dialogElement.style.transform = `translateY(${-1 * distanceMoved}px)`;
+            }
+          }
+          moveEvent.stopPropagation();
+        };
+
+        const handleTouchEnd = (endEvent) => {
+          isTouching = false;
+
+          if (dialogElement) {
+            dialogElement.style.transitionTimingFunction = 'ease-out';
+            dialogElement.style.transitionDuration = '0.2s';
+          }
+
+          if (dialogHeight + swipeOffset < dialogHeight / 2) {
+            const hideDialog = () => {
+              dialogElement.removeEventListener('transitionend', hideDialog);
+              dialogElement.style.display = 'none';
+              onCloseRef.current();
+            };
+
+            dialogElement.addEventListener('transitionend', hideDialog);
+            dialogElement.style.transform = 'translateY(100%)';
+          } else {
+            const resetDialogPosition = () => {
+              dialogElement.removeEventListener('transitionend', resetDialogPosition);
+              dialogElement.style.transform = originalStyles.transform;
+              dialogElement.style.transitionDuration = originalStyles.transitionDuration;
+              dialogElement.style.transitionTimingFunction = originalStyles.transitionTimingFunction;
+            };
+
+            dialogElement.addEventListener('transitionend', resetDialogPosition);
+            dialogElement.style.transform = 'translateY(0%)';
+          }
+          endEvent.stopPropagation();
+        };
+
+        dialogElement.addEventListener('touchmove', handleTouchMove);
+        dialogElement.addEventListener('touchend', handleTouchEnd);
+      }
+    };
+
+    // const onTouchStart = (a) => {
+    //   let b = dialogRef.current;
+    //   if (b !== null) {
+    //     let c = !0;
+    //     let d = (a = a.touches) === null ? undefined : a[0].pageY;
+    //     let e = parseInt(b.style.height !== '' ? b.style.height : b.clientHeight, 10);
+    //     let f = 0;
+    //     let g = {
+    //       transform: b.style.transform,
+    //       transitionDuration: b.style.transitionDuration,
+    //       transitionTimingFunction: b.style.transitionTimingFunction,
+    //     };
+    //     a = function (a) {
+    //       if (c) {
+    //         let e;
+    //         e = d - ((e = a.touches) === null ? void 0 : e[0].pageY);
+    //         e < 0 && ((f = e), b !== null && (b.style.transform = 'translateY(' + -1 * e + 'px)'));
+    //       }
+    //       a.stopPropagation();
+    //     };
+    //     let h = function (a) {
+    //       c = !1;
+    //       if (b !== null) {
+    //         b.style.transitionTimingFunction = 'ease-out';
+    //         b.style.transitionDuration = '0.2s';
+    //         if (e + f < e / 2) {
+    //           // eslint-disable-next-line no-var, no-inner-declarations, func-name-matching
+    //           var d = function a() {
+    //             // eslint-disable-next-line no-sequences, no-undef
+    //             b.removeEventListener('transitionend', a), (b.style.display = 'none'), onCloseRef.current();
+    //           };
+    //           b.addEventListener('transitionend', d);
+    //           b.style.transform = 'translateY(100%)';
+    //         } else {
+    //           // eslint-disable-next-line func-name-matching
+    //           d = function a() {
+    //             b.removeEventListener('transitionend', a),
+    //               (b.style.transform = g.transform),
+    //               (b.style.transitionDuration = g.transitionDuration),
+    //               (b.style.transitionTimingFunction = g.transitionTimingFunction);
+    //           };
+    //           b.addEventListener('transitionend', d);
+    //           b.style.transform = 'translateY(0%)';
+    //         }
+    //       }
+    //       a.stopPropagation();
+    //     };
+    //     b.addEventListener('touchmove', a);
+    //     b.addEventListener('touchend', h);
+    //   }
+    // };
+
     const mergedRef = useMergeRefs(dialogRef, ref);
 
     const dialogContent = jsx(BaseThemeProvider, {
@@ -141,13 +272,14 @@ export const BaseDialog = forwardRef(
           style: themeStyle,
           children: jsx('div', {
             className: stylex(styles.anchor, anchorXStyle),
+            onTouchStart: enableBottomSheetBehavior ? handleTouchStart : undefined,
             children: jsx(BaseView, {
               ...rest,
               'aria-label': al ?? undefined,
               ref: mergedRef,
               role: 'dialog',
               testid: undefined,
-              xstyle: [styles.dialog, xstyle],
+              xstyle: [styles.dialog, enableBottomSheetBehavior && styles.dialogBottomSheet, xstyle],
               children,
             }),
           }),

@@ -12,6 +12,91 @@ import { BaseHeadingContextWrapper } from '@meta-core/text/base-heading-context-
 import { BaseScrollableArea } from '@meta-core/unknown/base-scrollable-area';
 import stylex from '@stylexjs/stylex';
 
+import { useFDSDialogPageHeightStyle } from './use-fds-dialog-page-height-style';
+
+export const FDSDialogPage = ({
+  children,
+  disablePageScroll = false,
+  footer,
+  header,
+  isContentInert = false,
+  isFullHeightByDefault = false,
+  mobileFullHeight = true,
+  pageXStyle,
+  scrollAreaRef,
+}) => {
+  const pageHeightStyle = useFDSDialogPageHeightStyle();
+
+  const renderContent = (
+    <FocusInertRegion disabled={!isContentInert} focusQuery={focusScopeQueries.tabbableScopeQuery}>
+      {/* eslint-disable-next-line react/jsx-pascal-case */}
+      <html.div style={[styles.container, isContentInert && styles.inert]}>{children}</html.div>
+    </FocusInertRegion>
+  );
+
+  return (
+    // eslint-disable-next-line react/jsx-pascal-case
+    <html.div
+      style={[
+        styles.root_LEGACY,
+        [isFullHeightByDefault && styles.rootFullHeight],
+        [mobileFullHeight && children && styles.rootMinHeight_LEGACY],
+        [isFullHeightByDefault && mobileFullHeight && children && styles.rootFullAndMinHeight_LEGACY],
+        pageHeightStyle,
+        pageXStyle,
+      ]}
+    >
+      {header}
+      {children && (
+        <BaseHeadingContextWrapper>
+          {disablePageScroll ? (
+            renderContent
+          ) : (
+            <BaseScrollableArea
+              horizontal={false}
+              ref={scrollAreaRef}
+              vertical={true}
+              withBottomShadow={true}
+              withTopShadow={true}
+              xstyle={styles.scrollableArea}
+            >
+              {renderContent}
+            </BaseScrollableArea>
+          )}
+        </BaseHeadingContextWrapper>
+      )}
+      {footer}
+    </html.div>
+  );
+
+  // return jsxs(StrictDom.html.div, {
+  //   style: [
+  //     styles.root,
+  //     isFullHeightByDefault && styles.rootFullHeight,
+  //     mobileFullHeight && children && styles.rootMinHeight,
+  //     pageXStyle,
+  //   ],
+  //   children: [
+  //     header,
+  //     children &&
+  //       jsx(BaseHeadingContextWrapper, {
+  //         children: disablePageScroll
+  //           ? renderContent
+  //           : jsx(BaseScrollableArea, {
+  //               horizontal: false,
+  //               ref: scrollAreaRef,
+  //               vertical: true,
+  //               withBottomShadow: true,
+  //               withTopShadow: true,
+  //               xstyle: styles.scrollableArea,
+  //               children: renderContent,
+  //             }),
+  //       }),
+  //     footer,
+  //   ],
+  // });
+};
+
 const styles = stylex.create({
   container: {
     display: 'flex',
@@ -79,83 +164,3 @@ const styles = stylex.create({
     minHeight: 'calc(100vh - (2 * var(--dialog-anchor-vertical-padding)))',
   },
 });
-
-export const FDSDialogPage = ({
-  children,
-  disablePageScroll = false,
-  footer,
-  header,
-  isContentInert = false,
-  isFullHeightByDefault = false,
-  mobileFullHeight = true,
-  pageXStyle,
-  scrollAreaRef,
-}) => {
-  const renderContent = (
-    <FocusInertRegion disabled={!isContentInert} focusQuery={focusScopeQueries.tabbableScopeQuery}>
-      {/* eslint-disable-next-line react/jsx-pascal-case */}
-      <html.div style={[styles.container, isContentInert && styles.inert]}>{children}</html.div>
-    </FocusInertRegion>
-  );
-
-  return (
-    // eslint-disable-next-line react/jsx-pascal-case
-    <html.div
-      style={[
-        styles.root_LEGACY,
-        [isFullHeightByDefault && styles.rootFullHeight],
-        [mobileFullHeight && children && styles.rootMinHeight_LEGACY],
-        [isFullHeightByDefault && mobileFullHeight && children && styles.rootFullAndMinHeight_LEGACY],
-        pageXStyle,
-      ]}
-    >
-      {header}
-      {children && (
-        <BaseHeadingContextWrapper>
-          {disablePageScroll ? (
-            renderContent
-          ) : (
-            <BaseScrollableArea
-              horizontal={false}
-              ref={scrollAreaRef}
-              vertical={true}
-              withBottomShadow={true}
-              withTopShadow={true}
-              xstyle={styles.scrollableArea}
-            >
-              {renderContent}
-            </BaseScrollableArea>
-          )}
-        </BaseHeadingContextWrapper>
-      )}
-      {footer}
-    </html.div>
-  );
-
-  // return jsxs(StrictDom.html.div, {
-  //   style: [
-  //     styles.root,
-  //     isFullHeightByDefault && styles.rootFullHeight,
-  //     mobileFullHeight && children && styles.rootMinHeight,
-  //     pageXStyle,
-  //   ],
-  //   children: [
-  //     header,
-  //     children &&
-  //       jsx(BaseHeadingContextWrapper, {
-  //         children: disablePageScroll
-  //           ? renderContent
-  //           : jsx(BaseScrollableArea, {
-  //               horizontal: false,
-  //               ref: scrollAreaRef,
-  //               vertical: true,
-  //               withBottomShadow: true,
-  //               withTopShadow: true,
-  //               xstyle: styles.scrollableArea,
-  //               children: renderContent,
-  //             }),
-  //       }),
-  //     footer,
-  //   ],
-  // });
-};
