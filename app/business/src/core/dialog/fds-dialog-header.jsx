@@ -1,14 +1,11 @@
-/**
- * @fileoverview
- * Copyright (c) Xuan Tien and affiliated entities.
- * All rights reserved. This source code is licensed under the MIT license.
- * See the LICENSE file in the root directory for details.
- */
-
 import React from 'react';
 import { html } from 'react-strict-dom';
 import { FDSCircleButton } from '@meta-core/button/FDS-circle-button';
+import { useMatchViewport } from '@meta-core/hooks/use-match-viewport';
 import { FDSText } from '@meta-core/text/fds-text';
+import { FBNucleusArrowLeftFilled24 } from '@meta-icons/fb-nucleus-arrow-left-filled-24';
+import { FBNucleusArrowRightFilled24 } from '@meta-icons/fb-nucleus-arrow-right-filled-24';
+import { FBNucleusCrossFilled24 } from '@meta-icons/fb-nucleus-cross-filled-24';
 import stylex from '@stylexjs/stylex';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import Locale from 'fbjs/lib/Locale';
@@ -51,13 +48,15 @@ export const FDSDialogHeader = ({
 }) => {
   let headerID = BaseDialogLabelIDProvider.useDialogHeaderID();
 
+  const match = useMatchViewport('max', 'width', 375);
+
   return (
     <FDSDialogHeaderContainer withDivider={!withoutDivider}>
       {withBackButton ? (
         <html.div style={styles.headerItem}>
           <FDSCircleButton
             disabled={disabled}
-            icon={isRTL ? ArrowRightFilled24 : ArrowLeftFilled24}
+            icon={isRTL ? FBNucleusArrowRightFilled24 : FBNucleusArrowLeftFilled24}
             label="Back"
             onPress={onBack}
             size={36}
@@ -74,7 +73,7 @@ export const FDSDialogHeader = ({
           isSemanticHeading={true}
           numberOfLines={1}
           truncationTooltip={showTruncationTooltip ? text : undefined}
-          type="headlineEmphasized2"
+          type={match ? 'headlineEmphasized3' : 'headlineEmphasized2'} // "headlineEmphasized2"
         >
           {text}
         </FDSText>
@@ -83,7 +82,7 @@ export const FDSDialogHeader = ({
         <html.div style={styles.headerItem}>
           <FDSCircleButton
             disabled={disabled}
-            icon={CrossFilled24}
+            icon={FBNucleusCrossFilled24}
             label="Close"
             onPress={onClose}
             size={36}

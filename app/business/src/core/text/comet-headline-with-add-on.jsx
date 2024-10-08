@@ -10,7 +10,7 @@ import { FDSText } from './fds-text';
  * @type React.ForwardRefRenderFunction<React.FunctionComponent, import("./types").CometHeadlineWithAddOnProps>
  */
 export const CometHeadlineWithAddOn = forwardRef(
-  ({ numberOfLines, addOn, children, color, headlineRef, isPrimaryHeading, isSemanticHeading, type }, ref) => {
+  ({ headlineRef, addOn, children, color, id, numberOfLines, isPrimaryHeading, isSemanticHeading, type }, ref) => {
     return (
       <FDSText ref={ref} isSemanticHeading={false} type={type}>
         <BaseRow verticalAlign="center" xstyle={Locale.isRTL() ? directionStyles.rtl : directionStyles.ltr}>
@@ -22,6 +22,7 @@ export const CometHeadlineWithAddOn = forwardRef(
               numberOfLines={numberOfLines}
               ref={headlineRef}
               type={type}
+              id={id}
             >
               {children}
             </FDSText>

@@ -334,34 +334,35 @@ function i(a) {
 }
 
 export class XPlatReactToasterStateManager {
-  constructor(a) {
-    let b = a.callbackScheduler;
-    a = a.maxQueuedToasts;
+  constructor({ callbackScheduler, maxQueuedToasts }) {
     this.$1 = 0;
     this.$2 = new Map();
     this.$3 = [];
     this.$4 = [];
     this.$5 = null;
-    this.$7 = b;
-    this.$6 = a;
+    this.$7 = callbackScheduler;
+    this.$6 = maxQueuedToasts;
   }
 
-  push = function (a, b) {
-    let c = 'toast-' + this.$1++;
-    b = {
-      duration: b,
-      expired: !1,
-      id: c,
-      shown: !1,
+  push = function (val, duration) {
+    let id = 'toast-' + this.$1++;
+
+    const node = {
+      duration,
+      expired: false,
+      id: id,
+      shown: false,
       timer: null,
-      value: a,
+      value: val,
     };
     this.$8({
-      node: b,
+      node,
       type: 'PUSH',
     });
-    return c;
+
+    return id;
   };
+
   replace = function (a, b) {
     this.$8({
       id: a,
@@ -369,48 +370,57 @@ export class XPlatReactToasterStateManager {
       value: b,
     });
   };
+  
   shown = function (a) {
     this.$8({
       id: a,
       type: 'SHOWN',
     });
   };
+  
   delete = function (a) {
     this.$8({
       id: a,
       type: 'DELETE',
     });
   };
+  
   expire = function (a) {
     this.$8({
       id: a,
       type: 'EXPIRE',
     });
   };
+  
   hidden = function (a) {
     this.$8({
       id: a,
       type: 'HIDDEN',
     });
   };
+  
   stopTimer = function (a) {
     this.$8({
       id: a,
       type: 'STOP_TIMER',
     });
   };
+  
   resetTimer = function (a) {
     this.$8({
       id: a,
       type: 'RESET_TIMER',
     });
   };
+  
   getState = function () {
     return Object.fromEntries(this.$2);
   };
+  
   getEmptyState = function () {
     return h;
   };
+  
   addListener = function (a) {
     let b = this;
     this.$3.push(a);
@@ -420,9 +430,11 @@ export class XPlatReactToasterStateManager {
       }),
     };
   };
+  
   $9 = function (a) {
     (!this.$5 || a.priority > this.$5.priority) && (this.$5 = a);
   };
+  
   registerView = function (a, b) {
     let d = this;
     b === void 0 && (b = 1);
@@ -444,6 +456,7 @@ export class XPlatReactToasterStateManager {
       }),
     };
   };
+  
   // eslint-disable-next-line complexity
   $8 = function (a) {
     let b = this.$2;

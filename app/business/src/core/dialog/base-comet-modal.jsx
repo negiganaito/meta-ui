@@ -13,6 +13,105 @@ import { CometHeroInteractionContextPassthrough } from '@meta-core/placeholder/c
 import { BaseThemeProvider } from '@meta-core/theme/base-theme-provider';
 import stylex from '@stylexjs/stylex';
 
+// CHANGED
+export const BaseCometModal = ({
+  backdropXStyle,
+  blockKeyCommands = false,
+  children,
+  contextKey,
+  disableGeoToCometModalsCompatibility_DO_NOT_USE = false,
+  hidden = false,
+  interactionDesc,
+  interactionUUID,
+  isOverlayTransparent = false,
+  noPortal = false,
+  // shouldUseDvhMinHeight = false,
+  stackingBehavior = 'auto',
+}) => {
+  const { hidden: hiddenSubtree } = useContext(HiddenSubtreeContext);
+
+  const interactionUUIDStable = useStable(() => {
+    return interactionUUID;
+  });
+
+  const modalOverlay = (
+    // <VoyageUserJourneyUILayerProvider name="modal">
+    <>
+      <div className={stylex(styles.mask, !isOverlayTransparent && styles.maskOverlay, backdropXStyle)} />
+      <BaseContextualLayerAnchorRoot>
+        <FocusRegion.FocusRegion
+          autoFocusQuery={focusScopeQueries.headerFirstTabbableSecondScopeQuery}
+          autoRestoreFocus
+          containFocusQuery={focusScopeQueries.tabbableScopeQuery}
+          recoverFocusQuery={focusScopeQueries.headerFirstTabbableSecondScopeQuery}
+        >
+          {blockKeyCommands ? (
+            children
+          ) : (
+            <CometLayerKeyCommandWrapper debugName="modal layer">{children}</CometLayerKeyCommandWrapper>
+          )}
+        </FocusRegion.FocusRegion>
+      </BaseContextualLayerAnchorRoot>
+    </>
+    // </VoyageUserJourneyUILayerProvider>
+  );
+
+  const stackingBehaviorMode = hiddenSubtree ? 'normal' : stackingBehavior;
+
+  const modalClasses = [
+    stackingBehaviorMode === 'auto' ? styles.rootStatic : styles.root,
+    hidden && styles.hidden,
+    stackingBehaviorMode !== 'auto' && behaviorStyles[stackingBehaviorMode],
+  ];
+
+  const modalContent = (
+    <BaseDocumentScrollView contextKey={contextKey} hiddenWhenDetached={hidden}>
+      <BaseHeadingContext.Provider value={1}>
+        {interactionUUIDStable ? (
+          <CometHeroInteractionContextPassthrough clear>
+            <CometHeroInteractionWithDiv
+              interactionDesc={interactionDesc}
+              interactionUUID={interactionUUID}
+              xstyle={[
+                styles.content,
+                // shouldUseDvhMinHeight && styles.contentDvh_LEGACY,
+                // styles.contentDvhWhenNarrow_LEGACY,
+              ]}
+            >
+              {modalOverlay}
+            </CometHeroInteractionWithDiv>
+          </CometHeroInteractionContextPassthrough>
+        ) : (
+          <div
+            className={stylex(
+              styles.content,
+              // shouldUseDvhMinHeight && styles.contentDvh_LEGACY
+            )}
+          >
+            {modalOverlay}
+          </div>
+        )}
+      </BaseHeadingContext.Provider>
+    </BaseDocumentScrollView>
+  );
+
+  return noPortal ? (
+    <BaseThemeProvider
+      children={(themeClass, themeVariable) => {
+        return (
+          <div className={stylex(themeClass, modalClasses)} style={themeVariable}>
+            {modalContent}
+          </div>
+        );
+      }}
+    />
+  ) : (
+    <BasePortal hidden={hiddenSubtree} xstyle={modalClasses}>
+      {modalContent}
+    </BasePortal>
+  );
+};
+
 const styles = stylex.create({
   content: {
     display: 'flex',
@@ -91,100 +190,3 @@ const behaviorStyles = stylex.create({
     zIndex: 0,
   },
 });
-
-export const BaseCometModal = ({
-  blockKeyCommands = false,
-  children,
-  contextKey,
-  disableGeoToCometModalsCompatibility_DO_NOT_USE = false,
-  hidden = false,
-  interactionDesc,
-  interactionUUID,
-  isOverlayTransparent = false,
-  noPortal = false,
-  // shouldUseDvhMinHeight = false,
-  stackingBehavior = 'auto',
-}) => {
-  const { hidden: hiddenSubtree } = useContext(HiddenSubtreeContext);
-
-  const interactionUUIDStable = useStable(() => {
-    return interactionUUID;
-  });
-
-  const modalOverlay = (
-    // <VoyageUserJourneyUILayerProvider name="modal">
-    <>
-      <div className={stylex(styles.mask, !isOverlayTransparent && styles.maskOverlay)} />
-      <BaseContextualLayerAnchorRoot>
-        <FocusRegion.FocusRegion
-          autoFocusQuery={focusScopeQueries.headerFirstTabbableSecondScopeQuery}
-          autoRestoreFocus
-          containFocusQuery={focusScopeQueries.tabbableScopeQuery}
-          recoverFocusQuery={focusScopeQueries.headerFirstTabbableSecondScopeQuery}
-        >
-          {blockKeyCommands ? (
-            children
-          ) : (
-            <CometLayerKeyCommandWrapper debugName="modal layer">{children}</CometLayerKeyCommandWrapper>
-          )}
-        </FocusRegion.FocusRegion>
-      </BaseContextualLayerAnchorRoot>
-    </>
-    // </VoyageUserJourneyUILayerProvider>
-  );
-
-  const stackingBehaviorMode = hiddenSubtree ? 'normal' : stackingBehavior;
-
-  const modalClasses = [
-    stackingBehaviorMode === 'auto' ? styles.rootStatic : styles.root,
-    hidden && styles.hidden,
-    stackingBehaviorMode !== 'auto' && behaviorStyles[stackingBehaviorMode],
-  ];
-
-  const modalContent = (
-    <BaseDocumentScrollView contextKey={contextKey} hiddenWhenDetached={hidden}>
-      <BaseHeadingContext.Provider value={1}>
-        {interactionUUIDStable ? (
-          <CometHeroInteractionContextPassthrough clear>
-            <CometHeroInteractionWithDiv
-              interactionDesc={interactionDesc}
-              interactionUUID={interactionUUID}
-              xstyle={[
-                styles.content,
-                // shouldUseDvhMinHeight && styles.contentDvh_LEGACY,
-                // styles.contentDvhWhenNarrow_LEGACY,
-              ]}
-            >
-              {modalOverlay}
-            </CometHeroInteractionWithDiv>
-          </CometHeroInteractionContextPassthrough>
-        ) : (
-          <div
-            className={stylex(
-              styles.content,
-              // shouldUseDvhMinHeight && styles.contentDvh_LEGACY
-            )}
-          >
-            {modalOverlay}
-          </div>
-        )}
-      </BaseHeadingContext.Provider>
-    </BaseDocumentScrollView>
-  );
-
-  return noPortal ? (
-    <BaseThemeProvider
-      children={(themeClass, themeVariable) => {
-        return (
-          <div className={stylex(themeClass, modalClasses)} style={themeVariable}>
-            {modalContent}
-          </div>
-        );
-      }}
-    />
-  ) : (
-    <BasePortal hidden={hiddenSubtree} xstyle={modalClasses}>
-      {modalContent}
-    </BasePortal>
-  );
-};

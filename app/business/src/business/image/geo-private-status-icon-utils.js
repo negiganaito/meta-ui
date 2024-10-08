@@ -53,13 +53,13 @@ function getStatusIcon(status) {
 
   switch (status) {
     case 'error':
-      return gkx2467 ? <GeoStatusIcon size={12} status="error" /> : <Image src={ix('489534')} />;
+      return gkx2467 ? <GeoStatusIcon size={12} status="error" /> : <Image src={ix(489534)} />;
     case 'warning':
-      return gkx2467 ? <GeoStatusIcon size={12} status="warning" /> : <Image src={ix('480789')} />;
+      return gkx2467 ? <GeoStatusIcon size={12} status="warning" /> : <Image src={ix(480789)} />;
     case 'policy-restriction':
-      return <Image src={ix('1280864')} />;
+      return <Image src={ix(1280864)} />;
     case 'disabled-restriction':
-      return <Image src={ix('1826783')} />;
+      return <Image src={ix(1826783)} />;
     default:
       return null;
   }

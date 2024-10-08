@@ -5,7 +5,7 @@ import { CometHeadlineWithAddOn } from './comet-headline-with-add-on';
 import { FDSText } from './fds-text';
 import { getTetraTextHierarchyStyle } from './tetra-text-hierarchy-style';
 
-const k = stylex.create({
+const styles = stylex.create({
   item: {
     marginBottom: '5px',
     marginTop: '5px',
@@ -18,7 +18,7 @@ const k = stylex.create({
   },
 });
 
-const l = stylex.create({
+const levelWrapperStyles = stylex.create({
   1: {
     marginBottom: '-7px',
     marginTop: '-7px',
@@ -39,7 +39,7 @@ const l = stylex.create({
   },
 });
 
-const m = stylex.create({
+const levelStyles = stylex.create({
   1: {
     marginBottom: '7px',
     marginTop: '7px',
@@ -91,7 +91,7 @@ export const FDSTextPairing = ({
 }) => {
   const { bodyType, headlineType, metaType } = getTetraTextHierarchyStyle(level, reduceEmphasis);
 
-  let clazz = stylex(k.item, m[level]);
+  let clazz = stylex(styles.item, levelStyles[level]);
 
   const headlineComp = headline && (
     <div className={clazz}>
@@ -147,7 +147,7 @@ export const FDSTextPairing = ({
   );
 
   return (
-    <div className={stylex(k.root, l[level])} data-testid={undefined}>
+    <div className={stylex(styles.root, levelWrapperStyles[level])} data-testid={undefined}>
       {metaLocation === 'above' && metaComp}
       {headlineComp}
       {body && (
