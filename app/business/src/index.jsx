@@ -1,8 +1,8 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BusinessCometBuildRoot } from '@meta-business/shell/business-comet-build-root';
 import { BUIStyleXSheet } from '@meta-ui/business/theme';
 
-import { App } from './app';
+import { router } from './routes/router';
 
 const rootElement = document.getElementById('root');
 
@@ -10,5 +10,5 @@ if (!rootElement.innerHTML) {
   BUIStyleXSheet.inject();
 
   const root = ReactDOM.createRoot(rootElement);
-  root.render(<App />);
+  root.render(BusinessCometBuildRoot(router));
 }

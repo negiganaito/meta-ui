@@ -5,7 +5,7 @@ import { CometDensityModeStateProvider } from '@meta-core/contexts/comet-density
 import { buildCometRootComponent } from './build-comet-root-component';
 import { BusinessCometApp } from './business-comet-app';
 
-export const BusinessCometBuildRoot = () => {
+export const BusinessCometBuildRoot = (router) => {
   return buildCometRootComponent(
     <BusinessCometApp>
       <RouterProvider router={router} />
