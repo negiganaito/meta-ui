@@ -23,10 +23,7 @@ function applyWithGuard(func, context, args, options) {
     //   (func.name ? 'func_name:' + func.name : null) ||
     //   ANONYMOUS_GUARD,
     // deferredSource: options === null || options === void 0 ? void 0 : options.deferredSource,
-    name:
-      (options?.name !== null ? options.name : null) ||
-      (func.name ? 'func_name:' + func.name : null) ||
-      ANONYMOUS_GUARD,
+    name: (options ? options.name ?? null : null) || (func.name ? 'func_name:' + func.name : null) || ANONYMOUS_GUARD,
     deferredSource: options?.deferredSource,
   });
 
@@ -42,55 +39,55 @@ function applyWithGuard(func, context, args, options) {
     return Function.prototype.apply.call(func, context, args);
   } catch (error) {
     try {
-      options = options ?? {};
-      let deferredSource = options.deferredSource;
-      const onError = options.onError;
-      const onNormalizedError = options.onNormalizedError;
-      const safeError = getErrorSafe(error);
-      const errorInfo = {
-        deferredSource: deferredSource,
-        loggingSource: 'GUARDED',
-        project: options?.project ?? 'ErrorGuard',
-        type: options?.errorType,
-      };
-      ErrorSerializer.aggregateError(safeError, errorInfo);
-      const normalizedError = ErrorNormalizeUtils.normalizeError(safeError);
-      if (safeError === null && func) {
-        normalizedError.extra[func.toString().substring(0, 100)] = 'function';
-        if (args !== null && args.length) {
-          normalizedError.extra[Array.from(args).toString().substring(0, 100)] = 'args';
-        }
-      }
-      normalizedError.guardList = ErrorGuardState.cloneGuardList();
-      onError && onError(safeError);
-      onNormalizedError && onNormalizedError(normalizedError);
-      ErrorPubSub.reportNormalizedError(normalizedError);
-
-      // context = options !== null && options !== void 0 ? options : {};
-      // let e = context.deferredSource;
-      // const f = context.onError;
-      // context = context.onNormalizedError;
-      // const sError = getErrorSafe(error);
-      // e = {
-      //   deferredSource: e,
+      // options = options ?? {};
+      // let deferredSource = options.deferredSource;
+      // const onError = options.onError;
+      // const onNormalizedError = options.onNormalizedError;
+      // const safeError = getErrorSafe(error);
+      // const errorInfo = {
+      //   deferredSource: deferredSource,
       //   loggingSource: 'GUARDED',
-      //   project:
-      //     (e = options === null || options === void 0 ? void 0 : options.project) !== null && e !== void 0
-      //       ? e
-      //       : 'ErrorGuard',
-      //   type: options === null || options === void 0 ? void 0 : options.errorType,
+      //   project: options?.project ?? 'ErrorGuard',
+      //   type: options?.errorType,
       // };
-      // ErrorSerializer.aggregateError(sError, e);
-      // options = ErrorNormalizeUtils.normalizeError(sError);
-      // // eslint-disable-next-line no-unused-expressions
-      // sError === null &&
-      //   func &&
-      //   ((options.extra[func.toString().substring(0, 100)] = 'function'),
-      //   args !== null && args.length && (options.extra[Array.from(args).toString().substring(0, 100)] = 'args'));
-      // options.guardList = ErrorGuardState.cloneGuardList();
-      // f && f(sError);
-      // context && context(options);
-      // ErrorPubSub.reportNormalizedError(options);
+      // ErrorSerializer.aggregateError(safeError, errorInfo);
+      // const normalizedError = ErrorNormalizeUtils.normalizeError(safeError);
+      // if (safeError === null && func) {
+      //   normalizedError.extra[func.toString().substring(0, 100)] = 'function';
+      //   if (args !== null && args.length) {
+      //     normalizedError.extra[Array.from(args).toString().substring(0, 100)] = 'args';
+      //   }
+      // }
+      // normalizedError.guardList = ErrorGuardState.cloneGuardList();
+      // onError && onError(safeError);
+      // onNormalizedError && onNormalizedError(normalizedError);
+      // ErrorPubSub.reportNormalizedError(normalizedError);
+
+      context = options !== null && options !== void 0 ? options : {};
+      let e = context.deferredSource;
+      const f = context.onError;
+      context = context.onNormalizedError;
+      const sError = getErrorSafe(error);
+      e = {
+        deferredSource: e,
+        loggingSource: 'GUARDED',
+        project:
+          (e = options === null || options === void 0 ? void 0 : options.project) !== null && e !== void 0
+            ? e
+            : 'ErrorGuard',
+        type: options === null || options === void 0 ? void 0 : options.errorType,
+      };
+      ErrorSerializer.aggregateError(sError, e);
+      options = ErrorNormalizeUtils.normalizeError(sError);
+      // eslint-disable-next-line no-unused-expressions
+      sError === null &&
+        func &&
+        ((options.extra[func.toString().substring(0, 100)] = 'function'),
+        args !== null && args.length && (options.extra[Array.from(args).toString().substring(0, 100)] = 'args'));
+      options.guardList = ErrorGuardState.cloneGuardList();
+      f && f(sError);
+      context && context(options);
+      ErrorPubSub.reportNormalizedError(options);
     } catch (handlingError) {}
   } finally {
     ErrorGuardState.popGuard();

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { BaseView } from '@fb-layout/base-view';
+import { BaseView } from '@meta-core/layout/base-view';
 
 import { BaseThemeProvider } from './base-theme-provider';
 

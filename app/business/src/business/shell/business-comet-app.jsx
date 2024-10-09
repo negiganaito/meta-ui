@@ -9,22 +9,20 @@ import { CometAppShell } from './comet-app-shell';
 import { CometAppViewStack } from './comet-app-view-stack';
 import { GeoAppShell } from './geo-app-shell';
 
-export const BusinessCometApp = () => {
+export const BusinessCometApp = ({ children }) => {
   return (
     <GeoAppShell isModalBlockerEnabled={false} isNextThemeEnabled isSSRSafe={false}>
       <GeoEnableDataVizAnimationProvider isAnimationEnabled>
-        <CometAppShell>
-          <CometToasterRoot>
-            {/* <CometPageTransitioning /> */}
-            <CometAppViewStack
-              baseView={
-                <CometBackupPlaceholder fallback={null}>
-                  <BusinessCometAppMainContentAreaRenderer />
-                </CometBackupPlaceholder>
-              }
-              useBodyAsPortalsContainer={getGeoAndCometModalCompatible()}
-            />
-          </CometToasterRoot>
+        <CometAppShell toaster={<CometToasterRoot />}>
+          {/* <CometPageTransitioning /> */}
+          <CometAppViewStack
+            baseView={
+              <CometBackupPlaceholder fallback={null}>
+                <BusinessCometAppMainContentAreaRenderer>{children}</BusinessCometAppMainContentAreaRenderer>
+              </CometBackupPlaceholder>
+            }
+            useBodyAsPortalsContainer={getGeoAndCometModalCompatible()}
+          />
         </CometAppShell>
       </GeoEnableDataVizAnimationProvider>
     </GeoAppShell>

@@ -17,8 +17,8 @@ import { BaseView } from '@meta-core/layout/base-view';
 import stylex from '@stylexjs/stylex';
 import Locale from 'fbjs/lib/Locale';
 
-import { CometCalloutInsetArrow } from './comet-callout-inset-arrow';
 import { CometHideLayerOnEscape } from './comet-hide-layer-on-escape';
+import { FDSCalloutInsetArrow } from './fds-callout-inset-arrow';
 
 export const FDSCalloutInset = ({
   children,
@@ -67,7 +67,7 @@ export const FDSCalloutInset = ({
 
 function CometInsetArrow({ arrowStyles, position, type }) {
   return (
-    <CometCalloutInsetArrow
+    <FDSCalloutInsetArrow
       fill={type === 'default' ? 'var(--popover-background)' : 'var(--accent)'}
       style={arrowStyles}
       xstyle={[k.arrow, n[position], type === 'accent' && o[position]]}

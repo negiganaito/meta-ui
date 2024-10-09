@@ -8,7 +8,7 @@ import { cssUserAgentSupports } from '@meta-core/utils/css-useragent-supports';
 import stylex from '@stylexjs/stylex';
 
 const CometToolTip = Loadable({
-  loader: () => import('@fb-tooltip/index').then((r) => r.CometTooltip),
+  loader: () => import('@meta-core/tooltip/comet-tooltip_DEPRECATED').then((r) => r.CometTooltip),
   loading: () => null,
 });
 

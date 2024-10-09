@@ -4,7 +4,7 @@ import { useVisibilityObserver } from '@meta-core/hooks/use-visibility-observer'
 import { useMergeRefs } from '@meta-core/react-utils/use-merge-refs';
 import stylex from '@stylexjs/stylex';
 
-import { useToasterStateManager } from './hooks/use-toaster-state-manager';
+import { useToasterStateManager } from './use-toaster-state-manager';
 
 const basePosition = 100;
 

@@ -35,11 +35,11 @@ export const GeoAppShell = ({
       <GeoSSRSafeIdsContext.Provider value={ssrSafe}>
         <GeoPrivateGlimmerAnimationStartTimeContext.Provider value={animationContextValue}>
           <GeoGlimmerStaggeringContext.Provider value={defaultGlimmerStaggering}>
-            <DocumentTranslationStatusProvider>
+            <DocumentTranslationStatusProvider.DocumentTranslationStatusProvider>
               <GeoToasterProvider>
                 <GeoTransientModalProvider>{children}</GeoTransientModalProvider>
               </GeoToasterProvider>
-            </DocumentTranslationStatusProvider>
+            </DocumentTranslationStatusProvider.DocumentTranslationStatusProvider>
           </GeoGlimmerStaggeringContext.Provider>
         </GeoPrivateGlimmerAnimationStartTimeContext.Provider>
       </GeoSSRSafeIdsContext.Provider>

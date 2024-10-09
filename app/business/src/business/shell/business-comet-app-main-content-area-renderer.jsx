@@ -21,7 +21,7 @@ const styles = stylex.create({
   },
 });
 
-export const BusinessCometAppMainContentAreaRenderer = () => {
+export const BusinessCometAppMainContentAreaRenderer = ({ children }) => {
   // const context = useContext(CometRouterPushViewStackContext);
 
   // const onInitialScroll = useMemo(() => {
@@ -40,7 +40,9 @@ export const BusinessCometAppMainContentAreaRenderer = () => {
             isHidden && tabVisibilityHidden === !0 && styles.contentContainerVisibilityHidden,
           ];
         }}
-      />
+      >
+        {children}
+      </CometMainRoutes>
     </BusinessCometMainContentWrapper>
   );
 };

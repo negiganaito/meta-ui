@@ -7,7 +7,7 @@ const styles = stylex.create({
     position: 'relative',
 
     // eslint-disable-next-line @stylexjs/valid-styles
-    ':before': {
+    '::before': {
       borderImageRepeat: 'stretch',
       borderImageSlice: '5 5 fill',
       borderImageSource:

@@ -7,12 +7,15 @@ import { focusScopeQueries } from '@meta-core/focus/focus-scope-queries';
 import { useOnOutsideClick } from '@meta-core/hooks/use-on-outside-click';
 import { BaseRow } from '@meta-core/layout/base-row';
 import { BaseView } from '@meta-core/layout/base-view';
+// import { FDSCalloutEdgeArrow } from '@meta-icons/fds-callout-edge-arrow';
 import stylex from '@stylexjs/stylex';
 import Locale from 'fbjs/lib/Locale';
 
-import { CometCalloutEdgeArrow } from './comet-callout-edge-arrow';
 import { CometHideLayerOnEscape } from './comet-hide-layer-on-escape';
+import { FDSCalloutEdgeArrow } from './fds-callout-edge-arrow';
 
+// CHANGED
+// @becareful
 export const FDSCalloutEdge = ({
   children,
   disableAutoFocus = false,
@@ -76,8 +79,8 @@ function CalloutEdgeArrow({ align, position, type }) {
   // a = a.type;
 
   return (
-    <CometCalloutEdgeArrow
-      fill={type === 'default' ? 'var(--popover-background)' : 'var(--accent)'}
+    <FDSCalloutEdgeArrow
+      fill={type === 'default' ? 'var(--popover-background)' : 'var(--callout-background-color-accent, var(--accent))'}
       xstyle={[
         stylesContainer.arrow,
         position === 'above' && type === 'default' && (isRTL ? p[align] : o[align]),

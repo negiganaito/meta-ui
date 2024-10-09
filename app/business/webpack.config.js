@@ -25,8 +25,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 //   reactCompilerLoader,
 // } = require("react-compiler-webpack");
 
-console.log({ d: path.join(__dirname, 'babel.config.js') });
-
 const fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2'];
 
 module.exports = (env, { mode }) => {
@@ -44,6 +42,7 @@ module.exports = (env, { mode }) => {
       alias: {
         '@meta-core': path.resolve(__dirname, 'src/core'),
         '@meta-business': path.resolve(__dirname, 'src/business'),
+        '@meta-icons': path.resolve(__dirname, 'src/icons'),
       },
 
       fallback: {

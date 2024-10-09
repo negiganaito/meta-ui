@@ -56,6 +56,9 @@
       "@meta-core/glimmer/*": ["./src/core/glimmer/*"],
       "@meta-core/lazy-load-component/*": ["./src/core/lazy-load-component/*"],
       "@meta-core/network/*": ["./src/core/network/*"],
+      "@meta-core/process-ring/*": ["./src/core/process-ring/*"],
+      "@meta-core/tooltip/*": ["./src/core/tooltip/*"],
+
       //
       "@meta-icons/*": ["./src/icons/*"]
     }

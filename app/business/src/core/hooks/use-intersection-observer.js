@@ -1,11 +1,10 @@
 /* eslint-disable no-sequences */
 
 import { useCallback, useLayoutEffect, useRef } from 'react';
+import { useDynamicCallbackDANGEROUS } from '@meta-core/react-utils/use-dynamic-callback_DANGEROUS';
 import { JSScheduler } from '@meta-core/scheduler/jss-scheduler';
 import { observeIntersection } from '@meta-core/unknown/observe-intersection';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
-
-import { useDynamicCallbackDANGEROUS } from './use-dynamic-callback-DANGEROUS';
 
 const k = {
   bottom: 0,

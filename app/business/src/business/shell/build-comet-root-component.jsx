@@ -5,9 +5,9 @@ import { CometHeroInteractionWithDiv } from '@meta-core/placeholder/comet-hero-i
 
 import { CometPlatformAppWrapper } from './comet-platform-app-wrapper';
 
-export function buildCometRootComponent(Component, initialProps, options) {
+export function BuildCometRootComponent({ children, initialProps, options }) {
   const {
-    TopLevelWrapper = React.Fragment,
+    TopLevelWrapper,
     OtherRootComponents: {
       CookieConsentDialog,
       DebugOwlDisplay,
@@ -55,7 +55,7 @@ export function buildCometRootComponent(Component, initialProps, options) {
                   <DensityModeStateProvider>
                     <CometBackupPlaceholder fallback={null}>
                       <CometHeroInteractionWithDiv interactionDesc="initial load">
-                        {Component}
+                        {children}
                         {CookieConsentDialog ? (
                           <CometErrorBoundary>
                             <CookieConsentDialog />

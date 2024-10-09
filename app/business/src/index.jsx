@@ -9,13 +9,7 @@ import { router } from './routes/router';
 const rootElement = document.getElementById('root');
 
 if (!rootElement.innerHTML) {
-  ErrorGuard.applyWithGuard(
-    () => {
-      return CometNetworkStatusToast.subscribe();
-    },
-    null,
-    [],
-  );
+  ErrorGuard.applyWithGuard(() => CometNetworkStatusToast.subscribe(), null, []);
 
   // JSScheduler.scheduleSpeculativeCallback(() => {
   //   WebStorageMonster.schedule();
@@ -24,7 +18,7 @@ if (!rootElement.innerHTML) {
   // BUIStyleXSheet.inject();
 
   const root = ReactDOM.createRoot(rootElement);
-  root.render(BusinessCometBuildRoot(router));
+  root.render(<BusinessCometBuildRoot router={router} />);
 }
 
 // GeoStyleXDefaultSheet <- GeoPrivateDefaultTheme <- GeoPrivateThemeContext <- GeoNextThemeProvider
