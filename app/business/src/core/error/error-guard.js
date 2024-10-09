@@ -4,75 +4,116 @@ import { ErrorPubSub } from './error-pub-sub';
 import { ErrorSerializer } from './error-serializer';
 import { getErrorSafe } from './get-error-safe';
 
-const oa = '<anonymous guard>';
-let guardGlobalFlag = !1;
+const ANONYMOUS_GUARD = '<anonymous guard>';
+let isGuardGlobalEnabled = false;
 
+/**
+ * The ErrorGuard module in your code provides a mechanism for managing and handling errors
+ * that occur during the execution of JavaScript functions. It is designed to help catch, handle,
+ * and report errors in a controlled and consistent manner,
+ * especially in scenarios where errors might occur but shouldn't break the entire application.
+ * Here's a breakdown of what each part of the code does:
+ */
 // eslint-disable-next-line complexity, max-params
-function applyWithGuard(a, b, c, nError) {
+function applyWithGuard(func, context, args, options) {
   ErrorGuardState.pushGuard({
+    // name:
+    //   // eslint-disable-next-line no-eq-null
+    //   ((options === null || options === void 0 ? void 0 : options.name) != null ? options.name : null) ||
+    //   (func.name ? 'func_name:' + func.name : null) ||
+    //   ANONYMOUS_GUARD,
+    // deferredSource: options === null || options === void 0 ? void 0 : options.deferredSource,
     name:
-      // eslint-disable-next-line no-eq-null
-      ((nError === null || nError === void 0 ? void 0 : nError.name) != null ? nError.name : null) ||
-      (a.name ? 'func_name:' + a.name : null) ||
-      oa,
-    deferredSource: nError === null || nError === void 0 ? void 0 : nError.deferredSource,
+      (options?.name !== null ? options.name : null) ||
+      (func.name ? 'func_name:' + func.name : null) ||
+      ANONYMOUS_GUARD,
+    deferredSource: options?.deferredSource,
   });
-  if (guardGlobalFlag)
+
+  if (isGuardGlobalEnabled) {
     try {
-      return a.apply(b, c);
+      return func.apply(context, args);
     } finally {
       ErrorGuardState.popGuard();
     }
+  }
+
   try {
-    return Function.prototype.apply.call(a, b, c);
-  } catch (h) {
+    return Function.prototype.apply.call(func, context, args);
+  } catch (error) {
     try {
-      b = nError !== null && nError !== void 0 ? nError : {};
-      let e = b.deferredSource;
-      const f = b.onError;
-      b = b.onNormalizedError;
-      const sError = getErrorSafe(h);
-      e = {
-        deferredSource: e,
+      options = options ?? {};
+      let deferredSource = options.deferredSource;
+      const onError = options.onError;
+      const onNormalizedError = options.onNormalizedError;
+      const safeError = getErrorSafe(error);
+      const errorInfo = {
+        deferredSource: deferredSource,
         loggingSource: 'GUARDED',
-        project:
-          (e = nError === null || nError === void 0 ? void 0 : nError.project) !== null && e !== void 0
-            ? e
-            : 'ErrorGuard',
-        type: nError === null || nError === void 0 ? void 0 : nError.errorType,
+        project: options?.project ?? 'ErrorGuard',
+        type: options?.errorType,
       };
-      ErrorSerializer.aggregateError(sError, e);
-      nError = ErrorNormalizeUtils.normalizeError(sError);
-      // eslint-disable-next-line no-unused-expressions
-      sError === null &&
-        a &&
-        ((nError.extra[a.toString().substring(0, 100)] = 'function'),
-        c !== null && c.length && (nError.extra[Array.from(c).toString().substring(0, 100)] = 'args'));
-      nError.guardList = ErrorGuardState.cloneGuardList();
-      f && f(sError);
-      b && b(nError);
-      ErrorPubSub.reportNormalizedError(nError);
-    } catch (a) {}
+      ErrorSerializer.aggregateError(safeError, errorInfo);
+      const normalizedError = ErrorNormalizeUtils.normalizeError(safeError);
+      if (safeError === null && func) {
+        normalizedError.extra[func.toString().substring(0, 100)] = 'function';
+        if (args !== null && args.length) {
+          normalizedError.extra[Array.from(args).toString().substring(0, 100)] = 'args';
+        }
+      }
+      normalizedError.guardList = ErrorGuardState.cloneGuardList();
+      onError && onError(safeError);
+      onNormalizedError && onNormalizedError(normalizedError);
+      ErrorPubSub.reportNormalizedError(normalizedError);
+
+      // context = options !== null && options !== void 0 ? options : {};
+      // let e = context.deferredSource;
+      // const f = context.onError;
+      // context = context.onNormalizedError;
+      // const sError = getErrorSafe(error);
+      // e = {
+      //   deferredSource: e,
+      //   loggingSource: 'GUARDED',
+      //   project:
+      //     (e = options === null || options === void 0 ? void 0 : options.project) !== null && e !== void 0
+      //       ? e
+      //       : 'ErrorGuard',
+      //   type: options === null || options === void 0 ? void 0 : options.errorType,
+      // };
+      // ErrorSerializer.aggregateError(sError, e);
+      // options = ErrorNormalizeUtils.normalizeError(sError);
+      // // eslint-disable-next-line no-unused-expressions
+      // sError === null &&
+      //   func &&
+      //   ((options.extra[func.toString().substring(0, 100)] = 'function'),
+      //   args !== null && args.length && (options.extra[Array.from(args).toString().substring(0, 100)] = 'args'));
+      // options.guardList = ErrorGuardState.cloneGuardList();
+      // f && f(sError);
+      // context && context(options);
+      // ErrorPubSub.reportNormalizedError(options);
+    } catch (handlingError) {}
   } finally {
     ErrorGuardState.popGuard();
   }
 }
 
-function guard(a, b) {
-  function c(...args) {
+function guard(func, options) {
+  function guardedFunction(...args) {
     // eslint-disable-next-line no-invalid-this
-    return applyWithGuard(a, this, args, b);
+    return applyWithGuard(func, this, args, options);
   }
-  a.__SMmeta && (c.__SMmeta = a.__SMmeta);
-  return c;
+
+  func.__SMmeta && (guardedFunction.__SMmeta = func.__SMmeta);
+
+  return guardedFunction;
 }
 
 function inGuard() {
   return ErrorGuardState.inGuard();
 }
 
-function skipGuardGlobal(flag) {
-  guardGlobalFlag = flag;
+function skipGuardGlobal(isEnabled) {
+  isGuardGlobalEnabled = isEnabled;
 }
 
 export const ErrorGuard = {

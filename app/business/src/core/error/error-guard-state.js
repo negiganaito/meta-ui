@@ -17,7 +17,9 @@ export const ErrorGuardState = {
   findDeferredSource: function () {
     for (let i = 0; i < guardStack.length; i++) {
       let guard = guardStack[i];
-      if (guard.deferredSource !== null) return guard.deferredSource;
+      if (guard.deferredSource !== null) {
+        return guard.deferredSource;
+      }
     }
   },
 };
