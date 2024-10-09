@@ -6,6 +6,7 @@ import { differenceSets } from '@meta-core/utils/difference-sets';
 import { mapMapToArray } from '@meta-core/utils/map-map-to-array';
 import { mapSet } from '@meta-core/utils/mapSet';
 import { nullthrows } from '@meta-core/utils/nullthrows';
+import { setImmediate } from '@meta-core/utils/set-immediate';
 import { sortBy } from '@meta-core/utils/sort-by';
 
 function useTimeouts() {

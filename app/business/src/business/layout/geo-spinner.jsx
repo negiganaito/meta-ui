@@ -1,11 +1,11 @@
 import { useRef } from 'react';
-import { geoMargin } from '@meta-business/styles';
+import { geoMargin } from '@meta-business/styles/geo-margin';
 import { GeoBaseText } from '@meta-business/text/geo-base-text';
 import { useGeoTheme } from '@meta-business/theme/use-geo-theme';
 import { CometVisualCompletionAttributes } from '@meta-core/react-utils/comet-visual-completion-attributes';
 import stylex from '@stylexjs/stylex';
 
-import { LoadingMarker } from '.';
+import { LoadingMarker } from './loading-marker';
 
 const SMALL_CIRCLE_RADIUS = 14.5;
 const LARGE_CIRCLE_RADIUS = 22;

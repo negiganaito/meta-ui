@@ -1,6 +1,7 @@
-import { FBLogger, invariant } from '@meta-core/error';
+import { FBLogger } from '@meta-core/error/fb-logger';
+import { invariant } from '@meta-core/error/invariant';
+import { isSameOrigin as _isSameOrigin } from '@meta-core/react-utils/url/is-same-origin';
 
-import { isSameOrigin as _isSameOrigin } from './is-same-origin';
 import { PHPStrictQuerySerializer } from './php-strict-query-serializer';
 import { setHostSubdomain } from './set-host-subdomain';
 import { URISchemes } from './uri-schemes';

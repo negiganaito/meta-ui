@@ -133,6 +133,7 @@ export const GeoPrivateBaseButton = (props) => {
         hiddenButtonRef.current?.click();
       }
       // handleClickWithLogging?.(event);
+      onClick && onClick(event);
     },
     [
       isSubmitOrHasLayerAction,
@@ -193,7 +194,7 @@ export const GeoPrivateBaseButton = (props) => {
           labelledby: ariaLabelledBy,
           owns: ariaOwns,
         }}
-        accessibilityRole={role ?? (href !== null ? 'link' : 'button')}
+        accessibilityRole={role ?? (href ? 'link' : 'button')}
         accessibilityState={{
           busy: isLoading,
           expanded: ariaExpanded,
@@ -201,7 +202,7 @@ export const GeoPrivateBaseButton = (props) => {
         }}
         disabled={isDisabledState}
         forwardedRef={mergedRef}
-        link={href !== null ? { url: href.toString(), target, rel, download } : null}
+        link={href ? { url: href.toString(), target, rel, download } : null}
         nativeID={id}
         onBlur={onBlur}
         onFocus={onFocus}

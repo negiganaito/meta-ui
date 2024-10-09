@@ -1,16 +1,15 @@
 import React from 'react';
-import { GeoBaseContextualLayer } from '@meta-business/contextual';
-import {
-  GeoBaseLayerBlurBehavior,
-  GeoBaseLayerExitBehavior,
-  GeoBaseLayerFadeBehavior,
-  GeoPrivateAnimationLayerContainer,
-  GeoPrivateResetAnimationLayer,
-  useGeoPrivateAnimationLayerStyles,
-} from '@meta-business/layout';
-import { GeoPrivateHintLayerUtils } from '@meta-business/tooltip';
-import { GeoDomID, GeoLayerUtils } from '@meta-business/utils';
-import { stopPropagation } from '@meta-core/utils';
+import { GeoBaseContextualLayer } from '@meta-business/contextual/geo-base-contextual-layer';
+import { GeoBaseLayerBlurBehavior } from '@meta-business/layout/geo-base-layer-blur-behavior';
+import { GeoBaseLayerExitBehavior } from '@meta-business/layout/geo-base-layer-exit-behavior';
+import { GeoBaseLayerFadeBehavior } from '@meta-business/layout/geo-base-layer-fade-behavior';
+import { GeoPrivateAnimationLayerContainer } from '@meta-business/layout/geo-private-animation-layer-container';
+import { GeoPrivateResetAnimationLayer } from '@meta-business/layout/geo-private-reset-animation-layer';
+import { useGeoPrivateAnimationLayerStyles } from '@meta-business/layout/use-geo-private-animation-layer-styles';
+import { GeoPrivateHintLayerUtils } from '@meta-business/tooltip/geo-private-hint-layer-utils';
+import { GeoDomID } from '@meta-business/utils/geo-dom-id';
+import { GeoLayerUtils } from '@meta-business/utils/geo-layer-utils';
+import { stopPropagation } from '@meta-core/utils/stop-propagation';
 import stylex from '@stylexjs/stylex';
 
 import { GeoBaseLayerEscapeBehavior } from './geo-base-layer-escape-behavior';

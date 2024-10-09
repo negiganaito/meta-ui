@@ -1,6 +1,6 @@
 import React from 'react';
 import { GeoPrivateDisabledContext } from '@meta-business/contexts/geo-private-disabled-context';
-import { geoMargin } from '@meta-business/styles';
+import { geoMargin } from '@meta-business/styles/geo-margin';
 import { GeoHeading } from '@meta-business/text/geo-heading';
 import { GeoText } from '@meta-business/text/geo-text';
 

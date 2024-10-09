@@ -58,6 +58,7 @@
       "@meta-core/network/*": ["./src/core/network/*"],
       "@meta-core/process-ring/*": ["./src/core/process-ring/*"],
       "@meta-core/tooltip/*": ["./src/core/tooltip/*"],
+      "@meta-core/relay/*": ["./src/core/relay/*"],
 
       //
       "@meta-icons/*": ["./src/icons/*"]

@@ -1,4 +1,4 @@
-import { TimeSlice } from '@meta-core/scheduler';
+import { TimeSlice } from '@meta-core/scheduler/time-slice';
 
 import { setImmediateAcrossTransitions } from './set-immediate-across-transitions';
 import { TimerStorage } from './timer-storage';

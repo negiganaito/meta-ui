@@ -80,8 +80,7 @@ export function useGeoPrivateTextStyle(props) {
     whiteSpace = 'inherit',
   } = props;
 
-  const theme = useGeoTheme();
-  const { selectFont, selectTextColor } = theme;
+  const { selectFont, selectTextColor } = useGeoTheme();
 
   const whiteSpaceStyle = [
     whiteSpace === 'inherit' && whiteSpaceStyles.inherit,

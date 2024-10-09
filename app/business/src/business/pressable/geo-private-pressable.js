@@ -9,6 +9,6 @@ export const GeoPrivatePressable = (props) => {
   if (props.link) {
     return <GeoPrivatePressableRouterLink {...props} />;
   } else {
-    return <WebPressable />;
+    return <WebPressable {...props} />;
   }
 };

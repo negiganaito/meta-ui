@@ -4,7 +4,7 @@ const fontStyles = stylex.create({
   accent: {
     fontFamily:
       '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol!important',
-    fontSize: 'xw23nyj',
+    fontSize: '.75rem !important',
     fontWeight: 400,
     lineHeight: '1.33334!important',
   },
@@ -22,13 +22,13 @@ const fontStyles = stylex.create({
   },
   header1: {
     fontFamily: 'Optimistic Display,system-ui,sans-serif!important',
-    fontSize: 'x1ldc4aq',
+    fontSize: '1.25rem !important',
     fontWeight: 700,
     lineHeight: '1.2!important',
   },
   header2: {
     fontFamily: 'Optimistic Display,system-ui,sans-serif!important',
-    fontSize: 'xm46was',
+    fontSize: '1.125rem !important',
     fontWeight: 700,
     lineHeight: '1.22223!important',
   },
