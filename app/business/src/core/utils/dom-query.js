@@ -2,6 +2,8 @@ import { FBLogger } from '@meta-core/error/fb-logger';
 import { ge } from '@meta-core/react-utils/ge';
 import containsNode from 'fbjs/lib/containsNode';
 
+import { createArrayFromMixed } from './create-array-from-mixed';
+import { createObjectFrom } from './create-object-from';
 import { CSS } from './CSS';
 import { isElementNode } from './is-element-node';
 import { isNode } from './is-node';
@@ -136,10 +138,12 @@ function f(a, b) {
   return containsNode(ge(a), ge(b));
 }
 function k() {
-  let a = c('ifRequired')('Quickling', (a) => {
-    return a.isActive() ? ge('content') : null;
-  });
-  return a || document.body;
+  // let a = c('ifRequired')('Quickling', (a) => {
+  //   return a.isActive() ? ge('content') : null;
+  // });
+  // return a || document.body;
+
+  return document.body;
 }
 function l(a, b) {
   b = createArrayFromMixed(b).join('|').toUpperCase().split('|');

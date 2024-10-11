@@ -2,6 +2,9 @@ import { FBLogger } from '@meta-core/error/fb-logger';
 
 import { ArbiterMixin } from './arbiter-mixin';
 import { BehaviorsMixin } from './behaviors-mixin';
+import { HTML } from './html';
+import { isNode } from './is-node';
+import { isValidReactElement } from './is-valid-react-element';
 import { mixin } from './mixin';
 
 b('KeyStatus');
