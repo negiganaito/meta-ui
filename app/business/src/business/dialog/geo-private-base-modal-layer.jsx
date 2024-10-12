@@ -1,12 +1,18 @@
 import React from 'react';
+import { GeoPrivateCloseButtonContext } from '@meta-business/contexts/geo-private-close-button-context';
+import { useGeoPrivateLegacyDialogCompatibility } from '@meta-business/hooks/use-geo-private-legacy-dialog-compatibility';
 import { useGeoPrivateOnEscape } from '@meta-business/hooks/use-geo-private-on-escape';
+import { useResizeObserverLoopLimitSafeCallbackWrapper } from '@meta-business/hooks/use-resize-observer-loop-limit-safe-callback-wrapper';
 import { useGeoTheme } from '@meta-business/theme/use-geo-theme';
 import { CometVisualCompletionAttributes } from '@meta-core/react-utils/comet-visual-completion-attributes';
 import { ContextualThing } from '@meta-core/react-utils/contextual-thing';
 import { useMergeRefs } from '@meta-core/react-utils/use-merge-refs';
 import { useResizeObserver } from '@meta-core/react-utils/use-resize-observer';
 import { useStyleXTransitionSingle } from '@meta-core/react-utils/use-stylex-transition-single';
+import { useWindowSize } from '@meta-core/utils/use-window-size';
 import stylex from '@stylexjs/stylex';
+
+import { GeoPrivateBaseModalLayerOverlay } from './geo-private-base-modal-layer-overlay';
 
 const gkx24835 = true; // gkx24835;
 

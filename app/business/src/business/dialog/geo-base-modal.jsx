@@ -5,8 +5,11 @@ import { GeoFormInputInlineContext } from '@meta-business/contexts/geo-form-inpu
 import { GeoPrivateCardLayerContext } from '@meta-business/contexts/geo-private-card-layer-context';
 import { GeoPrivateInvertThemeContext } from '@meta-business/contexts/geo-private-invert-theme-context';
 import { GeoPrivatePreventContentAnimationContext } from '@meta-business/contexts/geo-private-prevent-content-animation-context';
+import { useGeoPrivatePopupBlocker } from '@meta-business/hooks/use-geo-private-popup-blocker';
 import { GeoPrivateResetSelectorStyle } from '@meta-business/unknown/geo-private-reset-selector-style';
 import { useUniqueID } from '@meta-core/hooks/use-unique-id';
+
+import { GeoPrivateBaseModalLayer } from './geo-private-base-modal-layer';
 
 const defaultFormContext = {
   isInline: false,

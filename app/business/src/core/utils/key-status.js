@@ -1,41 +1,56 @@
+/* eslint-disable no-sequences */
+import { ee as Event } from './event';
 import { executionEnvironment } from './executionEnvironment';
 
-let h;
-let i = null;
-let j = null;
-function k() {
-  j ||
-    (j = Event.listen(window, 'blur', () => {
-      (i = null), l();
+let documentElement;
+let keyCode = null;
+let blurListener = null;
+
+function addBlurListener() {
+  blurListener ||
+    (blurListener = Event.listen(window, 'blur', () => {
+      keyCode = null;
+      removeBlurListener();
     }));
 }
-function l() {
-  j && (j.remove(), (j = null));
+
+function removeBlurListener() {
+  blurListener && (blurListener.remove(), (blurListener = null));
 }
-function a(a) {
-  (i = c('Event').getKeyCode(a)), k();
+
+function handleKeyDown(event) {
+  keyCode = Event.getKeyCode(event);
+  addBlurListener();
 }
-function b() {
-  (i = null), l();
+
+function handleKeyUp() {
+  keyCode = null;
+  removeBlurListener();
 }
+
 if (executionEnvironment.canUseDOM) {
-  f = document.documentElement;
-  if (f)
-    if (f.addEventListener) f.addEventListener('keydown', a, !0), f.addEventListener('keyup', b, !0);
-    else if (f.attachEvent) {
-      f = f.attachEvent;
-      f('onkeydown', a);
-      f('onkeyup', b);
+  documentElement = document.documentElement;
+  if (documentElement) {
+    if (documentElement.addEventListener) {
+      documentElement.addEventListener('keydown', handleKeyDown, true);
+      documentElement.addEventListener('keyup', handleKeyUp, true);
+    } else if (documentElement.attachEvent) {
+      documentElement = documentElement.attachEvent;
+      documentElement('onkeydown', handleKeyDown);
+      documentElement('onkeyup', handleKeyUp);
     }
+  }
 }
-function d() {
-  return !!i;
+
+function isKeyDown() {
+  return !!keyCode;
 }
-function e() {
-  return i;
+
+function getKeyDownCode() {
+  return keyCode;
 }
 
 export const KeyStatus = {
-  isKeyDown: d,
-  getKeyDownCode: e,
+  isKeyDown,
+  getKeyDownCode,
 };

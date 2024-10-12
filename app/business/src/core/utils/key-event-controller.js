@@ -2,6 +2,7 @@
 /* eslint-disable new-cap */
 /* eslint-disable no-undef */
 /* eslint-disable no-invalid-this */
+
 let h;
 let i = null;
 let j = {
@@ -33,6 +34,7 @@ let j = {
   '=': [187],
   FORWARD_SLASH: [191],
 };
+
 let k =
   ((a = {}),
   (a[8] = 1),
@@ -61,6 +63,7 @@ const b = (function () {
   }
   let b = a.prototype;
   b.mapKey = function (a) {
+    // eslint-disable-next-line no-self-assign
     a = a;
     if (/^[0-9]$/.test(String(a))) {
       typeof a !== 'number' && (a = a.charCodeAt(0) - 48);
@@ -169,6 +172,7 @@ const b = (function () {
     }
     return {
       remove: function () {
+        // eslint-disable-next-line guard-for-in
         for (let a in l) {
           if (j.handlers[a] && j.handlers[a].length) {
             let b = j.handlers[a].indexOf(l[a]);

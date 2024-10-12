@@ -1,5 +1,8 @@
 import { jsx } from 'react/jsx-runtime';
 
+import { GeoBaseModal } from './geo-base-modal';
+import { useGeoPrivateScalingModalTransition } from './use-geo-private-scaling-modal-transition';
+
 export function GeoModal({
   onEnterComplete,
   'data-testid': dataTestId,
