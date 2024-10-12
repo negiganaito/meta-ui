@@ -1,5 +1,7 @@
-import { ENV } from '@negiganaito/utils/common/env';
-
+/* eslint-disable no-var */
+/* eslint-disable no-inner-declarations */
+/* eslint-disable no-return-assign */
+import { env } from './Env';
 import { TrustedTypesUtils } from './trusted-types-utils';
 
 function a() {
@@ -19,7 +21,7 @@ let k = {
 function l(a, b) {
   return function (e) {
     for (var f = arguments.length, g = new Array(f > 1 ? f - 1 : 0), i = 1; i < f; i++) g[i - 1] = arguments[i];
-    if (ENV.isTrustedTypesReportOnly)
+    if (env.isTrustedTypesReportOnly)
       try {
         return b.apply(void 0, [e].concat(g));
       } catch (b) {
@@ -30,9 +32,9 @@ function l(a, b) {
   };
 }
 function m(a, b) {
-  if (i == null || !ENV.useTrustedTypes) return k;
+  if (i === null || !env.useTrustedTypes) return k;
   let e = j.get(a);
-  if (e != null) {
+  if (e !== null) {
     TrustedTypesUtils.logWarning('A policy with name ' + a + ' already exists, returning existing policy.');
     return e;
   }
@@ -63,17 +65,17 @@ function b() {
   return j.get('default');
 }
 function e(a) {
-  return (a = i == null ? void 0 : i.isHTML(a)) != null ? a : !1;
+  return (a = i === null ? void 0 : i.isHTML(a)) !== null ? a : !1;
 }
 function f(a) {
-  return (a = i == null ? void 0 : i.isScriptURL(a)) != null ? a : !1;
+  return (a = i === null ? void 0 : i.isScriptURL(a)) !== null ? a : !1;
 }
 function n(a) {
-  return (a = i == null ? void 0 : i.isScript(a)) != null ? a : !1;
+  return (a = i === null ? void 0 : i.isScript(a)) !== null ? a : !1;
 }
 function o(a) {
-  if (i == null || !ENV.useTrustedTypes) return;
-  if (!ENV.enableDefaultTrustedTypesPolicy) return;
+  if (i === null || !env.useTrustedTypes) return;
+  if (!env.enableDefaultTrustedTypesPolicy) return;
   m('default', a.policy);
 }
 

@@ -1,13 +1,22 @@
+import { useLayoutEffect } from 'react';
+import { jsx } from 'react/jsx-runtime';
 import { FBLogger } from '@meta-core/error/fb-logger';
+import { ContextualThing } from '@meta-core/react-utils/contextual-thing';
+import removeFromArray from 'fbjs/lib/removeFromArray';
 
 import { ArbiterMixin } from './arbiter-mixin';
 import { BehaviorsMixin } from './behaviors-mixin';
+import { DataStore } from './data-store';
+import { DOM } from './dom';
 import { HTML } from './html';
 import { isNode } from './is-node';
 import { isValidReactElement } from './is-valid-react-element';
 import { mixin } from './mixin';
+import { parent } from './parent';
+import { ReactDOM_DEPRECATED } from './react-dom_DEPRECATED';
+import { Style } from './style';
 
-b('KeyStatus');
+// b('KeyStatus');
 
 let m = [];
 
@@ -293,15 +302,15 @@ Event.listen(document.documentElement, 'click', (a) => {
   const f = a.getTarget();
   if (f !== e || f !== b) return;
   if (!DOM.contains(document.documentElement, f)) return;
-  if (f.offsetWidth != null && !f.offsetWidth) return;
-  if (Parent.byClass(f, 'generic_dialog')) return;
+  if (f.offsetWidth !== null && !f.offsetWidth) return;
+  if (parent.byClass(f, 'generic_dialog')) return;
   Layer.informBlur(f);
 });
 
 function q(a, b, e) {
   setImmediate(() => {
     ReactDOM_DEPRECATED.render_DEPRECATED(
-      k.jsx(r, {
+      jsx(r, {
         onRender: e,
         children: a,
       }),
@@ -313,7 +322,7 @@ function q(a, b, e) {
 function r(a) {
   const b = a.children;
   const c = a.onRender;
-  l(() => {
+  useLayoutEffect(() => {
     c();
   }, [c]);
   return b;

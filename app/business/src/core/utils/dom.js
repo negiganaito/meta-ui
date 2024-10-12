@@ -5,22 +5,25 @@ import { _$ } from './$';
 import { createArrayFromMixed } from './create-array-from-mixed';
 import { DOMQuery } from './dom-query';
 import { ee as Event } from './event';
+import { FbtResultBase } from './fbt-result-base';
 import { HTML } from './html';
 import { isNode } from './is-node';
+import { isScalar } from './is-scalar';
 import { isTextNode } from './is-text-node';
+import { TrustedTypesIEFixDOMPolicy } from './trusted-types-ie-fix-dom-policy';
 import { UserAgent_DEPRECATED } from './user-agent_DEPRECATED';
 
 const a = function (a, b, c) {
   a = document.createElement(a);
-  b && h.setAttributes(a, b);
-  c !== null && h.setContent(a, c);
+  b && DOM.setAttributes(a, b);
+  c !== null && DOM.setContent(a, c);
   return a;
 };
 
 let b;
 
 // eslint-disable-next-line no-var
-var h = {
+export var DOM = {
   find: (b = DOMQuery).find,
   findPushSafe: b.findPushSafe,
   scry: b.scry,
@@ -43,9 +46,9 @@ var h = {
           d,
           typeof e,
         );
-      if (d == 'type') continue;
+      if (d === 'type') continue;
       else
-        d == 'style'
+        d === 'style'
           ? typeof e === 'string'
             ? (a.style.cssText = e)
             : Object.assign(a.style, e)
@@ -79,7 +82,7 @@ var h = {
   setContent: function (a, b) {
     if (!a) throw TAAL.blameToPreviousFile(new Error('reference element is not a node'));
     while (a.firstChild) i(a.firstChild);
-    return h.appendContent(a, b);
+    return DOM.appendContent(a, b);
   },
   appendContent: function (a, b) {
     if (!a) throw TAAL.blameToPreviousFile(new Error('reference element is not a node'));
@@ -114,7 +117,7 @@ function j(a, b, e) {
     if (!f || (f > 7 && !DOMQuery.isNodeOfType(b, ['table', 'tbody', 'thead', 'tfoot', 'tr', 'select', 'fieldset']))) {
       // eslint-disable-next-line no-inner-declarations, no-var
       var g = f ? '<em style="display:none;">&nbsp;</em>' : '';
-      b.innerHTML = c('TrustedTypesIEFixDOMPolicy').createHTML(g + a);
+      b.innerHTML = TrustedTypesIEFixDOMPolicy.createHTML(g + a);
       f && b.removeChild(b.firstChild);
       return Array.from(b.childNodes);
     }
@@ -128,7 +131,7 @@ function j(a, b, e) {
   b = [];
   let i = !1;
   a = createArrayFromMixed(a);
-  a.length === 1 && a[0] instanceof c('FbtResultBase') && (a = a[0].getContents());
+  a.length === 1 && a[0] instanceof FbtResultBase && (a = a[0].getContents());
   for (let j = 0; j < a.length; j++) {
     h = HTML.replaceJSONWrapper(a[j]);
     if (h instanceof HTML) {
@@ -139,7 +142,7 @@ function j(a, b, e) {
         (FBLogger('staticresources').warn('DOM: adding HTML which contains inline JS'), (i = !0));
       // eslint-disable-next-line no-sequences, no-inner-declarations, no-var
       for (var l = 0; l < k.length; l++) f.push(k[l]), g.appendChild(k[l]);
-    } else if (c('isScalar')(h) || h instanceof c('FbtResultBase')) {
+    } else if (isScalar(h) || h instanceof FbtResultBase) {
       l = document.createTextNode(h);
       f.push(l);
       g.appendChild(l);
