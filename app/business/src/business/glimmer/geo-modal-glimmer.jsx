@@ -1,4 +1,5 @@
 import { jsx } from 'react/jsx-runtime';
+import { GeoModal } from '@meta-business/dialog/geo-modal';
 
 export function GeoModalGlimmer({ children, onHide }) {
   return jsx(GeoModal, {

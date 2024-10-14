@@ -1,6 +1,8 @@
 import { jsx } from 'react/jsx-runtime';
+import { GeoModalCard } from '@meta-business/card/geo-modal-card';
 
 import { GeoBaseModal } from './geo-base-modal';
+import { GeoPrivateLoggingRegion } from './geo-private-logging-region';
 import { useGeoPrivateScalingModalTransition } from './use-geo-private-scaling-modal-transition';
 
 export function GeoModal({
