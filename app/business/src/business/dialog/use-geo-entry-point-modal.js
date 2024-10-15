@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useRef, useTransition } from 'react';
 import { jsx } from 'react/jsx-runtime';
 import { EntryPointContainer, useEntryPointLoader } from 'react-relay/hooks';
+import { GeoModalGlimmer } from '@meta-business/glimmer/geo-modal-glimmer';
 import { useCometPreloader } from '@meta-core/dialog/use-comet-preloader';
 import { modernEnvironment } from '@meta-core/relay/environment';
 import { useDeepEqualMemo } from '@meta-core/utils/use-deep-equal-memo';
@@ -72,10 +73,11 @@ export function useGeoEntryPointModal(
   const preloader = useCometPreloader(
     preloaderOptions.preloadTriggerType,
     () => {
-      const cometRelayEFModule = CometRelayEF.getModuleIfRequireable();
-      if (memoizedParams && cometRelayEFModule) {
-        cometRelayEFModule.fetchPredictions(entryPoint, memoizedParams);
-      }
+      // TODO
+      // const cometRelayEFModule = CometRelayEF.getModuleIfRequireable();
+      // if (memoizedParams && cometRelayEFModule) {
+      //   cometRelayEFModule.fetchPredictions(entryPoint, memoizedParams);
+      // }
       entryPoint.root.preload();
     },
     showModal,

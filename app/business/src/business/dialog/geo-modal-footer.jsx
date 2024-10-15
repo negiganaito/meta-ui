@@ -1,4 +1,5 @@
 import { jsx } from 'react/jsx-runtime';
+import { GeoPrivateCardFooter } from '@meta-business/unknown/geo-private-card-footer';
 
 import { GeoPrivateLoggingRegion } from './geo-private-logging-region';
 

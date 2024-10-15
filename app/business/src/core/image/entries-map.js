@@ -97,4 +97,37 @@ export const entriesMap = {
     sz: 'auto',
     loggingID: '485124',
   },
+
+  1415702: {
+    sprited: 2,
+    spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    _spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    w: 16,
+    h: 16,
+    p: '0 -697px',
+    sz: 'auto',
+    loggingID: '1415702',
+  },
+
+  1291651: {
+    sprited: 2,
+    spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    _spi: process.env.ASSETS_URL + '/qQV6YlTii60.png',
+    w: 16,
+    h: 16,
+    p: '0 -680px',
+    sz: 'auto',
+    loggingID: '1291651',
+  },
+
+  483768: {
+    sprited: 2,
+    spi: process.env.ASSETS_URL + '/6-caApaRjXU.png',
+    _spi: process.env.ASSETS_URL + '/6-caApaRjXU.png',
+    w: 16,
+    h: 16,
+    p: '-68px -303px',
+    sz: 'auto',
+    loggingID: '483768',
+  },
 };

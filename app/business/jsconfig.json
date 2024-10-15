@@ -24,6 +24,8 @@
       "@meta-business/toaster/*": ["./src/business/toaster/*"],
       "@meta-business/dialog/*": ["./src/business/dialog/*"],
       "@meta-business/unknown/*": ["./src/business/unknown/*"],
+      "@meta-business/glimmer/*": ["./src/business/glimmer/*"],
+      "@meta-business/error/*": ["./src/business/error/*"],
 
       //
       "@meta-core/button/*": ["./src/core/button/*"],
