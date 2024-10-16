@@ -1,4 +1,5 @@
-const { fromGlobalId, nodeDefinitions } = require('graphql-relay');
+const { GraphQLObjectType, GraphQLNonNull, GraphQLString } = require('graphql');
+const { fromGlobalId, nodeDefinitions, globalIdField } = require('graphql-relay');
 
 // ====================================================
 
@@ -15,9 +16,24 @@ const { nodeField, nodeInterface } = nodeDefinitions(
   },
 );
 
+const CategoryType = new GraphQLObjectType({
+  name: 'Category',
+  fields: {
+    id: globalIdField('Category'),
+    name: {
+      type: new GraphQLNonNull(GraphQLString),
+    },
+    parentId: {
+      type: GraphQLString,
+    },
+  },
+  interfaces: [nodeInterface],
+});
+
 const Schema = {
   nodeField,
   nodeInterface,
+  CategoryType,
 };
 
 module.exports = Schema;

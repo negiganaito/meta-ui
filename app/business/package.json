@@ -114,6 +114,7 @@
     "react-relay": "16.1.0",
     "react-router-dom": "6.23.1",
     "react-strict-dom": "0.0.11",
+    "relay-compiler": "16.1.0",
     "relay-runtime": "16.1.0",
     "resize-observer-polyfill": "1.5.1",
     "source-map-loader": "5.0.0",

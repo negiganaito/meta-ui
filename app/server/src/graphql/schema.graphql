@@ -1,0 +1,33 @@
+type Query {
+  """
+  Fetches an object given its ID
+  """
+  node(
+    """
+    The ID of an object
+    """
+    id: ID!
+  ): Node
+  categories: [Category]
+}
+
+"""
+An object with an ID
+"""
+interface Node {
+  """
+  The id of the object.
+  """
+  id: ID!
+}
+
+type Category implements Node {
+  """
+  The ID of an object
+  """
+  id: ID!
+  name: String!
+  parentId: String
+}
+
+type Mutation
