@@ -4,13 +4,14 @@ import { CometDensityModeStateProvider as DensityModeStateProvider } from '@meta
 import { CometErrorBoundary } from '@meta-core/error/comet-error-boundary';
 import { CometBackupPlaceholder } from '@meta-core/placeholder/comet-backup-placeholder';
 import { CometHeroInteractionWithDiv } from '@meta-core/placeholder/comet-hero-interaction-with-div';
+import { RelayEnvironment } from '@meta-core/relay/environment';
 
 // import { BusinessCometApp } from './business-comet-app';
 import { CometPlatformAppWrapper } from './comet-platform-app-wrapper';
 
 const Component = {
   TopLevelWrapper: React.Fragment,
-  RelayEnvironmentFactoryProvider: React.Fragment,
+  RelayEnvironmentFactoryProvider: RelayEnvironment,
   CometRouterStateProvider: React.Fragment,
   DarkModeStateProvider: React.Fragment,
   ChameleonThemeProvider: React.Fragment,

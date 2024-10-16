@@ -63,7 +63,10 @@
       "@meta-core/relay/*": ["./src/core/relay/*"],
 
       //
-      "@meta-icons/*": ["./src/icons/*"]
+      "@meta-icons/*": ["./src/icons/*"],
+
+      //
+      "@meta-example/*": ["./src/example/*"]
     }
   }
 }

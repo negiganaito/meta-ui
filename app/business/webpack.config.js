@@ -43,6 +43,7 @@ module.exports = (env, { mode }) => {
         '@meta-core': path.resolve(__dirname, 'src/core'),
         '@meta-business': path.resolve(__dirname, 'src/business'),
         '@meta-icons': path.resolve(__dirname, 'src/icons'),
+        '@meta-example': path.resolve(__dirname, 'src/example'),
       },
 
       fallback: {

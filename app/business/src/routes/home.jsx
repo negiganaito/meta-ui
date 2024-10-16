@@ -5,6 +5,7 @@ import { geoMargin } from '@meta-business/styles/geo-margin';
 import { GeoBaseText } from '@meta-business/text/geo-base-text';
 import { GeoHeading } from '@meta-business/text/geo-heading';
 import { GeoTextUtils } from '@meta-business/utils/geo-text-utils';
+import { BusinessContentManagerSeriesNewSeriesButton } from '@meta-example/BusinessContentManagerSeriesNewSeriesButton/BusinessContentManagerSeriesNewSeriesButton';
 
 export const Home = () => {
   return (
@@ -21,6 +22,8 @@ export const Home = () => {
       <GeoHeading level={2}>Series</GeoHeading>
 
       <GeoButton label="See all series" onClick={() => console.log('Click')} />
+
+      <BusinessContentManagerSeriesNewSeriesButton />
     </GeoFlexbox>
   );
 };
