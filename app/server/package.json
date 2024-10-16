@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "4.0.0",
+  "scripts": {
+    "start": "node src/server.js",
+    "update-schema": "nodemon src/update-schema.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "16.3.1",
+    "express": "^4.19.2",
+    "express-fileupload": "^1.5.1",
+    "express-graphql": "0.12.0",
+    "express-rate-limit": "^7.4.0",
+    "graphql": "^16.9.0",
+    "graphql-http": "1.22.1",
+    "graphql-relay": "0.10.2",
+    "jsonwebtoken": "^9.0.2",
+    "module-alias": "^2.2.3",
+    "node-cache": "^5.1.2",
+    "eslint": "~8.56",
+    "eslint-config-alloy": "5.1.2",
+    "eslint-config-prettier": "~9.1",
+    "@babel/eslint-parser": "7.24.8"
+  },
+  "devDependencies": {
+    "nodemon": "3.0.1"
+  },
+  "_moduleAliases": {
+    "@": "src"
+  },
+  "main": "server.js"
+}
