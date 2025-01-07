@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const { ESBuildMinifyPlugin } = require("esbuild-loader");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const rsdPlugin = require('react-strict-dom/babel');
+// const rsdPlugin = require('react-strict-dom/babel');
 const StylexPlugin = require('@stylexjs/webpack-plugin');
 
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
@@ -25,7 +25,11 @@ const TerserPlugin = require('terser-webpack-plugin');
 //   reactCompilerLoader,
 // } = require("react-compiler-webpack");
 
+// const { defineReactCompilerLoaderOption, reactCompilerLoader } = require('react-compiler-webpack');
+
 const fileExtensions = ['jpg', 'jpeg', 'png', 'gif', 'eot', 'otf', 'svg', 'ttf', 'woff', 'woff2'];
+
+// Dotenv.config();
 
 module.exports = (env, { mode }) => {
   const isProduction = mode === 'production';
@@ -40,10 +44,27 @@ module.exports = (env, { mode }) => {
       extensions: fileExtensions.map((extension) => '.' + extension).concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
 
       alias: {
-        '@meta-core': path.resolve(__dirname, 'src/core'),
-        '@meta-business': path.resolve(__dirname, 'src/business'),
-        '@meta-icons': path.resolve(__dirname, 'src/icons'),
-        '@meta-example': path.resolve(__dirname, 'src/example'),
+        '@fb-utils': path.resolve(__dirname, 'src/utils'),
+        '@fb-contexts': path.resolve(__dirname, 'src/contexts'),
+        '@fb-error': path.resolve(__dirname, 'src/error'),
+        '@fb-placeholder': path.resolve(__dirname, 'src/placeholder'),
+        '@fb-hooks': path.resolve(__dirname, 'src/hooks'),
+        '@fb-layout': path.resolve(__dirname, 'src/layout'),
+        '@fb-text': path.resolve(__dirname, 'src/text'),
+        '@fb-theme': path.resolve(__dirname, 'src/theme'),
+        '@fb-keyboard': path.resolve(__dirname, 'src/keyboard'),
+        '@fb-dump': path.resolve(__dirname, 'src/dump'),
+        '@fb-platform': path.resolve(__dirname, 'src/platform'),
+        '@fb-image': path.resolve(__dirname, 'src/image'),
+        '@fb-toast': path.resolve(__dirname, 'src/toast'),
+        '@fb-icons': path.resolve(__dirname, 'src/icons'),
+        '@fb-event-interaction': path.resolve(__dirname, 'src/event-interaction'),
+        '@fb-focus': path.resolve(__dirname, 'src/focus'),
+        '@fb-pressable': path.resolve(__dirname, 'src/pressable'),
+        '@fb-link': path.resolve(__dirname, 'src/link'),
+        '@fb-button': path.resolve(__dirname, 'src/button'),
+        '@fb-network': path.resolve(__dirname, 'src/network'),
+        '@fb-dialog': path.resolve(__dirname, 'src/dialog'),
       },
 
       fallback: {
@@ -57,10 +78,16 @@ module.exports = (env, { mode }) => {
     },
 
     output: {
-      publicPath: '/',
+      // publicPath: '/',
+      // path: path.resolve(__dirname, 'build'),
+      // filename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
+      // chunkFilename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
+
       path: path.resolve(__dirname, 'build'),
-      filename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
-      chunkFilename: isProduction ? 'js/[name].[chunkhash].js' : 'js/[name].js',
+      filename: 'js/[name].[contenthash].js',
+      chunkFilename: 'js/[name].[contenthash].js',
+      assetModuleFilename: 'assets/[hash][ext][query]', // Manage static assets
+      publicPath: '/',
     },
 
     module: {
@@ -75,24 +102,7 @@ module.exports = (env, { mode }) => {
             {
               loader: 'babel-loader',
               options: {
-                // presets: [
-                //   // "@babel/preset-env",
-                //   //   "@babel/preset-react",
-                //   //   "@babel/preset-typescript",
-                //   ["@babel/preset-env"],
-                //   [
-                //     "@babel/preset-react",
-                //     {
-                //       development: isDevelopment,
-                //       runtime: "automatic",
-                //     },
-                //   ],
-                //   "@babel/preset-typescript",
-                // ],
                 configFile: path.join(__dirname, '/babel.config.js'),
-                // plugins: [isDevelopment && "react-refresh/babel"].filter(
-                //   Boolean
-                // ),
               },
             },
             // {
@@ -111,13 +121,25 @@ module.exports = (env, { mode }) => {
         {
           test: /\.css$/i,
           use: [
-            { loader: MiniCssExtractPlugin.loader },
+            // { loader: MiniCssExtractPlugin.loader },
+            isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+            // {
+            //   loader: 'css-loader',
+            //   options: {
+            //     importLoaders: 1,
+            //     // modules: true,
+            //     sourceMap: true,
+            //   },
+            // },
             {
               loader: 'css-loader',
               options: {
+                modules: {
+                  auto: true, // Automatically enable CSS modules for `.module.css`
+                  localIdentName: '[name]__[local]__[hash:base64:5]',
+                },
+                sourceMap: isDevelopment,
                 importLoaders: 1,
-                // modules: true,
-                sourceMap: true,
               },
             },
             {
@@ -128,9 +150,8 @@ module.exports = (env, { mode }) => {
                     [
                       'postcss-preset-env',
                       {
-                        autoprefixer: {
-                          grid: true,
-                          flexbox: true,
+                        features: {
+                          'cascade-layers': false, // Disable cascade layers processing
                         },
                       },
                     ],
@@ -139,20 +160,6 @@ module.exports = (env, { mode }) => {
               },
             },
           ],
-          // use: [
-          //   {
-          //     loader: MiniCssExtractPlugin.loader,
-          //   },
-          //   {
-          //     loader: "css-loader",
-          //   },
-          //   {
-          //     loader: "postcss-loader",
-          //     options: {
-          //       plugins: [require("autoprefixer")],
-          //     },
-          //   },
-          // ],
         },
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -184,14 +191,21 @@ module.exports = (env, { mode }) => {
     cache: true,
 
     plugins: [
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'styles/[name].[contenthash].css',
+      }),
 
       new HtmlWebpackPlugin({
+        // template: path.join(__dirname, 'public', 'index.html'),
+        // minify: isProduction,
+        // hash: isProduction,
+        // cache: isProduction,
+        // showErrors: !isProduction,
+
+        // chatgpt
         template: path.join(__dirname, 'public', 'index.html'),
+        inject: true,
         minify: isProduction,
-        hash: isProduction,
-        cache: isProduction,
-        showErrors: !isProduction,
       }),
 
       new Dotenv({
@@ -203,20 +217,24 @@ module.exports = (env, { mode }) => {
       new webpack.ProgressPlugin(),
       // new webpack.EnvironmentPlugin(["NODE_ENV"]),
 
-      new webpack.EnvironmentPlugin({
-        NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      // new webpack.EnvironmentPlugin({
+      //   NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+      // }),
+
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(mode),
       }),
 
       new CopyPlugin({
         patterns: [{ from: './src/assets', to: '' }],
       }),
-      rsdPlugin,
+      // rsdPlugin,
       // Ensure that the stylex plugin is used before Babel
       new StylexPlugin({
         filename: 'styles.[contenthash].css',
         // get webpack mode and set value for dev
         dev: mode === 'development',
-        importSources: ['@stylexjs/stylex', { from: 'react-strict-dom', as: 'css' }],
+        // importSources: ['@stylexjs/stylex', { from: 'react-strict-dom', as: 'css' }],
         // Use statically generated CSS files and not runtime injected CSS.
         // Even in development.
         runtimeInjection: false,
@@ -250,35 +268,63 @@ module.exports = (env, { mode }) => {
       .filter(Boolean),
 
     optimization: {
+      // minimize: isProduction,
+      // mergeDuplicateChunks: true,
+      // removeEmptyChunks: true,
+      // sideEffects: false,
+      // minimizer: [
+      //   // new ESBuildMinifyPlugin({
+      //   //   target: "es2015",
+      //   // }),
+      //   new TerserPlugin({
+      //     extractComments: false,
+      //   }),
+      // ],
+      // splitChunks: {
+      //   chunks: 'all',
+      //   cacheGroups: {
+      //     vendors: {
+      //       test: /[\\/]node_modules[\\/]/,
+      //       chunks: 'all',
+      //       enforce: true,
+      //       name: (module) => {
+      //         const [, match] = module.context.match(
+      //           /[\\/]node_modules[\\/](.*?)([\\/]([^\\/]*)([\\/]([^\\/]*))?([\\/]([^\\/]*))?|$)/,
+      //         );
+
+      //         return `vendors/${match.replace('@', '')}`;
+      //       },
+      //     },
+      //   },
+      // },
+
+      // chatgpt
       minimize: isProduction,
-      mergeDuplicateChunks: true,
-      removeEmptyChunks: true,
-      sideEffects: false,
-      minimizer: [
-        // new ESBuildMinifyPlugin({
-        //   target: "es2015",
-        // }),
-        new TerserPlugin({
-          extractComments: false,
-        }),
-      ],
+      runtimeChunk: 'single', // Separate runtime code
       splitChunks: {
         chunks: 'all',
         cacheGroups: {
-          vendors: {
+          defaultVendors: {
             test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
             chunks: 'all',
-            enforce: true,
-            name: (module) => {
-              const [, match] = module.context.match(
-                /[\\/]node_modules[\\/](.*?)([\\/]([^\\/]*)([\\/]([^\\/]*))?([\\/]([^\\/]*))?|$)/,
-              );
-
-              return `vendors/${match.replace('@', '')}`;
-            },
+            priority: -10,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
           },
         },
       },
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+          terserOptions: {
+            compress: { drop_console: isProduction }, // Remove `console.log` in production
+          },
+        }),
+      ],
     },
 
     performance: {

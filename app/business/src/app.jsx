@@ -1,18 +1,20 @@
 import React from 'react';
-import { GeoBaseText } from '@meta-ui/business/text';
-import { GeoTextUtils } from '@meta-ui/business/utils';
+import { RouterProvider } from 'react-router-dom';
+import { CometKeyboardSettingsStateProvider } from '@fb-keyboard/CometKeyboardSettingsStateProvider';
+import { BuildCometRootComponent } from '@fb-platform/BuildCometRootComponent';
+import { CometDarkModeStateProvider } from '@fb-theme/CometDarkModeStateProvider';
+
+import { CometPlatformAppWrapper } from './platform/CometPlatformAppWrapper';
+import { router } from './routes/router';
 
 export const App = () => {
   return (
-    <div>
-      <GeoBaseText
-        {...GeoTextUtils.getPairingTextProps({
-          size: 'header1',
-          display: 'truncate',
-        })}
-      >
-        Schedule, publish and manage posts and stories, and more.
-      </GeoBaseText>
-    </div>
+    <BuildCometRootComponent>
+      <CometPlatformAppWrapper KeyboardSettingsStateProvider={CometKeyboardSettingsStateProvider}>
+        <CometDarkModeStateProvider>
+          <RouterProvider router={router} />
+        </CometDarkModeStateProvider>
+      </CometPlatformAppWrapper>
+    </BuildCometRootComponent>
   );
 };

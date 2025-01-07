@@ -34,8 +34,8 @@
     "react-dom": "git://github.com/tienlx97/react-dom-experimental.git#www",
     "scheduler": "0.22.0",
     "@babel/eslint-parser": "7.23.3",
-    "@stylexjs/eslint-plugin": "0.6.1",
     "@stylexjs/babel-plugin": "0.6.1",
+    "@stylexjs/eslint-plugin": "0.6.1",
     "eslint": "^8.55.0",
     "eslint-config-alloy": "^5.1.2",
     "eslint-config-prettier": "^9.1.0",
@@ -48,7 +48,8 @@
     "eslint-plugin-no-only-tests": "3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-compiler": "0.0.0-experimental-0998c1e-20240625",
+    "eslint-plugin-react-compiler": "19.0.0-beta-63e3235-20250105",
+    "react-compiler-webpack": "0.1.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "eslint-plugin-sort-keys-fix": "1.1.2",
@@ -113,7 +114,7 @@
     "react-refresh": "^0.14.2",
     "react-relay": "16.1.0",
     "react-router-dom": "6.23.1",
-    "react-strict-dom": "0.0.11",
+    "react-strict-dom": "0.0.32",
     "relay-compiler": "16.1.0",
     "relay-runtime": "16.1.0",
     "resize-observer-polyfill": "1.5.1",
@@ -128,6 +129,8 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-node-externals": "3.0.0",
     "yargs": "17.7.2",
-    "webpack-bundle-analyzer": "4.10.2"
+    "webpack-bundle-analyzer": "4.10.2",
+    "react-compiler-runtime": "19.0.0-beta-63e3235-20250105",
+    "babel-plugin-react-compiler": "19.0.0-beta-63e3235-20250105"
   }
 }

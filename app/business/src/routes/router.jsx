@@ -1,14 +1,15 @@
 import React from 'react';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
-import { BusinessCometApp } from '@meta-business/shell/business-comet-app';
+import { CometLoggedInFBApp } from '@fb-platform/CometLoggedInFBApp';
 
+import { ExamplePage } from './example';
 import { Home } from './home';
 
 const AuthLayout = () => {
   return (
-    <BusinessCometApp>
+    <CometLoggedInFBApp>
       <Outlet />
-    </BusinessCometApp>
+    </CometLoggedInFBApp>
   );
 };
 
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: 'example',
+            element: <ExamplePage />,
           },
         ],
       },
